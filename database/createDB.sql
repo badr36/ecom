@@ -42,3 +42,21 @@ create table if not exists clients(
     primary key(id)
 );
 
+-- CREATION DE LA TABLE DES COMMANDES
+create table if not exists commandes (
+    id int auto_increment,
+    date timestamp,
+    id_client int,
+    primary key(id),
+    FOREIGN KEY (id_client) REFERENCES clients(id)
+);
+ -- CREATION DE LA TABLE DES LIGNES DE COMMANDES
+ create table if not exists ligne_commandes (
+     id int auto_increment,
+     qty int,
+     id_commande int,
+     id_produit int,
+     primary key(id),
+     FOREIGN key (id_commande) REFERENCES commandes(id),
+     FOREIGN key (id_produit) REFERENCES produits(id)
+ );
