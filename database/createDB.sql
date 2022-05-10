@@ -60,3 +60,33 @@ create table if not exists commandes (
      FOREIGN key (id_commande) REFERENCES commandes(id),
      FOREIGN key (id_produit) REFERENCES produits(id)
  );
+
+-- CREATION DE LA TABLE DES FAVORIS
+create table if not exists favoris(
+    id int auto_increment,
+    id_client int,
+    id_produit int,
+    primary key(id),
+    FOREIGN KEY (id_client) REFERENCES clients(id),
+    FOREIGN key (id_produit) REFERENCES produits(id)
+
+);
+-- CREATION DE LA TABLE PANIERS
+create table if not exists paniers(
+    id int auto_increment,
+    qty int,
+    id_client int,
+    id_produit int,
+    primary key(id),
+    FOREIGN KEY (id_client) REFERENCES clients(id),
+    FOREIGN key (id_produit) REFERENCES produits(id)
+);
+--CREATION DE LA TABLE COMMENTAIRES
+create table if not exists commentaires(
+    id int auto_increment,
+    contenu text,
+    id_client int,
+    primary key(id),
+    FOREIGN key (id_client) REFERENCES clients(id)
+
+);
