@@ -46,6 +46,30 @@
     <div class="produits container">
         <div class="left">
             <h3>Par Prix</h3>
+            <form class="wrapper" action="" method="POST">
+
+                <div class="slider">
+                    <div class="progress"></div>
+                </div>
+                <div class="range-input">
+                    <input type="range" class="range-min" min="<?= $mi ?>" max="<?= $m ?>" value="<?= $min ?>" step="1">
+                    <input type="range" class="range-max" min="<?= $mi ?>" max="<?= $m ?>" value="<?= $max ?>" step="1">
+                </div>
+                <div class="price-input">
+                    <div class="field">
+                        <span>Min</span>
+                        <input type="number" class="input-min" value="<?= $min ?>" name="min">
+                    </div>
+                    <div class="separator">-</div>
+                    <div class="field">
+                        <span>Max</span>
+                        <input type="number" class="input-max" value="<?= $max ?>" name="max">
+                    </div>
+
+                </div>
+                <button type="submit" name="submitFilter">Filter</button>
+
+            </form>
         </div>
         <div class="right">
             <h2>Produits E-SHOP</h2>
