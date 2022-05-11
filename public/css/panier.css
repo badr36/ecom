@@ -1,0 +1,101 @@
+@import 'general.css';
+@import 'header.css';
+@import 'footer.css';
+/*-------------panier-------------*/
+.cart-page{
+    margin: 50px auto;
+    
+}
+table{
+    width: 100%; 
+    border-collapse: collapse;
+    
+}
+body{
+  background-color: #fafafa;
+
+}
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+}
+.info-product{
+  margin-left: 45px;
+  padding: 25px;
+}
+th{ 
+  text-align: left; 
+  padding: 5px;
+  color: rgb(65, 65, 65); 
+  font-weight: normal; 
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.cart-page tbody input{
+  width: 80px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 13px;
+  padding: 10px;
+  outline-color: #CA2E55;
+}
+
+td{
+  padding: 20px 10px;
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.cart-page tbody .photo {
+  width: 15%;
+  height: 80%;
+  border: 1px solid rgb(175, 175, 175);
+  background-color: #fff;
+  
+}
+h1{
+  font-size:medium;
+  font-weight: 400;
+}
+.icon{
+  width: 30px !important;
+
+}
+.cart-page tbody .icon:hover{
+  filter: invert(32%) sepia(68%) saturate(5173%) hue-rotate(329deg) brightness(83%) contrast(87%);
+}
+h1 .icon{
+  position: relative;
+  top: 9px;
+}
+.btn-group{
+  display: flex;
+}
+.boutton{
+  padding: 15px;
+  margin-right: 10px;
+  border: none ;
+  border-radius: 30px;
+  cursor: pointer;
+} 
+.boutton1{
+  
+  color: #333e48;
+  background-color: #efecec;
+  
+}
+.boutton2{
+  color: #fafafa;
+  background-color: #CA2E55;
+}
+.actions{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.total span{
+  font-size: 2rem;
+}
+.total p{
+  font-size: 1.4rem;
+}
+
