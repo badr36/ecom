@@ -19,8 +19,8 @@
         <p>La première boutique gaming qui offre des produits sous License officielle</p>
 
         <ul class="navbar">
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="conx-insc.html">Mon Compte</a></li>
+          <li><a href="contact.php">Contact</a></li>
+          <li><a href="conx-insc.php">Mon Compte</a></li>
         </ul>
       </div>
     </nav>
@@ -28,7 +28,7 @@
     <div class="header-bottom">
       <div class="container">
         <div class="logo">
-          <a href="index.html">E-<span style="color: #CA2E55;">SHOP</span></a>
+          <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
         </div>
 
         <form class="search">
@@ -49,8 +49,8 @@
   </header>
   <!-- fin header  -->
   <!-- body du page  -->
-  <h1 class="container"><a href="index.html">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a
-      href="panier.html">Panier</a> </h1>
+  <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a
+      href="panier.php">Panier</a> </h1>
 
   <div class="container cart-page">
 

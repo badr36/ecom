@@ -18,8 +18,8 @@
                     <p>La première boutique gaming qui offre des produits sous License officielle</p>
     
                     <ul class="navbar">  
-                        <li><a href="contact.html">Contact </a></li>
-                        <li><a href="conx-insc.html">Mon Compte</a></li>
+                        <li><a href="contact.php">Contact </a></li>
+                        <li><a href="conx-insc.php">Mon Compte</a></li>
                     </ul>
                 </div>
             </nav>
@@ -27,7 +27,7 @@
             <div class="header-bottom">
                 <div class="container">
                     <div class="logo">
-                        <a href="index.html">E-<span style="color: #CA2E55;">SHOP</span></a>
+                        <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
                     </div>
     
                     <form class="search">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="cart">
                         <a href="#"><img src="public/images/account.png" alt="account"  class="account"></a>
-                        <a href="panier.html"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
+                        <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
                     </div>
                 </div>
             </div>
@@ -53,11 +53,11 @@
 
                <!-- fil acceuil> mon compte -->
                <nav class="breadcrumb">
-                   <a href="index.html">Accueil</a>
+                   <a href="index.php">Accueil</a>
                      <span class="delimiter">
                          <i class="bi bi-chevron-right"></i> <!--icon-->
                      </span>
-                     <a href="conx-insc.html">Mon compte</a>
+                     <a href="conx-insc.php">Mon compte</a>
                 </nav>
 
                 <!-- conx inscription-->

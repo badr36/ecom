@@ -61,11 +61,6 @@ a {
         content: "\f105";
 }
 
-.contenu-interne,.contenu{
-    display: flex;
-    flex-wrap: wrap;
-    
-}
 
 .zone-contenu{
     flex-shrink: 0;

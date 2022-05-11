@@ -1,3 +1,54 @@
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
+if(isset($_POST['submit']))
+{
+    $sujet = htmlspecialchars($_POST['message']);
+    $nom = htmlspecialchars($_POST['lastname']);
+    $message = htmlspecialchars($_POST['message']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->Mailer = "smtp";
+    $mail->SMTPDebug  = 0;  
+    $mail->SMTPAuth   = TRUE;
+    $mail->SMTPSecure = "tls";
+    $mail->Port       = 587;
+    $mail->Host       = "smtp.gmail.com";
+    $mail->Username   = "e.shopshop36@gmail.com";
+    $mail->Password   = "E-shop36";
+
+    $mail->IsHTML(true);
+    $mail->AddAddress("e.shopshop36@gmail.com", "e shop");
+    $mail->setFrom($email, $nom);
+    $mail->Subject = $sujet . " (" . $email . ")";
+    $content = $message . '<br>' . $phone;
+
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+        )
+        );
+        
+    $mail->MsgHTML($content); 
+        if(!$mail->Send()) {
+        echo "Error while sending Email.";
+        var_dump($mail);
+    } else {
+        header("loation: contact.php");
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +86,7 @@
             </div>
 
         </div>
-        <form class="right">
+        <form class="right" method="POST" action="">
             <div class="flex">
                 <div><label for="firstname">First Name</label><input type="text" id="firstname" name="firstname"
                         required></div>
@@ -43,8 +94,8 @@
                 </div>
             </div>
             <div class="flex">
-                <div><label for="mail">Mail</label><input type="email" id="mail" name="mail" required></div>
-                <div><label for="phone">Phone</label><input type="text" id="phone" name="phone" required> </div>
+                <div><label for="mail">Mail</label><input type="email" id="mail" name="email" required></div>
+                <div><label for="phone">Phone</label><input type="number" id="phone" name="phone" required> </div>
             </div>
             <div>
                 <label for="message" style="margin-bottom: 5px;">Message</label>
@@ -52,7 +103,7 @@
                     required></textarea>
             </div>
 
-            <button name="">Send Message</button>
+            <button name="submit" type="submit">Send Message</button>
         </form>
     </main>
 </body>
