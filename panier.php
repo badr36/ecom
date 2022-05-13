@@ -1,16 +1,13 @@
 <?php
-  require 'classes/DB.php';
-  require 'classes/panier.php';
-  $DB = new DB();
-  $panier = new panier();
+session_start();
+
+require_once 'classes/Panier.php';
+$panier = new Panier();
+$paniers = $panier->get();
+
+$total = 0;
 
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +64,7 @@
       href="panier.php">Panier</a> </h1>
 
   <div class="container cart-page">
-
+  <?php if(!$panier->estVide()): ?>
     <table>
       <tr>
         <th></th>
@@ -76,36 +73,40 @@
         <th>Sous-total</th>
       </tr>
       <tbody>
-        <tr>
-          <td><a href="#"><img src="public/images/cross.svg" alt="" class="icon"></a></td>
+       
+          <?php while($panier = $paniers->fetch()): ?>
+          <tr>
+          <td><a href="supprimerPanier.php?id_produit=<?= $panier['id'] ?>"><img src="public/images/cross.svg" alt="" class="icon"></a></td>
           <td>
             <div class="cart-info">
 
-              <img src="uploads/1.jpg" alt="" class="photo">
+              <img src="uploads/<?= $panier['image'] ?>" alt="" class="photo">
               <div class="info-product">
-                <p>red</p>
-                <small>Price: 50$</small><br>
+                <p><?= $panier['nom'] ?></p>
+                <small>Price: <?= $panier['prix'] ?> MAD</small><br>
               </div>
             </div>
           </td>
-          <td><input type="number" min="1" value="1"></td>
-          <td>$50</td>
-        </tr>
-        <tr>
-          <td><a href="#"><img src="public/images/cross.svg" alt="" class="icon"></a></td>
-          <td>
-            <div class="cart-info">
-
-              <img src="uploads/2.jpg" alt="" class="photo">
-              <div class="info-product">
-                <p>red</p>
-                <small>Price: 50$</small><br>
-              </div>
-            </div>
-          </td>
-          <td><input type="number" min="1" value="1"></td>
-          <td>$50</td>
-        </tr>
+          <td><input type="number" min="1" value="<?php 
+                                                    if(isset($_SESSION['id_client'])) 
+                                                      echo $panier['qty'];
+                                                    else 
+                                                      echo $_SESSION['panier'][$panier['id']];?>"></td>
+          <td><?php if(isset($_SESSION['id_client'])){
+                      $sous_total = $panier['prix'] * $panier['qty'];
+                      $total += $sous_total;
+                      echo $sous_total;
+                    }
+                      
+                    else{
+                      $sous_total = $panier['prix'] * $_SESSION['panier'][$panier['id']];
+                      $total += $sous_total;
+                      echo $sous_total;
+                    } 
+                       ?> MAD</td>
+         </tr>
+        <?php endwhile ?>
+        
       </tbody>
     </table>
     <!-- boutton de validation de commande -->
@@ -117,13 +118,15 @@
     </div>
     <!-- section total  -->
     <div class="total">
-      <p><span>Total panier: </span>1780 MAD</p>
+      <p><span>Total panier: </span><?= $total ?> MAD</p>
 
     </div>
   </div>
     
   </div>
-
+  <?php else: ?>
+          <h3 class='panier-vide'>Votre panier est actuellement vide.</h3>
+  <?php endif ?>
 
   <!-- footer de la page -->
   <footer class="footer">

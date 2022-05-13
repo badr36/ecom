@@ -24,7 +24,7 @@
         <div class="header-bottom">
             <div class="container">
                 <div class="logo">
-                    <a href="#">E-<span style="color: #CA2E55;">SHOP</span></a>
+                    <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
                 </div>
 
                 <form class="search">
