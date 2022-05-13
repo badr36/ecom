@@ -124,15 +124,9 @@
                                                     <label for="password">Mot de passe <span class="required">*</span></label>
                                                     <input type="password" class="input-password" name="password" id="motdepasse" required>
                                                  </p>
+                                                                                          
                                                   
-                                                      <p>Un lien permettant de définir un nouveau mot de passe <br>sera envoyé à votre adresse e-mail.</p>
-                                          
-                                                  
-                                                  <div class="policy-text">
-                                                      <p>Vos données personnelles seront utilisées pour améliorer <br>votre expérience sur ce site Web, pour gérer l'accès à<br> votre compte et à d'autres fins décrites dans notre
-                                                         <a href="#" class="policy-link" target="_blank"><br> politique de confidentialité</a>.
-                                                      </p>
-                                                   </div>
+                                                
                                                   <p class="form-row">
                                                       <input type="hidden" id="register-nonce" name="register-nonce" value="e2a4220da3">
                                                       <input type="hidden" name="referer" value="/mon-compte/">			

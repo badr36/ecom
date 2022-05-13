@@ -277,6 +277,7 @@ label {
 .u-columns form.login .button {
     display: block;
     padding: 0.594rem 2rem;
+    cursor: pointer;
 }
 
 .login-form .button{
@@ -284,6 +285,7 @@ label {
     border-color: transparent;
     font-weight: 600;
     color:white;
+    cursor: pointer;
 }
 /* 
 [type=submit]:not(:disabled), button:not(:disabled) {
@@ -299,6 +301,7 @@ label {
     margin: 0;
     font-family: inherit;
     text-transform: none;
+    cursor: pointer;
 }
 
 .u-columns.button, .u-columns button {
