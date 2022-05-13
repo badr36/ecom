@@ -7,7 +7,7 @@ $paniers = $panier->get();
 
 $total = 0;
 
-$_SESSION['id_client'] = 1;
+
 ?>
 
 <!DOCTYPE html>
