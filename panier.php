@@ -53,7 +53,7 @@ $total = 0;
         </div>
         <div class="cart">
           <a href="#"><img src="public/images/account.png" alt="account" class="account"></a>
-          <a href="panier.html"><img src="public/images/cart.svg" alt="cart"><span>2</span></a>
+          <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span>2</span></a>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@ $total = 0;
                     <img src="uploads/<?= $panier['image'] ?>" alt="" class="photo">
                     <div class="info-product">
                       <p><?= $panier['nom'] ?></p>
-                      <small>Price: <?= $panier['prix'] ?> MAD</small><br>
+                      <small>Price: <?= number_format($panier['prix'], 2, '.', ' ');  ?> MAD</small><br>
                     </div>
                   </div>
                 </td>
@@ -95,11 +95,11 @@ $total = 0;
                 <td><?php if (isset($_SESSION['id_client'])) {
                       $sous_total = $panier['prix'] * $panier['qty'];
                       $total += $sous_total;
-                      echo $sous_total;
+                      echo number_format($sous_total, 2, '.', ' ');
                     } else {
                       $sous_total = $panier['prix'] * $_SESSION['panier'][$panier['id']];
                       $total += $sous_total;
-                      echo $sous_total;
+                      echo number_format($sous_total, 2, '.', ' ');
                     }
                     ?> MAD</td>
               </tr>
@@ -117,7 +117,7 @@ $total = 0;
     </form>
     <!-- section total  -->
     <div class="total">
-      <p><span>Total panier: </span><?= $total ?> MAD</p>
+      <p><span>Total panier: </span><?= number_format($total, 2, '.', ' ') ?> MAD</p>
 
     </div>
   </div>
