@@ -7,7 +7,6 @@ $paniers = $panier->get();
 
 $total = 0;
 
-
 ?>
 
 <!DOCTYPE html>

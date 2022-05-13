@@ -3,6 +3,33 @@
 require_once __DIR__ . '/DB.php';
 
 class Panier extends DB{
+    public function __construct()
+    {
+        if(!isset($_SESSION['panier']) && !isset($_SESSION['id_client'])){
+          $_SESSION['panier']= array();
+        }
+    } 
+    public function ajouter($id)
+    {
+        if($this->query(' SELECT stock FROM produits WHERE id=?' , array($id))->fetch()['stock'] > 0){ 
+            if(isset($_SESSION['id_client']))
+            {
+                   
+                  $this->query('INSERT INTO paniers VALUES(NULL,?,?,?)', array(1,$_SESSION['id_client'],$id) ) ;
+            }
+            else
+            {
+                if(!array_key_exists($id,$_SESSION['panier']))
+                {
+                     $_SESSION['panier'][$id] = 1;
+                }
+
+            }
+        }
+        
+       
+
+    }
 
     public function get()
     {
