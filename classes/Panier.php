@@ -50,4 +50,27 @@ class Panier extends DB{
         }
         return true;
     }
+
+    public function mettreajour()
+    {
+        if(!isset($_SESSION['id_client']))
+        {
+            foreach($_POST['qty'] as $produit_id => $qty)
+            {
+                    $_SESSION['panier'][$produit_id] = $qty;
+            }
+        }
+        else
+        {
+            foreach($_POST['qty'] as $produit_id => $qty)
+            {
+
+                    $this->query("UPDATE paniers set qty=? WHERE id_client=? AND id_produit=?", array(
+                        $qty,
+                        $_SESSION['id_client'],
+                        $produit_id
+                    ));
+            }
+        }
+    }
 }

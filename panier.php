@@ -61,165 +61,164 @@ $total = 0;
   </header>
   <!-- fin header  -->
   <!-- body du page  -->
-  <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a
-      href="panier.php">Panier</a> </h1>
+  <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="panier.php">Panier</a> </h1>
 
   <div class="container cart-page">
-  <?php if(!$panier->estVide()): ?>
-    <table>
-      <tr>
-        <th></th>
-        <th>Produit</th>
-        <th>Quantité</th>
-        <th>Sous-total</th>
-      </tr>
-      <tbody>
-       
-          <?php while($panier = $paniers->fetch()): ?>
+    <form action='miseajourPanier.php' method='POST'>
+      <?php if (!$panier->estVide()) : ?>
+        <table>
           <tr>
-          <td><a href="supprimerPanier.php?id_produit=<?= $panier['id'] ?>"><img src="public/images/cross.svg" alt="" class="icon"></a></td>
-          <td>
-            <div class="cart-info">
+            <th></th>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Sous-total</th>
+          </tr>
+          <tbody>
 
-              <img src="uploads/<?= $panier['image'] ?>" alt="" class="photo">
-              <div class="info-product">
-                <p><?= $panier['nom'] ?></p>
-                <small>Price: <?= $panier['prix'] ?> MAD</small><br>
-              </div>
-            </div>
-          </td>
-          <td><input type="number" min="1" value="<?php 
-                                                    if(isset($_SESSION['id_client'])) 
-                                                      echo $panier['qty'];
-                                                    else 
-                                                      echo $_SESSION['panier'][$panier['id']];?>"></td>
-          <td><?php if(isset($_SESSION['id_client'])){
+            <?php while ($panier = $paniers->fetch()) : ?>
+              <tr>
+                <td><a href="supprimerPanier.php?id_produit=<?= $panier['id'] ?>"><img src="public/images/cross.svg" alt="" class="icon"></a></td>
+                <td>
+                  <div class="cart-info">
+
+                    <img src="uploads/<?= $panier['image'] ?>" alt="" class="photo">
+                    <div class="info-product">
+                      <p><?= $panier['nom'] ?></p>
+                      <small>Price: <?= $panier['prix'] ?> MAD</small><br>
+                    </div>
+                  </div>
+                </td>
+                <td><input type="number" name="qty[<?= $panier['id'] ?>]" min="1" value="<?php
+                                                                                          if (isset($_SESSION['id_client']))
+                                                                                            echo $panier['qty'];
+                                                                                          else
+                                                                                            echo $_SESSION['panier'][$panier['id']]; ?>"></td>
+                <td><?php if (isset($_SESSION['id_client'])) {
                       $sous_total = $panier['prix'] * $panier['qty'];
                       $total += $sous_total;
                       echo $sous_total;
-                    }
-                      
-                    else{
+                    } else {
                       $sous_total = $panier['prix'] * $_SESSION['panier'][$panier['id']];
                       $total += $sous_total;
                       echo $sous_total;
-                    } 
-                       ?> MAD</td>
-         </tr>
-        <?php endwhile ?>
-        
-      </tbody>
-    </table>
-    <!-- boutton de validation de commande -->
-  <div class="actions">
-    <div class="btn-group">
-      <button class="boutton boutton1">Mettre à jour le panier</button>
-      <button class="boutton boutton2">Valider la commande </button>
+                    }
+                    ?> MAD</td>
+              </tr>
+            <?php endwhile ?>
 
-    </div>
+          </tbody>
+        </table>
+        <!-- boutton de validation de commande -->
+        <div class="actions">
+          <div class="btn-group">
+            <button type="submit" name="submit" class="boutton boutton1">Mettre à jour le panier</button>
+            <button class="boutton boutton2">Valider la commande </button>
+
+          </div>
+    </form>
     <!-- section total  -->
     <div class="total">
       <p><span>Total panier: </span><?= $total ?> MAD</p>
 
     </div>
   </div>
-    
+
   </div>
-  <?php else: ?>
-          <h3 class='panier-vide'>Votre panier est actuellement vide.</h3>
-  <?php endif ?>
+<?php else : ?>
+  <h3 class='panier-vide'>Votre panier est actuellement vide.</h3>
+<?php endif ?>
 
-  <!-- footer de la page -->
-  <footer class="footer">
-    <div class="footer__addr">
-      <h1 class="footer__logo">Something</h1>
+<!-- footer de la page -->
+<footer class="footer">
+  <div class="footer__addr">
+    <h1 class="footer__logo">Something</h1>
 
-      <h2>Contact</h2>
+    <h2>Contact</h2>
 
-      <address>
-        5534 Somewhere In. The World 22193-10212<br>
+    <address>
+      5534 Somewhere In. The World 22193-10212<br>
 
-        <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
-      </address>
+      <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+    </address>
+  </div>
+
+  <ul class="footer__nav">
+    <li class="nav__item">
+      <h2 class="nav__title">Media</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Online</a>
+        </li>
+
+        <li>
+          <a href="#">Print</a>
+        </li>
+
+        <li>
+          <a href="#">Alternative Ads</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav__item nav__item--extra">
+      <h2 class="nav__title">Technology</h2>
+
+      <ul class="nav__ul nav__ul--extra">
+        <li>
+          <a href="#">Hardware Design</a>
+        </li>
+
+        <li>
+          <a href="#">Software Design</a>
+        </li>
+
+        <li>
+          <a href="#">Digital Signage</a>
+        </li>
+
+        <li>
+          <a href="#">Automation</a>
+        </li>
+
+        <li>
+          <a href="#">Artificial Intelligence</a>
+        </li>
+
+        <li>
+          <a href="#">IoT</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav__item">
+      <h2 class="nav__title">Legal</h2>
+
+      <ul class="nav__ul">
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+
+        <li>
+          <a href="#">Terms of Use</a>
+        </li>
+
+        <li>
+          <a href="#">Sitemap</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="legal">
+    <p>&copy; 2019 Something. All rights reserved.</p>
+
+    <div class="legal__links">
+      <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
     </div>
-
-    <ul class="footer__nav">
-      <li class="nav__item">
-        <h2 class="nav__title">Media</h2>
-
-        <ul class="nav__ul">
-          <li>
-            <a href="#">Online</a>
-          </li>
-
-          <li>
-            <a href="#">Print</a>
-          </li>
-
-          <li>
-            <a href="#">Alternative Ads</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="nav__item nav__item--extra">
-        <h2 class="nav__title">Technology</h2>
-
-        <ul class="nav__ul nav__ul--extra">
-          <li>
-            <a href="#">Hardware Design</a>
-          </li>
-
-          <li>
-            <a href="#">Software Design</a>
-          </li>
-
-          <li>
-            <a href="#">Digital Signage</a>
-          </li>
-
-          <li>
-            <a href="#">Automation</a>
-          </li>
-
-          <li>
-            <a href="#">Artificial Intelligence</a>
-          </li>
-
-          <li>
-            <a href="#">IoT</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="nav__item">
-        <h2 class="nav__title">Legal</h2>
-
-        <ul class="nav__ul">
-          <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#">Terms of Use</a>
-          </li>
-
-          <li>
-            <a href="#">Sitemap</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <div class="legal">
-      <p>&copy; 2019 Something. All rights reserved.</p>
-
-      <div class="legal__links">
-        <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
-      </div>
-    </div>
-  </footer>
-  <script src="js/jquery.js"></script>
+  </div>
+</footer>
+<script src="js/jquery.js"></script>
 </body>
 
 </html>
