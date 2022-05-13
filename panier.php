@@ -1,3 +1,17 @@
+<?php
+  require 'classes/DB.php';
+  require 'classes/panier.php';
+  $DB = new DB();
+  $panier = new panier();
+
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 

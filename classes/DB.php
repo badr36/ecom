@@ -16,3 +16,4 @@ class DB{
         return new pdo('mysql:host=localhost;dbname=ecom;charset=utf8', 'root', '');
     }
 }
+
