@@ -87,7 +87,7 @@ $total = 0;
                     </div>
                   </div>
                 </td>
-                <td><input type="number" name="qty[<?= $panier['id'] ?>]" min="1" value="<?php
+                <td><input required type="number" name="qty[<?= $panier['id'] ?>]" min="1"  max="<?= $panier['stock'] ?>" value="<?php
                                                                                           if (isset($_SESSION['id_client']))
                                                                                             echo $panier['qty'];
                                                                                           else
