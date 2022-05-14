@@ -100,4 +100,22 @@ class Panier extends DB{
             }
         }
     }
+
+    public function getNbrProduit()
+    {
+        if(isset($_SESSION['id_client']))
+        {
+            $sum = $this->query("SELECT SUM(qty) sum FROM paniers WHERE id_client=?", array($_SESSION['id_client']))->fetch()['sum'];
+            if($sum != NULL)
+            {
+                return $sum;
+            }
+            else 
+                return 0;
+        }
+
+        else{
+            return array_sum($_SESSION['panier']);
+        }
+    }
 }

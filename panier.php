@@ -52,7 +52,7 @@ $total = 0;
         </div>
         <div class="cart">
           <a href="#"><img src="public/images/account.png" alt="account" class="account"></a>
-          <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span>2</span></a>
+          <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span><?= $panier->getNbrProduit() ?></span></a>
         </div>
       </div>
     </div>

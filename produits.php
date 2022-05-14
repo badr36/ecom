@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+require_once 'classes/Panier.php';
+$panier = new Panier();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +48,7 @@
                 </div>
                 <div class="cart">
                     <a href="#"><img src="public/images/account.png" alt="account" class="account"></a>
-                    <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span><?= $panier->getNbrProduit()?></span></a>
                 </div>
             </div>
         </div>
