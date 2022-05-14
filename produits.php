@@ -5,7 +5,27 @@ require_once 'classes/Panier.php';
 require_once 'classes/Produit.php';
 $panier = new Panier();
 $produit = new Produit();
-$produits = $produit->get();
+
+
+
+$max = $produit->getPrixMax();
+$maxC = $max;
+
+$min = $produit->getPrixMin();
+$minC = $min;
+
+
+
+
+// filter
+if(isset($_POST['submitFilter']))
+{
+    $min = $_POST['min'];
+    $max = $_POST['max'];
+
+}
+
+$produits = $produit->get($min, $max);
 
 ?>
 
@@ -67,8 +87,8 @@ $produits = $produit->get();
                     <div class="progress"></div>
                 </div>
                 <div class="range-input">
-                    <input type="range" class="range-min" min="<?= $mi ?>" max="<?= $m ?>" value="<?= $min ?>" step="1">
-                    <input type="range" class="range-max" min="<?= $mi ?>" max="<?= $m ?>" value="<?= $max ?>" step="1">
+                    <input type="range" class="range-min" min="<?= $minC ?>" max="<?= $maxC ?>" value="<?= $min ?>" step="1">
+                    <input type="range" class="range-max" min="<?= $minC ?>" max="<?= $maxC ?>" value="<?= $max ?>" step="1">
                 </div>
                 <div class="price-input">
                     <div class="field">
