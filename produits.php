@@ -110,7 +110,7 @@ $produits = $produit->getAll($min, $max);
                     <span><?=$produit['prix'] ?> MAD</span>
                     <input type="hidden" value="<?=$produit['id'] ?>" name="id_produit" />
                     <?php if($panier->exists($produit['id'])): ?>
-                    <button type="button"><a href="panier.php">Voir le panier</a></button>
+                    <a href="panier.php"><button type="button">Voir le panier</button></a>
                     
                     <?php else: ?>
                     <button type="submit" onclick="setScroll()">Ajouter au panier</button>
