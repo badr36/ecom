@@ -11,7 +11,7 @@
     <title>E-SHOP</title>
 </head>
 
-<body>
+<body onload="restoreScrollPos()">
     <header>
         <nav class="header-top">
             <div class="container">
@@ -83,77 +83,77 @@
                     <p>MSI MAG X570S TORPEDO MAX</p>
                     <span>3594 MAD</span>
                     <input type="hidden" value="1" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/2.jpg" alt="">
                     <p>Gigabyte Z690 AORUS PRO DDR5</p>
                     <span>4684 MAD</span>
                     <input type="hidden" value="2" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/3.jpg" alt="">
                     <p>Ducky Channel One 2 Mini RGB Noir – Brown Switch</p>
                     <span>9624 MAD</span>
                     <input type="hidden" value="4" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/4.jpg" alt="">
                     <p>Corsair Vengeance RGB PRO 16 Go (8×2) 3200Mhz Blanc</p>
                     <span>2474 MAD</span>
                     <input type="hidden" value="5" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/5.jpg" alt="">
                     <p>MSI Optix MAG251RX</p>
                     <span>3586 MAD</span>
                     <input type="hidden" value="6" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/6.jpg" alt="">
                     <p>Asus ROG STRIX GeForce RTX 3070 O8G Gaming V2 LHR</p>
                     <span>7536 MAD</span>
                     <input type="hidden" value="7" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/7.jpg" alt="">
                     <p>ASUS ROG Strix LC360</p>
                     <span>8654 MAD</span>
                     <input type="hidden" value="8" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/8.jpg" alt="">
                     <p>Asus DUAL GeForce RTX 3050 O8G LHR</p>
                     <span>2475 MAD</span>
                     <input type="hidden" value="9" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/1.jpg" alt="">
                     <p>MSI MAG X570S TORPEDO MAX</p>
                     <span>3594 MAD</span>
                     <input type="hidden" value="10" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/2.jpg" alt="">
                     <p>Gigabyte Z690 AORUS PRO DDR5</p>
                     <span>4684 MAD</span>
                     <input type="hidden" value="11" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/3.jpg" alt="">
                     <p>Ducky Channel One 2 Mini RGB Noir – Brown Switch</p>
                     <span>9624 MAD</span>
                     <input type="hidden" value="12" name="id_produit" />
-                    <button type="submit">Ajouter au panier</button>
+                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/4.jpg" alt="">
@@ -194,7 +194,8 @@
         </div>
     </div>
     <script src="public/js/slider.js"></script>
-
+    <script src="public/js/ajoutpanier.js"></script>
+    
 </body>
 
 </html>

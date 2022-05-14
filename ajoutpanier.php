@@ -6,6 +6,7 @@
   if(isset($_GET['id_produit']))
   {
     $panier->ajouter($_GET['id_produit']);
+    header("location: produits.php");
   }
   else
   {

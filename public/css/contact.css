@@ -175,7 +175,16 @@ main{
     color: #FFF;
     cursor: pointer;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 @media (max-width: 850px){
     main{
         flex-direction: column-reverse;
@@ -189,5 +198,6 @@ main{
         margin: 0;
     }
 }
+
 /* END RIGHT */
 /* END MAIN */

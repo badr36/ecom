@@ -42,7 +42,7 @@ class Panier extends DB{
         else if(isset($_SESSION['panier']))
         {
             $id_produits = implode(',', array_keys($_SESSION['panier']));
-          
+            
             return $this->query("SELECT * FROM produits WHERE id IN ($id_produits)");
         }
     }

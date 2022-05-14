@@ -3,7 +3,6 @@ session_start();
 
 require_once 'classes/Panier.php';
 $panier = new Panier();
-$paniers = $panier->get();
 
 $total = 0;
 
@@ -64,7 +63,10 @@ $total = 0;
 
   <div class="container cart-page">
     <form action='miseajourPanier.php' method='POST'>
-      <?php if (!$panier->estVide()) : ?>
+      <?php if (!$panier->estVide()) : 
+        $paniers = $panier->get();
+      ?>
+        
         <table>
           <tr>
             <th></th>
@@ -217,7 +219,7 @@ $total = 0;
     </div>
   </div>
 </footer>
-<script src="js/jquery.js"></script>
+
 </body>
 
 </html>
