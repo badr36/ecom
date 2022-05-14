@@ -19,7 +19,7 @@ if(isset($_POST['submitFilter']))
     $max = $_POST['max'];
 }
 
-$produits = $produit->get($min, $max);
+$produits = $produit->getAll($min, $max);
 
 ?>
 
