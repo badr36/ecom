@@ -34,8 +34,8 @@ $panier = new Panier();
                     <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
                 </div>
 
-                <form class="search">
-                    <input type="text" name="search" placeholder="Rechercher un produit">
+                <form class="search" action='produits.php' >
+                    <input type="text" name="search" placeholder="Rechercher un produit" autocomplete='off'>
                     <button type="submit" name="submit">
                         <img src="public/images/search.svg" alt="search">
                     </button>
