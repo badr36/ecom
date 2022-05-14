@@ -6,15 +6,10 @@ require_once 'classes/Produit.php';
 $panier = new Panier();
 $produit = new Produit();
 
-
-
 $max = $produit->getPrixMax();
-$maxC = $max;
-
 $min = $produit->getPrixMin();
+$maxC = $max;
 $minC = $min;
-
-
 
 
 // filter
@@ -22,7 +17,6 @@ if(isset($_POST['submitFilter']))
 {
     $min = $_POST['min'];
     $max = $_POST['max'];
-
 }
 
 $produits = $produit->get($min, $max);
@@ -131,7 +125,11 @@ $produits = $produit->get($min, $max);
     </div>
     <script src="public/js/slider.js"></script>
     <script src="public/js/ajoutpanier.js"></script>
-    
+    <script type="text/javascript">
+        if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
 </body>
 
 </html>
