@@ -11,7 +11,7 @@ class Panier extends DB{
     } 
     public function ajouter($id)
     {
-        if($this->query(' SELECT stock FROM produits WHERE id=?' , array($id))->fetch()['stock'] > 0){ 
+        if($this->query(' SELECT stock FROM produits WHERE id=?' , array($id))->fetch()['stock'] > 0 && !$this->exists($id)){ 
             if(isset($_SESSION['id_client']))
             {
                    
@@ -118,4 +118,16 @@ class Panier extends DB{
             return array_sum($_SESSION['panier']);
         }
     }
+    public function exists($id_produit){
+        if(isset($_SESSION['id_client']))
+        {
+           return $this->query('SELECT id_produit FROM paniers WHERE id_produit=?', array($id_produit))->rowCount()>0 ;
+        }
+        else
+        {
+            return (array_key_exists($id_produit,$_SESSION['panier']));
+        }
+
+    }
 }
+

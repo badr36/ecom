@@ -3,6 +3,7 @@ session_start();
 
 require_once 'classes/Panier.php';
 $panier = new Panier();
+
 ?>
 
 <!DOCTYPE html>
@@ -104,7 +105,14 @@ $panier = new Panier();
                     <p>Ducky Channel One 2 Mini RGB Noir – Brown Switch</p>
                     <span>9624 MAD</span>
                     <input type="hidden" value="4" name="id_produit" />
+                    <?php if($panier->exists(4)): ?>
+                    <button type="button"><a href="panier.php">Voir le panier</a></button>
+                    
+                    <?php else: ?>
                     <button type="submit" onclick="setScroll()">Ajouter au panier</button>
+                    <?php endif; ?>
+                    
+                    
                 </form>
                 <form class="produit" method="get" action="ajoutpanier.php">
                     <img src="uploads/4.jpg" alt="">
