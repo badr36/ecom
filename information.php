@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/information.css" >
+    <link rel="stylesheet" href="public/css/information.css" >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>E-SHOP</title>
 </head>
@@ -30,15 +30,15 @@
                 <form class="search">
                     <input type="text" name="search" placeholder="Rechercher un produit">
                     <button type="submit" name="submit">
-                        <img src="images/search.svg" alt="search">
+                        <img src="public/images/search.svg" alt="search">
                     </button>
                 </form>
                 <div class="account">
                   
                 </div>
                 <div class="cart">
-                    <a href="#"><img src="images/account.png" alt="account"  class="account"></a>
-                    <a href="#"><img src="images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="#"><img src="public/images/account.png" alt="account"  class="account"></a>
+                    <a href="#"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
                 </div>
             </div>
         </div>

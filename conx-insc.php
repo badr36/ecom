@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "classes/Client.php";
 if (isset($_POST['login'])) {
   $client = new Client($_POST['email'], $_POST['mdp']);
