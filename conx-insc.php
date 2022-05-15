@@ -70,14 +70,8 @@ if(isset($_POST['login']))
       <!-- had div haza nav o conx inscription  -->
 
       <!-- fil acceuil> mon compte -->
-      <nav class="breadcrumb">
-        <a href="index.php">Accueil</a>
-        <span class="delimiter">
-          <i class="bi bi-chevron-right"></i>
-          <!--icon-->
-        </span>
-        <a href="conx-insc.php">Mon compte</a>
-      </nav>
+      <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="conx-insc.php">Mon Compte</a> </h1>
+
 
       <!-- conx inscription-->
       <div class="contenu-interne">
