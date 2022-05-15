@@ -3,7 +3,7 @@
 require_once __DIR__ . '/DB.php';
 
 class Produit extends DB{
-    public function get($min, $max){
+    public function getAll($min, $max){
         $produit= $this->query('SELECT * FROM produits WHERE prix BETWEEN ? AND ?', array($min, $max));
        if(isset($_GET['search'])){
            $recherche = htmlspecialchars($_GET['search']);

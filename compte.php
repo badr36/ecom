@@ -15,7 +15,7 @@
 
                 <ul class="navbar">  
                     <li><a href="">Contact</a></li>
-                    <li><a href="Information.php">My account</a></li>
+                    <li><a href="Information.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>

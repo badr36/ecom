@@ -20,6 +20,10 @@ header .header-top .container .navbar li a{
     color: #666;
 }
 
+header .header-top .container .navbar li:last-child{
+  margin-right: 0;
+}
+
 header .header-top p,
 header .header-top ul{
     font-size: .929em;
@@ -45,7 +49,6 @@ header .header-bottom{
 
 header .header-bottom .container{
     display: flex;
-    justify-content: space-around;
     align-items: center;
     position: relative;
 }
@@ -60,6 +63,7 @@ header .header-bottom .search{
     display: flex;
     justify-content: center;
     margin-left: auto;
+    margin-right: auto;
 }
 
 header .header-bottom .search input{

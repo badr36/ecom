@@ -1,2 +1,43 @@
 @import 'header.css';
 @import 'footer.css';
+@import 'general.css';
+.containe {
+    border-left: 10px solid #e74d73;
+    background-color: #CA2E55;
+    color: white;
+    padding: 12px 20px;
+    float: left;
+    width: 75%;
+  }
+  .info {
+    display: flex;
+    float: left;
+    width: 25%;
+  }
+  li.art{
+    border-bottom:solid #E6E2E6;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .clon:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  a.Parcourir-des-produits {
+    background-color: #CA2E55;
+    color: white;
+    
+    border: none;
+  
+    cursor: pointer;
+    float: right;
+  }
+  nav.pageactuel{
+    margin-bottom: 30px;
+   
+  }

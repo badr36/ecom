@@ -15,7 +15,7 @@
 
                 <ul class="navbar">  
                     <li><a href="tryc.html">Contact</a></li>
-                    <li><a href="Information.php">My account</a></li>
+                    <li><a href="Information.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,7 +48,7 @@
           <span class="delimiter">
               <i class="bi bi-chevron-right"></i> 
           </span>
-        <a href="Information.php" >My account</a>
+        <a href="Information.php" >Mon Compte</a>
         <span class="delimiter">
             <i class="bi bi-chevron-right"></i> 
         </span>

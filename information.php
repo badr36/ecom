@@ -16,7 +16,7 @@
 
                 <ul class="navbar">  
                     <li><a href="#">Contact</a></li>
-                    <li><a href="Information.php">My account</a></li>
+                    <li><a href="Information.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>
@@ -49,7 +49,7 @@
           <span class="delimiter">
               <i class="bi bi-chevron-right"></i> <!--icon-->
           </span>
-        <a href="Information.php" >My account</a>
+        <a href="Information.php" >Mon Compte</a>
 </nav>
     <nav class="info">
         <ul>
