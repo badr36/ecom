@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/table.css" >
+    <link rel="stylesheet" href="public/css/table.css" >
     <title>E-SHOP</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <p>La première boutique gaming qui offre des produits sous License officielle</p>
 
                 <ul class="navbar">  
-                    <li><a href="tryc.html">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li><a href="Information.php">Mon Compte</a></li>
                 </ul>
             </div>
@@ -29,29 +29,23 @@
                 <form class="search">
                     <input type="text" name="search" placeholder="Rechercher un produit">
                     <button type="submit" name="submit">
-                        <img src="images/search.svg" alt="search">
+                        <img src="public/images/search.svg" alt="search">
                     </button>
                 </form>
                 <div class="account">
                   
                 </div>
                 <div class="cart">
-                    <a href="#"><img src="images/account.png" alt="account"  class="account"></a>
-                    <a href="#"><img src="images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="#"><img src="public/public/images/account.png" alt="account"  class="account"></a>
+                    <a href="#"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
                 </div>
             </div>
         </div>
     </header>
     <div class="clon container ">
     <nav class="pageactuel">
-        <a href="index.php">Accueil</a>
-          <span class="delimiter">
-              <i class="bi bi-chevron-right"></i> 
-          </span>
-        <a href="Information.php" >Mon Compte</a>
-        <span class="delimiter">
-            <i class="bi bi-chevron-right"></i> 
-        </span>
+        <a href="index.php">Accueil</a><img src="public/images/right-arrow.svg" alt="" class="icon">
+        <a href="Information.php" >Mon Compte</a><img src="public/images/right-arrow.svg" alt="" class="icon">
         <a href="table.php" >Tableau de bord</a>
       </nav>
      <nav class="info">
@@ -66,7 +60,7 @@
             <a href="compte.php">Détails du compte</a>
           </li>
               <li  class="art">
-            <a href="logout.php">Déconnexion</a>
+            <a href="deconnexion.php">Déconnexion</a>
           </li>
         </ul>
     </nav>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/commande.css" >
+    <link rel="stylesheet" href="public/css/commande.css" >
     <title>E-SHOP</title>
 </head>
 <body>
@@ -15,8 +15,8 @@
                 <p>La première boutique gaming qui offre des produits sous License officielle</p>
 
                 <ul class="navbar">  
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="Information.php">My account</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="Information.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>
@@ -30,32 +30,25 @@
                 <form class="search">
                     <input type="text" name="search" placeholder="Rechercher un produit">
                     <button type="submit" name="submit">
-                        <img src="images/search.svg" alt="search">
+                        <img src="public/images/search.svg" alt="search">
                     </button>
                 </form>
                 <div class="account">
                   
                 </div>
                 <div class="cart">
-                    <a href="#"><img src="images/account.png" alt="account"  class="account"></a>
-                    <a href="#"><img src="images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="#"><img src="public/images/account.png" alt="account"  class="account"></a>
+                    <a href="#"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
                 </div>
             </div>
         </div>
     </header>
      <div class="clon container ">
      <nav class="pageactuel">
-        <a href="index.php">Accueil</a>
-          <span class="delimiter">
-              <i class="bi bi-chevron-right"></i> <!--icon-->
-          </span>
-        <a href="Information.php" >My account</a>
-        <span class="delimiter">
-            <i class="bi bi-chevron-right"></i> <!--icon-->
-        </span>
-        <a href="commande.php" >commande</a>
-
-     </nav>
+        <a href="index.php">Accueil</a><img src="public/images/right-arrow.svg" alt="" class="icon">
+        <a href="Information.php" >Mon Compte</a><img src="public/images/right-arrow.svg" alt="" class="icon">
+        <a href="commande.php" >Commandes</a>
+      </nav>
      <nav class="info">
         <ul>
               <li class="art">
@@ -68,7 +61,7 @@
             <a href="compte.php">Détails du compte</a>
           </li>
               <li class="art">
-            <a href="logout.php">Déconnexion</a>
+            <a href="deconnexion.php">Déconnexion</a>
           </li>
         </ul>
     </nav>
