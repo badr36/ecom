@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+/* GENERAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.flex{
+  display: flex;
+
+}
+
+.heading{
+    text-align: center;
+    font-weight: 300;
+    font-size: 2rem;
+    background-color: #CA2E55;
+    padding: .7em 0;
+    margin-bottom: 1.7em;
+}
+
+.heading a{
+  font-size: .5em;
+  font-weight: 300;
+  color: #CECECE;
+}
+
+/* END GENERAL */
+
+/* HEADER */
+header .header-top{
+    padding: .8em 0;
+    border-bottom: 0.1px solid rgb(204, 204, 204);
+}
+
+header .header-top .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-top .container .navbar li{
+    display: inline-block;
+    margin: 0 1.2em;
+  
+}
+
+header .header-top .container .navbar li a{
+    color: #666;
+}
+
+header .header-top p,
+header .header-top ul{
+    font-size: .929em;
+    font-weight: 400;
+    color: #666;
+}
+
+@media (max-width: 830px){
+  header .header-top{
+    display: none;
+  }
+
+  header .header-bottom .account{
+    display: inline;
+  }
+}
+
+
+/* HEADER BOTTOM */
+header .header-bottom{
+    padding: 3em 0;
+}
+
+header .header-bottom .container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+header .header-bottom .logo{
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+header .header-bottom .search{
+    flex: .8;
+    display: flex;
+    justify-content: center;
+}
+
+header .header-bottom .search input{
+    display: inline-block;
+    width: 70%;
+    padding-left: .5em;
+    outline: 0;
+    padding-top: .4em;
+    padding-bottom: .4em;
+    font-size: 1.2rem;
+}
+
+header .header-bottom .search button{
+    background-color: #CA2E55;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 50px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+header .header-bottom .search button img{
+    width:2em;
+}
+
+header .header-bottom .cart img{
+    width: 50px;
+    
+}
+
+header .header-bottom .cart a:last-child{
+  position: relative;
+}
+
+header .header-bottom .cart span{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #CA2E55;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+
+.header-bottom .account{
+  width: 37px !important;
+  position: relative;
+  bottom: 6px;
+  display: none;
+}
+
+@media (max-width: 750px){
+ 
+  
+  header .header-bottom .logo{
+    width: 100%;
+    font-size: 1.9rem;
+  }
+
+  header .header-bottom .cart{
+    width: 100%;
+    text-align: end;
+  }
+
+  header .header-bottom{
+    padding-top: 0;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-bottom: 4rem;
+  }
+
+  header .header-bottom .search{
+    position: absolute;
+    top: 120%;
+    width: 100%;
+   
+  }
+
+  header .header-bottom .search input{
+    font-size: 1em;
+  }
+}
+/* END HEADER */
+* {
+  box-sizing: border-box;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=button] {
+  background-color: #CA2E55;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+
+.containe {
+ 
+  padding: 10px;
+  width: 45%;
+  float: left;
+}
+
+.phase1 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.phase2 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .phase1, .phase2, input[type=button] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+/*         */
+.info {
+  
+  padding: 10px;
+  width: 51%;
+  float: left;
+  
+}
+.clon:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* START FOOTER */
+.footer {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 30px 30px 20px 30px;
+  color: #2f2f2f;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  margin-top: 1.2em;
+}
+
+.footer > * {
+  flex:  1 100%;
+}
+
+.footer__addr {
+  margin-right: 1.25em;
+  margin-bottom: 2em;
+}
+
+.footer__logo {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  text-transform: lowercase;
+  font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+  margin-top: 1.3em;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav__title {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.footer address {
+  font-style: normal;
+  color: #999;
+}
+
+.footer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  max-width: max-content;
+  background-color: rgb(33, 33, 33, 0.07);
+  border-radius: 100px;
+  color: #2f2f2f;
+  line-height: 0;
+  margin: 0.6em 0;
+  font-size: 1rem;
+  padding: 0 1.3em;
+}
+
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer li {
+  line-height: 2em;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer__nav {
+  display: flex;
+    flex-flow: row wrap;
+}
+
+.footer__nav > * {
+  flex: 1 50%;
+  margin-right: 1.25em;
+}
+
+.nav__ul a {
+  color: #999;
+}
+
+.nav__ul--extra {
+  column-count: 2;
+  column-gap: 1.25em;
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  color: #999;
+}
+  
+.legal__links {
+  display: flex;
+  align-items: center;
+}
+
+.heart {
+  color: #2f2f2f;
+}
+
+@media screen and (min-width: 24.375em) {
+  .legal .legal__links {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 40.375em) {
+  .footer__nav > * {
+    flex: 1;
+  }
+  
+  .nav__item--extra {
+    flex-grow: 2;
+  }
+  
+  .footer__addr {
+    flex: 1 0px;
+  }
+  
+  .footer__nav {
+    flex: 2 0px;
+  }
+}
+
