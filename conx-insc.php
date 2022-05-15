@@ -1,3 +1,9 @@
+<?php
+require_once 'classes/Conx.php';
+$Conx = new Conx_insc();
+$Conx->get_conx();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,10 +54,9 @@
         </header>
 
         <!-- start connexion -->
-        <div id="content" class="contenu-site" tabindex="-1"> <!--had div haza kolchi-->
-           <div class="container"> <!-- had div haza nav o conx inscription  -->
-
-               <!-- fil acceuil> mon compte -->
+        <div id="content" class="contenu-site" tabindex="-1"> <!--contient tout-->
+           <div class="container"> 
+        <!-- fil acceuil> mon compte -->
                <nav class="breadcrumb">
                    <a href="index.php">Accueil</a>
                      <span class="delimiter">
@@ -59,104 +64,96 @@
                      </span>
                      <a href="conx-insc.php">Mon compte</a>
                 </nav>
-
-                <!-- conx inscription-->
+        <!-- conx inscription-->
                <div class="contenu-interne">
-                   <div id="primary" class="zone-contenu">
+                  <div id="primary" class="zone-contenu">
                     <main id="main" class="site-main">
-                        <article id="post-9" class="post-9 page type-page status-publish hentry">
-                            <div class="contenu-entrée">
-                                <div class="contenu">
-                                 <div class="login-form">
-                                        <span class="or-text">or</span>
-                                        <div class="av"></div>
-                        <!--2 colonnes-->
-                        <div class="u-columns" id="conx-client">
-                            <!--colonne de connexion-->
-                            <div class="u-column1">
-                                       <h2> SE CONNECTER </h2> 
-                                      <!--formulaire de connexion--> 
-                                          <form class="login" method="post">
-                                            <p class="before-login-text">Bienvenue! Connectez-vous à votre <br> compte.</p>
-                                            <p class="paragraph">
-                                                <label for="email"> E-mail<span class="required">*</span> </label> <!--required= champ obligatoire-->
-                                                 <input type="email"class="input-email" name="email" id="email" autocomplete="email" value="" required> 
-                                                    </p>
-                                                    <p class="paragraph">
-                                                             <label for="password"> Mot de passe<span class="required">*</span></label> 
-                                                             <span class="password-input">
-                                                                <input class="input-password" type="password" name="password" id="password" autocomplete="current-password" required>
-                                                                <span class="show-password-input"></span>
-                                                            </span>
-                                                    </p>
-                                                    <p class="lost_password">
-                                                        <a href="#">Mot de passe oublié ?</a>
-                                                    </p>
-                                                    <p class="form-row">
-                                                        <label class="remember-me">
-                                                            <input class="input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever">
-                                                             <span>Se souvenir de moi</span>
-                                                        </label>
-                                                        <input type="hidden" id="login-nonce" name="login-nonce" value="3bc46980b0">
-                                                        <input type="hidden" name="referer" value="/mon-compte/">				
-                                                        <button type="submit" class="button" name="login" value="connexion"> JE ME CONNECTE </button>
-                                                    </p>
-                                                 </form>
-                                              </div>
-                              <!-- colonne d'inscription-->     
-                            <div class="u-column2">
-                                              <h2>Créez votre compte</h2>
-                                              <form  class="register" method="post">
-                                                  <p class="before-register-text"> Créez un nouveau compte dés aujourd'hui pour profiter <br>des avantages d'une expérience d'achat personnalisée.</p>
-                                                      <p class="paragraph">
-                                                          <label for="Nom">Nom <span class="required">*</span></label>
-                                                          <input type="text" class="input-text" name="Nom" id="Nom"  value="" required>
-                                                       </p>
-                                                       <p class="paragraph">
-                                                        <label for="prenom">Prénom <span class="required">*</span></label>
-                                                        <input type="text" class="input-text" name="prenom" id="prenom"  value="" required>
-                                                     </p>
-                                                  <p class="paragraph">
-                                                      <label for="email">E-mail<span class="required">*</span></label>
-                                                      <input type="email" class="input-email" name="email" id="e-mail" value=" " required>			
-                                                  </p>
-                                                  <p class="paragraph">
-                                                    <label for="password">Mot de passe <span class="required">*</span></label>
-                                                    <input type="password" class="input-password" name="password" id="motdepasse" required>
-                                                 </p>
-                                                                                          
-                                                  
-                                                
-                                                  <p class="form-row">
-                                                      <input type="hidden" id="register-nonce" name="register-nonce" value="e2a4220da3">
-                                                      <input type="hidden" name="referer" value="/mon-compte/">			
-                                                      <button type="submit" class="button" name="register" value="S’enregistrer">S’enregistrer</button>
-                                                  </p>
-                                          
-                                                  <div class="register-benefits">
-                                                  <h3>Sign up today and you will be able to :</h3>	
-                                                            <ul>
-                                                                      <li><i class="bi bi-check-lg"></i>Speed your way through checkout</li>
-                                                                      <li><i class="bi bi-check-lg"></i>Track your orders easily</li>
-                                                                      <li><i class="bi bi-check-lg"></i>Keep a record of all your purchases</li>
-                                                            </ul>
-                                              </div>
-                                              </form>
-                                          
-                                          </div>
-                                          
-                                          </div>
-                                        </div>
-                                    </div>
+                      <article id="post-9" class="post-9 page type-page status-publish hentry">
+                        <div class="contenu-entrée">
+                          <div class="contenu">
+                            <div class="login-form">
+                              <span class="or-text">or</span>
+                              <div class="av"></div>
+         <!--2 colonnes-->
+                              <div class="u-columns" id="conx-client">
+         <!--colonne de connexion-->
+                                <div class="u-column1">
+                                  <h2> SE CONNECTER </h2> 
+        <!--formulaire de connexion--> 
+                                    <form class="login" method="post">
+                                        <p class="before-login-text">Bienvenue! Connectez-vous à votre <br> compte.</p>
+                                        <p class="paragraph">
+        <!--email-->                      <label for="email"> E-mail<span class="required">*</span> </label> <!--required= champ obligatoire-->
+                                          <input type="email" class="input-email" name="email" id="email" autocomplete="email" value="" required> 
+                                        </p>
+                                        <p class="paragraph">
+                                          <label for="password"> Mot de passe<span class="required">*</span></label> 
+                                          <span class="password-input">
+        <!--mot de passe-->                 <input class="input-password" type="password" name="mdp" id="password" autocomplete="current-password" required>
+                                            <span class="show-password-input"></span>
+                                          </span>
+                                        </p>
+                                        <p class="lost_password">
+        <!--password oublié-->            <a href="#">Mot de passe oublié ?</a>
+                                        </p>
+                                        <p class="form-row">
+                                          <label class="remember-me">
+        <!--se souvenir de mon compte-->  <input class="input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever">
+                                            <span>Se souvenir de moi</span>
+                                          </label>                                  		
+        <!--bouton de conx -->            <button type="submit" class="button" name="connexion" value="connexion"> JE ME CONNECTE </button>
+                                        </p>
+                                    </form>
                                 </div>
+        <!-- colonne d'inscription-->     
+                                <div class="u-column2">
+                                  <h2>Créez votre compte</h2>
+        <!--formulaire d'inscription-->                          
+                                    <form  class="register" method="post">
+                                      <p class="before-register-text"> Créez un nouveau compte dés aujourd'hui pour profiter 
+                                        <br>des avantages d'une expérience d'achat personnalisée.
+                                      </p>
+                                      <p class="paragraph">
+        <!--Nom-->                      <label for="Nom">Nom <span class="required">*</span></label>
+                                        <input type="text" class="input-text" name="Nom" id="Nom"  value="" required>
+                                      </p>
+                                      <p class="paragraph">
+        <!--Prénom-->                <label for="prenom">Prénom <span class="required">*</span></label>
+                                        <input type="text" class="input-text" name="Prenom" id="prenom"  value="" required>
+                                      </p>
+                                      <p class="paragraph">
+        <!--email-->                    <label for="email">E-mail<span class="required">*</span></label>
+                                        <input type="email" class="input-email" name="email" id="e-mail" value=" " required>			
+                                      </p>
+                                      <p class="paragraph">
+        <!--mot de passe-->             <label for="password">Mot de passe <span class="required">*</span></label>
+                                        <input type="password" class="input-password" name="password" id="motdepasse" required>
+                                      </p>                                                                                                                                                                                        
+                                      <p class="form-row">                                      			
+        <!--s'inscrire-->                <button type="submit" class="button" name="register" value="S’enregistrer">S’enregistrer</button>
+                                      </p>                                        
+                                      <div class="register-benefits">
+                                        <h3>Inscrivez-vous dès aujourd’hui et vous pourrez :</h3>	
+                                        <ul>
+                                          <li><i class="bi bi-check-lg"></i>Accélérez votre passage à la caisse</li>
+                                          <li><i class="bi bi-check-lg"></i>Suivez facilement vos commandes</li>
+                                          <li><i class="bi bi-check-lg"></i>Gardez une trace de tous vos achats</li>
+                                        </ul>
+                                      </div>
+                                    </form>                                         
+                                </div>                                         
+                              </div>
                             </div>
-                          </article>
-                        </main> 
-                    </div>  
-                </div>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </main> 
+                </div>  
+              </div>
             </div>
-        </div>
-         <!-- FOOTER -->
+          </div>
+        <!-- FOOTER -->
     <footer class="footer">
         <div class="footer__addr">
           <h1 class="footer__logo">Something</h1>
