@@ -7,4 +7,5 @@ class Conx_insc extends DB{
     }
    public function get_insc(){    
     }
+}
 ?>
