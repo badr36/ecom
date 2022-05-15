@@ -23,7 +23,7 @@ $panier = new Panier();
 
                 <ul class="navbar">  
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="conx-insc.php">Mon Compte</a></li>
+                    <li><a href="<?php if(isset($_SESSION))?>   conx-insc.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>
