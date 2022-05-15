@@ -98,6 +98,7 @@ a {
 
 #conx-client{
     padding: 2.5em 0.43em;
+    padding-left: 0;
     position: relative;
 }
 
@@ -124,6 +125,7 @@ a {
     margin-right: 0;
     display: flex;
     flex-direction: column;
+    
   }
 
   #conx-client .u-column1{
@@ -365,6 +367,19 @@ ul {
     margin-bottom: 10px;
     font-size: 1.100em;
 }
+
+h1{
+    font-size:medium;
+    font-weight: 400;
+  }
+.icon{
+    width: 30px !important;
+}
+
+h1 .icon{
+    position: relative;
+    top: 9px;
+  }
 
 /*END CONNEXION ET INSCRIPTION*/
 
