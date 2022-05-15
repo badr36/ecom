@@ -6,8 +6,8 @@ header .header-top{
 
 header .header-top .container{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 header .header-top .container .navbar li{

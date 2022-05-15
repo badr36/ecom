@@ -1,0 +1,30 @@
+@import 'header.css';
+@import 'footer.css';
+@import 'general.css';
+.containe {
+
+  float: left;
+  width: 75%;
+}
+.info {
+  display: flex;
+  float: left;
+  width: 25%;
+}
+li.art{
+  border-bottom:solid #E6E2E6;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.clon:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+nav.pageactuel{
+  margin-bottom: 30px;
+ 
+}
