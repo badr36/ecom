@@ -5,6 +5,10 @@ if (isset($_POST['login'])) {
   $client = new Client($_POST['email'], $_POST['mdp']);
   $client->connexion();
 }
+if (isset($_POST['register'])){
+  $client = new Client($_POST['email'], $_POST['mdp'], $_POST['nom'], $_POST['prenom'] );
+  $client->inscription();
+}
 
 ?>
 
@@ -101,8 +105,8 @@ if (isset($_POST['login'])) {
                               <span class="show-password-input"></span>
                             </span>
                           </p>
-                          <?php if (isset($_POST['login']) && array_key_exists('email ou mot de passe incorrect', $client->errors)) :  ?>
-                            <p>errooooooooooooooooooorr!!!!!!!!</p>
+                          <?php if (isset($_POST['login']) && array_key_exists('emailetmdp', $client->errors)) :  ?>
+                            <p><?= $client->errors['emailetmdp'] ?></p>
                           <?php endif; ?>
                           <p class="lost_password">
                             <a href="#">Mot de passe oublié ?</a>
@@ -121,31 +125,42 @@ if (isset($_POST['login'])) {
                       <!-- colonne d'inscription-->
                       <div class="u-column2">
                         <h2>Créez votre compte</h2>
-                        <form class="register" method="post">
+                        <form class="register" method="post" action="">
                           <p class="before-register-text"> Créez un nouveau compte dés aujourd'hui pour profiter <br>des avantages d'une expérience d'achat personnalisée.</p>
                           <p class="paragraph">
                             <label for="Nom">Nom <span class="required">*</span></label>
-                            <input type="text" class="input-text" name="Nom" id="Nom" value="" required>
+                            <input type="text" class="input-text" name="nom" id="Nom" value="" required>
+                            <?php if (isset($_POST['register']) && array_key_exists('nom', $client->errors)) :  ?>
+                            <p><?= $client->errors['nom'] ?></p>
+                          <?php endif; ?>
                           </p>
                           <p class="paragraph">
                             <label for="prenom">Prénom <span class="required">*</span></label>
                             <input type="text" class="input-text" name="prenom" id="prenom" value="" required>
+                            <?php if (isset($_POST['register']) && array_key_exists('prenom', $client->errors)) :  ?>
+                            <p><?= $client->errors['prenom'] ?></p>
+                          <?php endif; ?>
                           </p>
                           <p class="paragraph">
                             <label for="email">E-mail<span class="required">*</span></label>
                             <input type="email" class="input-email" name="email" id="e-mail" value=" " required>
+                            <?php if (isset($_POST['register']) && array_key_exists('email', $client->errors)) :  ?>
+                            <p><?= $client->errors['email'] ?></p>
+                          <?php endif; ?>
                           </p>
                           <p class="paragraph">
                             <label for="password">Mot de passe <span class="required">*</span></label>
-                            <input type="password" class="input-password" name="password" id="motdepasse" required>
+                            <input type="password" class="input-password" name="mdp" id="motdepasse" required>
+                            <?php if (isset($_POST['register']) && array_key_exists('mdp', $client->errors)) :  ?>
+                            <p><?= $client->errors['mdp'] ?></p>
+                          <?php endif; ?>
                           </p>
 
 
 
                           <p class="form-row">
-                            <input type="hidden" id="register-nonce" name="register-nonce" value="e2a4220da3">
-                            <input type="hidden" name="referer" value="/mon-compte/">
-                            <button type="submit" class="button" name="register" value="S’enregistrer">S’enregistrer</button>
+                            
+                            <button type="submit" class="button" name="register" value="S’enregistrer" onclick="setScroll()">S’enregistrer</button>
                           </p>
 
                           <div class="register-benefits">
