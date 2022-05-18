@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once 'classes/Client.php';
+require_once 'classes/Panier.php';
+
+$panier = new Panier();
 
 if(!isset($_SESSION['id_client']))
     header("location: conx-insc.php");
@@ -26,7 +29,7 @@ $infoClient = $client->get($_SESSION['id_client']);
 
                 <ul class="navbar">  
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="Information.php">Mon Compte</a></li>
+                    <li><a href="compte.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,13 +51,13 @@ $infoClient = $client->get($_SESSION['id_client']);
                 </div>
                 <div class="cart">
                     <a href="#"><img src="public/images/account.png" alt="account"  class="account"></a>
-                    <a href="#"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span><?= $panier->getNbrProduit()?></span></a>
                 </div>
             </div>
         </div>
     </header>
     <div class="clon container ">
-    <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="panier.php">Mon Compte</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="compte.php">Détails du compte</a></h1>
+    <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="table.php">Mon Compte</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="compte.php">Détails du compte</a></h1>
 
     <nav class="info">
         <ul>
@@ -74,7 +77,7 @@ $infoClient = $client->get($_SESSION['id_client']);
     </nav>
 
     
-    <form class="containe">
+    <form class="containe" action="miseajourClient.php" method="POST">
         <p>
                 <label for="fname">Nom</label>
                 <input type="text" id="fname" name="nom" placeholder="saisir votre nom" value="<?= $infoClient['nom'] ?>">
@@ -85,7 +88,7 @@ $infoClient = $client->get($_SESSION['id_client']);
         </p>
         <p>
                 <label for="mail">E-mail</label>
-                <input type="text" id="mail" name="email" placeholder="saisir votre mail" value="<?= $infoClient['email'] ?>">
+                <input type="text" id="mail" name="email" placeholder="saisir votre mail" value="<?= $infoClient['email'] ?>" required>
         </p>
         <p>
                 <label for="map1">Adresse 1</label>
@@ -109,7 +112,7 @@ $infoClient = $client->get($_SESSION['id_client']);
                 <label for="pass2">Confirmer le nouveau mot de passe</label>
                 <input type="password" id="pass2" name="pass2" placeholder="Confirmer le nouveau mot de passe">
             </p><br>
-          <input type="button" value="Enregistrer les modifications">
+          <input type="submit" value="Enregistrer les modifications" name="submit">
         
         
     </form>

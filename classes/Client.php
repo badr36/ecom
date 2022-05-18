@@ -10,12 +10,17 @@ class Client extends DB{
     private $mdp;
     private $nom;
     private $prenom;
-    public function __construct( $email=null, $mdp=null, $nom=null, $prenom=null)
+    private $adresse1;
+    private $adresse2;
+
+    public function __construct( $email=null, $mdp=null, $nom=null, $prenom=null, $adresse1=null, $adresse2=null)
     {
         $this->nom =$nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->mdp = $mdp;
+        $this->adresse1 = $adresse1;
+        $this->adresse2 = $adresse2;
     }
     
     public function exists()
@@ -92,4 +97,16 @@ class Client extends DB{
         return $this->query("SELECT * FROM clients WHERE id=?", array($id))->fetch();
     }
 
+    public function modifier($id)
+    {
+        $this->query("UPDATE clients set nom=?,prenom=?,email=?,adresse_1=?,adresse_2=? WHERE id=?", array(
+            $this->nom,
+            $this->prenom,
+            $this->email,
+            $this->adresse1,
+            $this->adresse2,
+            $id
+        ));
+       
+    }
 }

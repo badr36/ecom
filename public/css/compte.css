@@ -6,7 +6,7 @@
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  resize: vertical;
+  resize:     vertical;
 }
 
 
@@ -15,7 +15,7 @@ label {
   display: inline-block;
 }
 
-.clon input[type=button] {
+.clon input[type=submit] {
   background-color: #CA2E55;
   color: white;
   padding: 12px 20px;

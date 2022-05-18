@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "classes/Client.php";
+require_once 'classes/Panier.php';
+$panier = new Panier();
+
 if (isset($_POST['login'])) {
   $client = new Client($_POST['email'], $_POST['mdp']);
   $client->connexion();
@@ -37,7 +40,7 @@ if (isset($_POST['register'])){
 
         <ul class="navbar">
           <li><a href="contact.php">Contact </a></li>
-          <li><a href="conx-insc.php">Mon Compte</a></li>
+          <li><a href="<?php if(isset($_SESSION['id_client'])) echo 'table.php' ; else echo 'conx-insc.php'; ?>">Mon Compte</a></li>
         </ul>
       </div>
     </nav>
@@ -59,7 +62,7 @@ if (isset($_POST['register'])){
         </div>
         <div class="cart">
           <a href="#"><img src="public/images/account.png" alt="account" class="account"></a>
-          <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
+          <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span><?= $panier->getNbrProduit()?></span></a>
         </div>
       </div>
     </div>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+require_once 'classes/Panier.php';
+
+$panier = new Panier();
+
+if(!isset($_SESSION['id_client']))
+    header("location: conx-insc.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,14 +48,14 @@
                 </div>
                 <div class="cart">
                     <a href="#"><img src="public/images/account.png" alt="account"  class="account"></a>
-                    <a href="#"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span><?= $panier->getNbrProduit()?></span></a>
                 </div>
             </div>
         </div>
     </header>
      <div class="clon container ">
        
-     <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="panier.php">Mon Compte</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="commande.php">Commandes</a></h1>
+     <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="table.php">Mon Compte</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="commande.php">Commandes</a></h1>
 
      <nav class="info">
         <ul>

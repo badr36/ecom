@@ -30,7 +30,8 @@ $total = 0;
 
         <ul class="navbar">
           <li><a href="contact.php">Contact</a></li>
-          <li><a href="conx-insc.php">Mon Compte</a></li>
+          <li><a href="<?php if (isset($_SESSION['id_client'])) echo 'table.php';
+                        else echo 'conx-insc.php'; ?>">Mon Compte</a></li>
         </ul>
       </div>
     </nav>
@@ -41,8 +42,8 @@ $total = 0;
           <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
         </div>
 
-        <form class="search">
-          <input type="text" name="search" placeholder="Rechercher un produit">
+        <form class="search" action='produits.php'>
+          <input type="text" name="search" placeholder="Rechercher un produit" autocomplete='off'>
           <button type="submit" name="submit">
             <img src="public/images/search.svg" alt="search">
           </button>
@@ -63,10 +64,10 @@ $total = 0;
 
   <div class="container cart-page">
     <form action='miseajourPanier.php' method='POST'>
-      <?php if (!$panier->estVide()) : 
+      <?php if (!$panier->estVide()) :
         $paniers = $panier->get();
       ?>
-        
+
         <table>
           <tr>
             <th></th>
@@ -89,11 +90,11 @@ $total = 0;
                     </div>
                   </div>
                 </td>
-                <td><input required type="number" name="qty[<?= $panier['id'] ?>]" min="1"  max="<?= $panier['stock'] ?>" value="<?php
-                                                                                          if (isset($_SESSION['id_client']))
-                                                                                            echo $panier['qty'];
-                                                                                          else
-                                                                                            echo $_SESSION['panier'][$panier['id']]; ?>"></td>
+                <td><input required type="number" name="qty[<?= $panier['id'] ?>]" min="1" max="<?= $panier['stock'] ?>" value="<?php
+                                                                                                                                if (isset($_SESSION['id_client']))
+                                                                                                                                  echo $panier['qty'];
+                                                                                                                                else
+                                                                                                                                  echo $_SESSION['panier'][$panier['id']]; ?>"></td>
                 <td><?php if (isset($_SESSION['id_client'])) {
                       $sous_total = $panier['prix'] * $panier['qty'];
                       $total += $sous_total;
