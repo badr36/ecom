@@ -1,3 +1,14 @@
+<?php
+session_start();
+require_once 'classes/Client.php';
+
+if(!isset($_SESSION['id_client']))
+    header("location: conx-insc.php");
+  
+$client = new Client();
+$infoClient = $client->get($_SESSION['id_client']);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,10 +54,8 @@
         </div>
     </header>
     <div class="clon container ">
-    <nav class="pageactuel">
-        
-        <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="compte.php">Détails du compte</a> </h1>
-      </nav>
+    <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="panier.php">Mon Compte</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="compte.php">Détails du compte</a></h1>
+
     <nav class="info">
         <ul>
               <li  class="art">
@@ -65,26 +74,26 @@
     </nav>
 
     
-    <div class="containe">
+    <form class="containe">
         <p>
                 <label for="fname">Nom</label>
-                <input type="text" id="fname" name="fname" placeholder="saisir votre nom">
+                <input type="text" id="fname" name="nom" placeholder="saisir votre nom" value="<?= $infoClient['nom'] ?>">
         </p>
         <p>
                 <label for="lname">Prénom</label>
-                <input type="text" id="lname" name="lname" placeholder="saisir votre prénom">
-        </p>
-        <p>
-                <label for="nname">Nom affiché</label>
-                <input type="text" id="nname" name="nname" value="">
+                <input type="text" id="lname" name="prenom" placeholder="saisir votre prénom" value="<?= $infoClient['prenom'] ?>">
         </p>
         <p>
                 <label for="mail">E-mail</label>
-                <input type="text" id="mail" name="mail" placeholder="saisir votre mail">
+                <input type="text" id="mail" name="email" placeholder="saisir votre mail" value="<?= $infoClient['email'] ?>">
         </p>
         <p>
-                <label for="map">Adresse</label>
-                <input type="text" id="map" name="map" placeholder="saisir votre adresse">
+                <label for="map1">Adresse 1</label>
+                <input type="text" id="map1" name="adresse1" placeholder="saisir votre adresse" value="<?= $infoClient['adresse_1'] ?>" required>
+        </p>
+        <p>
+                <label for="map2">Adresse 2</label>
+                <input type="text" id="map2" name="adresse2" placeholder="saisir votre adresse" value="<?= $infoClient['adresse_2'] ?>">
         </p><br>
             <p class="inset">Changement de mot de passe</p>
     
@@ -103,7 +112,7 @@
           <input type="button" value="Enregistrer les modifications">
         
         
-    </div>
+    </form>
 </div>
     <footer class="footer">
         <div class="footer__addr">

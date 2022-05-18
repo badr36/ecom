@@ -11,10 +11,7 @@ table{
     border-collapse: collapse;
     
 }
-body{
-  background-color: #fafafa;
 
-}
 .cart-info{
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +26,10 @@ th{
   color: rgb(65, 65, 65); 
   font-weight: normal; 
   border-bottom: 1px solid #c9c9c9;
+}
+
+.cart-page tbody:nth-child(2){
+  background-color: #fafafa;
 }
 
 .cart-page tbody input{
@@ -52,21 +53,11 @@ td{
   background-color: #fff;
   
 }
-h1{
-  font-size:medium;
-  font-weight: 400;
-}
-.icon{
-  width: 30px !important;
 
-}
 .cart-page tbody .icon:hover{
   filter: invert(32%) sepia(68%) saturate(5173%) hue-rotate(329deg) brightness(83%) contrast(87%);
 }
-h1 .icon{
-  position: relative;
-  top: 9px;
-}
+
 .btn-group{
   display: flex;
 }
