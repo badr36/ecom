@@ -45,3 +45,15 @@
     width:20px !important;
   
   }
+  h1 .icon{
+    position: relative;
+    top: 9px;
+  }
+  h1{
+    font-size:medium;
+    font-weight: 400;
+  }
+  .icon{
+    width: 30px !important;
+  
+  }

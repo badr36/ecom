@@ -12,11 +12,10 @@
   width: 25%;
 }
 li.art{
-  border-bottom:solid #E6E2E6;
+  border-bottom:solid  1px #E6E2E6;
   border-left: none;
   border-right: none;
   border-top: none;
-  border-radius: 5px;
   margin-bottom: 20px;
 }
 .clon:after {
@@ -28,7 +27,15 @@ nav.pageactuel{
   margin-bottom: 30px;
  
 }
+h1 .icon{
+  position: relative;
+  top: 9px;
+}
+h1{
+  font-size:medium;
+  font-weight: 400;
+}
 .icon{
-  width:20px !important;
+  width: 30px !important;
 
 }

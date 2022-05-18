@@ -32,3 +32,11 @@ nav.pageactuel{
   width:20px !important;
 
 }
+h1 .icon{
+  position: relative;
+  top: 9px;
+}
+h1{
+  font-size:medium;
+  font-weight: 400;
+}

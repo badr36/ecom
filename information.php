@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/information.css" >
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <title>E-SHOP</title>
 </head>
 <body>
@@ -45,8 +44,9 @@
     </header>
     <div class="clon container ">
     <nav class="pageactuel">
-        <a href="index.php">Accueil</a><img src="public/images/right-arrow.svg" alt="" class="icon">
-        <a href="Information.php" >Mon Compte</a>
+    <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="onformation.php">Mon Compte</a> </h1>
+
+        
       </nav>
     <nav class="info">
         <ul>
