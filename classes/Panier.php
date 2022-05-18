@@ -121,7 +121,7 @@ class Panier extends DB{
     public function exists($id_produit){
         if(isset($_SESSION['id_client']))
         {
-           return $this->query('SELECT id_produit FROM paniers WHERE id_produit=?', array($id_produit))->rowCount()>0 ;
+           return $this->query('SELECT id_produit FROM paniers WHERE id_produit=? AND id_client=?', array($id_produit, $_SESSION['id_client']))->rowCount()>0 ;
         }
         else
         {

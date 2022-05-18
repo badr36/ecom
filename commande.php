@@ -44,11 +44,9 @@
         </div>
     </header>
      <div class="clon container ">
-     <nav class="pageactuel">
-        <a href="index.php">Accueil</a><img src="public/images/right-arrow.svg" alt="" class="icon">
-        <a href="Information.php" >Mon Compte</a><img src="public/images/right-arrow.svg" alt="" class="icon">
-        <a href="commande.php" >Commandes</a>
-      </nav>
+       
+     <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="panier.php">Mon Compte</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="commande.php">Commandes</a></h1>
+
      <nav class="info">
         <ul>
               <li class="art">

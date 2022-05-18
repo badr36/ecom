@@ -53,4 +53,18 @@ a{
   color: #CECECE;
 }
 
+h1.container{
+    font-size:medium;
+    font-weight: 400;
+}
+.icon{
+    width: 30px !important;
+  
+}
+
+h1 .icon{
+    position: relative;
+    top: 9px;
+}
+
 /* END GENERAL */

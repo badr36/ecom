@@ -2,9 +2,7 @@
 
 session_start();
 
-unset($_SESSION["uid"]);
-
-unset($_SESSION["name"]);
+unset($_SESSION["id_client"]);
 
 header("location:index.php");
 

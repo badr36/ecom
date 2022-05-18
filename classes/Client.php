@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/DB.php';
+require_once __DIR__ . '/Panier.php';
 
 class Client extends DB{
 
@@ -9,7 +10,7 @@ class Client extends DB{
     private $mdp;
     private $nom;
     private $prenom;
-    public function __construct( $email, $mdp, $nom=null, $prenom=null)
+    public function __construct( $email=null, $mdp=null, $nom=null, $prenom=null)
     {
         $this->nom =$nom;
         $this->prenom = $prenom;
@@ -27,6 +28,7 @@ class Client extends DB{
         if($this->exists())
         { 
             $_SESSION['id_client']= $this->query(" SELECT id FROM clients WHERE email=? AND mdp=?", array($this->email,$this->mdp))->fetch()['id'];
+            $this->panierToDB($_SESSION['id_client']);
             header('location: index.php');
         }
         else
@@ -54,6 +56,40 @@ class Client extends DB{
                 $this->errors['email']= 'Email existe déjà';
         }
 
+    }
+
+    public function panierToDB($id_client)
+    {
+        if(isset($_SESSION['panier']))
+        {
+            $panier = new Panier();
+            foreach($_SESSION['panier'] as $id => $qty)
+            {
+                if($panier->exists($id))
+                {
+                    $this->query("UPDATE paniers SET qty=? WHERE id_produit=? AND id_client=?", array(
+                        $qty,
+                        $id,
+                        $id_client
+                    ));
+                }
+                else
+                {
+                    $this->query("INSERT INTO paniers (id_produit, qty, id_client) VALUES (?,?,?)", array(
+                        $id,
+                        $qty,
+                        $id_client
+                    ));
+                }
+               
+            }
+            unset($_SESSION['panier']);
+        }
+    }
+
+    public function get($id)
+    {
+        return $this->query("SELECT * FROM clients WHERE id=?", array($id))->fetch();
     }
 
 }

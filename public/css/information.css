@@ -12,12 +12,9 @@
   width: 25%;
 }
 li.art{
-  border-bottom:solid #E6E2E6;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  border-bottom:1px solid #E6E2E6;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .clon:after {
   content: "";
@@ -28,7 +25,6 @@ nav.pageactuel{
   margin-bottom: 30px;
  
 }
-.icon{
-  width:20px !important;
-
+h1.container{
+  margin-bottom: 40px;
 }
