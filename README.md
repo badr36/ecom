@@ -1,6 +1,6 @@
 ### E-SHOP
 
-- [ ] styler les messages d'erreur
+- [X] styler les messages d'erreur
 - [X] changement des informations des client
 - [ ] affichage des produits et des commentaires associes
 - [ ] ajouter un commentaire

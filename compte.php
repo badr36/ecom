@@ -108,23 +108,23 @@ $infoClient = $client->get($_SESSION['id_client']);
         </p><br>
             <p class="inset">Changement de mot de passe</p>
     
-            <p>
+            <p class="<?php if (array_key_exists('mdp', $client->errors)) echo 'error'?>">
                 <label for="currentpass">Mot de passe actuel</label>
                 <input type="password" id="currentpass" name="mdp" placeholder="saisir votre mot de passe actuel">
-                <?php if (isset($_POST['submit']) && array_key_exists('mdp', $client->errors)) :  ?>
-                            <p><?= $client->errors['mdp'] ?></p>
+                <?php if (array_key_exists('mdp', $client->errors)) :  ?>
+                            <p class="error-message"><?= $client->errors['mdp'] ?></p>
                 <?php endif; ?>
             </p>
-            <p>
+            <p class="<?php if (array_key_exists('mdp1', $client->errors)) echo 'error'?>">
                 <label for="pass1">Nouveau mot de passe</label>
                 <input type="password" id="pass1" name="mdp1" placeholder="saisir le nouveau mot de passe">
                 
             </p>
-            <p>
+            <p class="<?php if (array_key_exists('mdp1', $client->errors)) echo 'error'?>">
                 <label for="pass2">Confirmer le nouveau mot de passe</label>
                 <input type="password" id="pass2" name="mdp2" placeholder="Confirmer le nouveau mot de passe">
-                <?php if (isset($_POST['submit']) && array_key_exists('mdp1', $client->errors)) :  ?>
-                            <p><?= $client->errors['mdp1'] ?></p>
+                <?php if (array_key_exists('mdp1', $client->errors)) :  ?>
+                            <p class="error-message"><?= $client->errors['mdp1'] ?></p>
                 <?php endif; ?>
             </p><br>
           <input type="submit" value="Enregistrer les modifications" name="submit">

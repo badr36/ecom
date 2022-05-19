@@ -101,7 +101,7 @@ if (isset($_POST['register'])){
                             <!--required= champ obligatoire-->
                             <input type="email" class="input-email" name="email" id="email" value="" required>
                           </p>
-                          <p class="paragraph">
+                          <p class="paragraph  <?php if (isset($_POST['login']) && array_key_exists('emailetmdp', $client->errors)) echo 'error'  ?>">
                             <label for="password"> Mot de passe<span class="required">*</span></label>
                             <span class="password-input">
                               <input class="input-password" type="password" name="mdp" id="password" required>
@@ -109,7 +109,7 @@ if (isset($_POST['register'])){
                             </span>
                           </p>
                           <?php if (isset($_POST['login']) && array_key_exists('emailetmdp', $client->errors)) :  ?>
-                            <p><?= $client->errors['emailetmdp'] ?></p>
+                            <p class="error-message"><?= $client->errors['emailetmdp'] ?></p>
                           <?php endif; ?>
                           <p class="lost_password">
                             <a href="#">Mot de passe oublié ?</a>
@@ -130,32 +130,32 @@ if (isset($_POST['register'])){
                         <h2>Créez votre compte</h2>
                         <form class="register" method="post" action="">
                           <p class="before-register-text"> Créez un nouveau compte dés aujourd'hui pour profiter <br>des avantages d'une expérience d'achat personnalisée.</p>
-                          <p class="paragraph">
+                          <p class="paragraph <?php if (isset($_POST['register']) && array_key_exists('nom', $client->errors)) echo 'error'  ?>">
                             <label for="Nom">Nom <span class="required">*</span></label>
                             <input type="text" class="input-text" name="nom" id="Nom" value="" required>
                             <?php if (isset($_POST['register']) && array_key_exists('nom', $client->errors)) :  ?>
-                            <p><?= $client->errors['nom'] ?></p>
+                            <p class="error-message"><?= $client->errors['nom'] ?></p>
                           <?php endif; ?>
                           </p>
-                          <p class="paragraph">
+                          <p class="paragraph <?php if (isset($_POST['register']) && array_key_exists('prenom', $client->errors)) echo 'error'  ?>">
                             <label for="prenom">Prénom <span class="required">*</span></label>
                             <input type="text" class="input-text" name="prenom" id="prenom" value="" required>
                             <?php if (isset($_POST['register']) && array_key_exists('prenom', $client->errors)) :  ?>
-                            <p><?= $client->errors['prenom'] ?></p>
+                            <p class="error-message"><?= $client->errors['prenom'] ?></p>
                           <?php endif; ?>
                           </p>
-                          <p class="paragraph">
+                          <p class="paragraph <?php if (isset($_POST['register']) && array_key_exists('email', $client->errors)) echo 'error'  ?>">
                             <label for="email">E-mail<span class="required">*</span></label>
                             <input type="email" class="input-email" name="email" id="e-mail" value=" " required>
                             <?php if (isset($_POST['register']) && array_key_exists('email', $client->errors)) :  ?>
-                            <p><?= $client->errors['email'] ?></p>
+                            <p class="error-message"><?= $client->errors['email'] ?></p>
                           <?php endif; ?>
                           </p>
-                          <p class="paragraph">
+                          <p class="paragraph <?php if (isset($_POST['register']) && array_key_exists('mdp', $client->errors)) echo 'error'  ?>">
                             <label for="password">Mot de passe <span class="required">*</span></label>
                             <input type="password" class="input-password" name="mdp" id="motdepasse" required>
                             <?php if (isset($_POST['register']) && array_key_exists('mdp', $client->errors)) :  ?>
-                            <p><?= $client->errors['mdp'] ?></p>
+                            <p class="error-message"><?= $client->errors['mdp'] ?></p>
                           <?php endif; ?>
                           </p>
 
