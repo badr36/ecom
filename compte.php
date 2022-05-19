@@ -7,8 +7,16 @@ $panier = new Panier();
 
 if(!isset($_SESSION['id_client']))
     header("location: conx-insc.php");
-  
+
 $client = new Client();
+
+if(isset($_POST['submit']))
+{
+  $client = new Client($_POST['email'], $_POST['mdp'], $_POST['nom'], $_POST['prenom'], $_POST['adresse1'], $_POST['adresse2']);
+  $client->miseajour($_SESSION['id_client']);
+
+}
+
 $infoClient = $client->get($_SESSION['id_client']);
 
 ?>
@@ -77,7 +85,7 @@ $infoClient = $client->get($_SESSION['id_client']);
     </nav>
 
     
-    <form class="containe" action="miseajourClient.php" method="POST">
+    <form class="containe" action="" method="POST">
         <p>
                 <label for="fname">Nom</label>
                 <input type="text" id="fname" name="nom" placeholder="saisir votre nom" value="<?= $infoClient['nom'] ?>">
@@ -102,15 +110,22 @@ $infoClient = $client->get($_SESSION['id_client']);
     
             <p>
                 <label for="currentpass">Mot de passe actuel</label>
-                <input type="password" id="currentpass" name="currentpass" placeholder="saisir votre mot de passe actuel">
+                <input type="password" id="currentpass" name="mdp" placeholder="saisir votre mot de passe actuel">
+                <?php if (isset($_POST['submit']) && array_key_exists('mdp', $client->errors)) :  ?>
+                            <p><?= $client->errors['mdp'] ?></p>
+                <?php endif; ?>
             </p>
             <p>
                 <label for="pass1">Nouveau mot de passe</label>
-                <input type="password" id="pass1" name="pass1" placeholder="saisir le nouveau mot de passe">
+                <input type="password" id="pass1" name="mdp1" placeholder="saisir le nouveau mot de passe">
+                
             </p>
             <p>
                 <label for="pass2">Confirmer le nouveau mot de passe</label>
-                <input type="password" id="pass2" name="pass2" placeholder="Confirmer le nouveau mot de passe">
+                <input type="password" id="pass2" name="mdp2" placeholder="Confirmer le nouveau mot de passe">
+                <?php if (isset($_POST['submit']) && array_key_exists('mdp1', $client->errors)) :  ?>
+                            <p><?= $client->errors['mdp1'] ?></p>
+                <?php endif; ?>
             </p><br>
           <input type="submit" value="Enregistrer les modifications" name="submit">
         
