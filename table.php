@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once 'classes/Panier.php';
+
+$panier = new Panier();
+
+if(!isset($_SESSION['id_client']))
+    header("location: conx-insc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +32,7 @@
         <div class="header-bottom">
             <div class="container">
                 <div class="logo">
-                    <a href="index.html">E-<span style="color: #CA2E55;">SHOP</span></a>
+                    <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
                 </div>
 
                 <form class="search">
@@ -37,14 +46,14 @@
                 </div>
                 <div class="cart">
                     <a href="#"><img src="public/public/images/account.png" alt="account"  class="account"></a>
-                    <a href="#"><img src="public/images/cart.svg" alt="cart"><span>0</span></a>
+                    <a href="panier.php"><img src="public/images/cart.svg" alt="cart"><span><?= $panier->getNbrProduit() ?></span></a>
                 </div>
             </div>
         </div>
     </header>
     <div class="clon container ">
 
-    <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="panier.php">Mon Compte</a> </h1>
+    <h1 class="container"><a href="index.php">Accueil</a> <img src="public/images/right-arrow.svg" alt="" class="icon"> <a href="table.php">Mon Compte</a> </h1>
 
      <nav class="info">
         <ul>
@@ -63,7 +72,7 @@
         </ul>
     </nav>
     <div class="containe">
-    <h3>BONJOUR </h3>
+    <h3 style="margin-bottom: 6px;">BONJOUR</h3>
     <p>À partir du tableau de bord de votre compte, vous pouvez visualiser vos commandes récentes, gérer vos adresses de livraison et de facturation ainsi que changer votre mot de passe et les détails de votre compte.</p>
     </div>
     </div>

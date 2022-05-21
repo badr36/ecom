@@ -221,14 +221,14 @@ form {
 .paragraph {
     color: #000000;
     margin-top: 0;
-    margin-bottom: 1rem;
 }
 
 label {
     font-size: 1em;
     line-height: 1.286em;
     font-weight: 600;
-    margin-bottom: .857em;
+    margin-top: 15px;
+    margin-bottom: .5em;
 }
 
 label {
@@ -383,3 +383,25 @@ h1 .icon{
 
 /*END CONNEXION ET INSCRIPTION*/
 
+/* error message */
+.error-message {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 5px 0 0;
+  }
+  
+  .error label {
+    color: #cc0033;
+  }
+  
+  .paragraph.error input{
+    background-color: #fce4e4 ;
+    border: 1px solid #cc0033 ;
+    outline: none ;
+  }
+  
+  .error .error-message {
+    display: inline-block;
+  }

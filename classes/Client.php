@@ -10,12 +10,18 @@ class Client extends DB{
     private $mdp;
     private $nom;
     private $prenom;
-    public function __construct( $email=null, $mdp=null, $nom=null, $prenom=null)
+    private $adresse1;
+    private $adresse2;
+
+    public function __construct( $email=null, $mdp=null, $nom=null, $prenom=null, $adresse1=null, $adresse2=null)
     {
         $this->nom =$nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->mdp = $mdp;
+        $this->adresse1 = $adresse1;
+        $this->adresse2 = $adresse2;
+        $this->errors = array();
     }
     
     public function exists()
@@ -92,4 +98,69 @@ class Client extends DB{
         return $this->query("SELECT * FROM clients WHERE id=?", array($id))->fetch();
     }
 
+    public function modifierInfo($id)
+    {
+        $this->query("UPDATE clients set nom=?,prenom=?,email=?,adresse_1=?,adresse_2=? WHERE id=?", array(
+            $this->nom,
+            $this->prenom,
+            $this->email,
+            $this->adresse1,
+            $this->adresse2,
+            $id
+        ));
+       
+    }
+
+    public function modifierMdp($id, $mdp)
+    {
+        $this->query("UPDATE clients set mdp=? WHERE id=?", array(
+            $mdp,
+            $id
+        ));
+       
+    }
+
+    public function miseajour($id)
+    {
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $email = $_POST['email'];
+        $adresse1 = $_POST['adresse1'];
+        $adresse2 = $_POST['adresse2'];
+        $mdp = $_POST['mdp'];
+        $mdp1 = $_POST['mdp1'];
+        $mdp2 = $_POST['mdp2'];
+
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->email = $email;
+        $this->adresse1 = $adresse1;
+        $this->adresse2 = $adresse2;
+        $this->mdp = $mdp;
+
+        $this->modifierInfo($id);
+
+        if(!empty($mdp) && !empty($mdp1) && !empty($mdp2))
+        {
+            if($this->get($id)['mdp'] == $mdp)
+            {
+                if($mdp1 == $mdp2)
+                {
+                    if(strlen($mdp1) >= 8)
+                    {
+                        $this->modifierMdp($id, $mdp1);
+                    }
+                    else
+                        $this->errors['mdp1'] = 'Le mot de passe doit contenir 8 caractères au minimum';
+                }
+                else
+                    $this->errors['mdp1'] = 'Les nouveaux mots de passe ne correspondent pas.';
+                
+            }
+            else
+                $this->errors['mdp'] = 'Le mot de passe actuel est incorrect.';
+
+            
+        }
+    }
 }

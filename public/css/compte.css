@@ -5,17 +5,16 @@
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+  resize:     vertical;
 }
 
 
 label {
-  padding: 12px 12px 12px 0;
+  padding: 12px 0 5px;
   display: inline-block;
 }
 
-.clon input[type=button] {
+.clon input[type=submit] {
   background-color: #CA2E55;
   color: white;
   padding: 12px 20px;
@@ -79,3 +78,25 @@ h1{
 }
 
 
+/* error message */
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0 0;
+}
+
+.error label {
+  color: #cc0033;
+}
+
+.error input{
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error .error-message {
+  display: inline-block;
+}

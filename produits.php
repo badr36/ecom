@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require_once 'classes/Panier.php';
 require_once 'classes/Produit.php';
+require_once 'classes/Panier.php';
 $panier = new Panier();
 $produit = new Produit();
 
@@ -44,7 +44,7 @@ $produits = $produit->getAll($min, $max);
 
                 <ul class="navbar">
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="conx-insc.php">Mon Compte</a></li>
+                    <li><a href="<?php if(isset($_SESSION['id_client'])) echo 'table.php' ; else echo 'conx-insc.php'; ?>">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>
