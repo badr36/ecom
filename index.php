@@ -88,7 +88,7 @@ $panier = new Panier();
         <h2 class="heading">Produits populaires <a href="produits.php"> Tout les produits</a></h2>
           <div class="flex container">
            <form class="produit" method="get" action="ajoutpanier.php">
-              <img src="uploads/1.jpg" alt="">
+              <img src="uploads/10.jpg" alt="">
               <p>MSI MAG X570S TORPEDO MAX</p>
               <span>3594 MAD</span>
               <input type="hidden" value="1" name="id_produit" />

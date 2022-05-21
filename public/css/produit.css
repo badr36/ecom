@@ -1,0 +1,72 @@
+@import 'header.css';
+@import 'footer.css';
+@import 'general.css';
+
+.wrapper{
+    background-color: #F8F8F8;
+    padding: 40px;
+}
+
+/* PRODUIT */
+.produit{
+    display: flex;
+}
+/* IMAGE DU PRODUIT */
+.produit .produit-img img{
+    width: 100%;
+    height: auto;
+}
+
+.produit .produit-img{
+    width: 400px;
+    height: 400px;
+}
+/* END IMAGE */
+
+/* DETAIL PRODUIT */
+.produit .detail-produit{
+    padding-left: 40px;
+}
+.produit .detail-produit h3{
+    font-weight: 600;
+    font-size: 1.786em;
+    margin-bottom: 0.48em;
+    color: #333e48;
+}
+.produit .detail-produit ul{
+    list-style-type: square;
+    list-style-position: inside;
+}
+.produit .detail-produit ul{
+    line-height: 1.7;
+}
+
+.produit .detail-produit .disponibilite{
+    margin: 11px 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+.produit .detail-produit .disponibilite span{
+    color: #CA2E55;
+    font-weight: 600;
+}
+
+.ajouter-panier{
+    margin-top: 22px;
+}
+.ajouter-panier input{
+    padding: .5em;
+}
+
+.ajouter-panier button{
+    padding: 0.65em 1.4em;
+    margin-bottom: 5px;
+    border: 0;
+    background-color: #CA2E55;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* END DETAIL PRODUIT */
+/* END PRODUIT */
