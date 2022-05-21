@@ -96,7 +96,7 @@ if (isset($_POST['register'])){
                         <!--formulaire de connexion-->
                         <form class="login" method="post" action="">
                           <p class="before-login-text">Bienvenue! Connectez-vous à votre <br> compte.</p>
-                          <p class="paragraph">
+                          <p class="paragraph  <?php if (isset($_POST['login']) && array_key_exists('emailetmdp', $client->errors)) echo 'error'  ?>">
                             <label for="email"> E-mail<span class="required">*</span> </label>
                             <!--required= champ obligatoire-->
                             <input type="email" class="input-email" name="email" id="email" value="" required>
