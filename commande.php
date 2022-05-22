@@ -104,7 +104,7 @@ $commandes = $commande->getAll();
               </thead>
               <?php while ($cmd = $commandes->fetch()) : ?>
               <tr> 
-              <td><?=$cmd['id'] ?></td>
+              <td>n°<?=$cmd['id'] ?></td>
               <td><?=$cmd['date'] ?></td>
               <td><?=$cmd['status'] ?></td>
               <td><?=$commande->getTotal($cmd["id"])?> MAD</td> 

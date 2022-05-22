@@ -94,7 +94,7 @@ if(!isset($_SESSION['id_client']))
     
         <tbody>
             <tr>
-                <td><?=$cmd['nom']?>*<?= $cmd['qty']?></td>
+                <td><?=$cmd['nom']?><span class="qty"> x <?= $cmd['qty']?></span></td>
                 <td><?=$cmd['total_produit']?> MAD</td>
             </tr>
         </tbody>
