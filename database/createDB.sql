@@ -102,15 +102,17 @@ create table if not exists commandes (
     id int auto_increment,
     date timestamp not null,
     id_client int,
+    status varchar(50),
     primary key(id),
     FOREIGN KEY (id_client) REFERENCES clients(id)
 );
 
 -- INSERTION DANS LA TABLE DES COMMANDES
-insert into commandes (id_client, date) values (1, '2022-05-01 19:25:19'),
-                                                (2, '2020-03-01 14:20:19'),
-                                                (3, '2021-12-05 19:25:19'),
-                                                (4, '2022-10-08 10:12:10');
+insert into commandes (id_client, date ,status) values (1, '2022-05-01 19:25:19','En cours'),
+                                                (2, '2020-03-01 14:20:19','Livrée'),
+                                                (3, '2021-12-05 19:25:19','En attente'),
+                                                (4, '2022-10-08 10:12:10','Annuléé');
+
 
 
  -- CREATION DE LA TABLE DES LIGNES DE COMMANDES

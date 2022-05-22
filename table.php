@@ -24,7 +24,7 @@ if(!isset($_SESSION['id_client']))
 
                 <ul class="navbar">  
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="Information.php">Mon Compte</a></li>
+                    <li><a href="table.php">Mon Compte</a></li>
                 </ul>
             </div>
         </nav>

@@ -1,17 +1,19 @@
- <?php
-
+<?php
 session_start();
 require_once 'classes/Panier.php';
 require_once 'classes/Commande.php';
 
-if(!isset($_SESSION['id_client']))
-    header("location: conx-insc.php");
-   
+if(!isset($_POST['id_commande']))
+  header("location: index.php");
+
 $panier = new Panier();
 $commande = new Commande();
-$commandes = $commande->getAll();
+$commandes = $commande->get($_POST['id_commande']);
+$total=0;
 
 
+if(!isset($_SESSION['id_client']))
+    header("location: conx-insc.php");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,7 @@ $commandes = $commande->getAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="public/css/commande.css" >
+    <link rel="stylesheet" href="public/css/lignecommande.css" >
     <title>E-SHOP</title>
 </head>
 <body>
@@ -79,50 +81,39 @@ $commandes = $commande->getAll();
           </li>
         </ul>
     </nav>
-      <?php if ($commandes->rowcount()==0 ): ?>
-        <div class="containe">
-             <nav>
-             <a href="produits.php" class="Parcourir-des-produits" >Parcourir des produits</a>Aucune commande n’a encore été passée.
-             </nav>
-        </div>
-        <?php else : ?> 
-          <!-- <header class="entry-header">
-					    <h1>Commandes</h1>
-					</header>  -->
-        
-        <div class="tableview">
-          <table>  
-              <thead>
-                <tr>
-                    <th class="scope">COMMANDE</th>
-                    <th class="scope">DATE</th>
-                    <th class="scope">STATUS</th>
-                    <th class="scope">TOTAL</th>
-                    <th class="scope">ACTIONS</th>
-                    
-                </tr> 
-              </thead>
-              <?php while ($cmd = $commandes->fetch()) : ?>
-              <tr> 
-              <td><?=$cmd['id'] ?></td>
-              <td><?=$cmd['date'] ?></td>
-              <td><?=$cmd['status'] ?></td>
-              <td><?=$commande->getTotal($cmd["id"])?> MAD</td> 
-              <td>
-                          <form method="post" action="lignecommande.php">
-                            <input type="hidden" name="id_commande" value="<?=$cmd['id'] ?>">
-                              <button type="submit" class="view" name="view">
-                                Voir
-                                <i class="bi bi-eye-fill"></i>
-                              </button>
-                          </form>
-              </td>
-              </tr>
-              <?php endwhile ?> 
-              </table>
-              <?php endif; ?>
-            </div>
-        
+    <div class="containe">
+    <table>
+        <thead>
+            <tr>
+        <th>Produit</th>
+        <th >Total</th>
+            </tr>
+        </thead>
+      <?php while ($cmd = $commandes->fetch()) : ?>
+        <?php //echo "La commande n° " .$cmd['id']. "  a été passée le  " .$cmd['date']. "  et est actuellement  " .$cmd['status']. ".";?> 
+    
+        <tbody>
+            <tr>
+                <td><?=$cmd['nom']?>*<?= $cmd['qty']?></td>
+                <td><?=$cmd['total_produit']?> MAD</td>
+            </tr>
+        </tbody>
+       
+<?php endwhile ?>
+<tfoot>
+            <tr>
+                <th>Mode de paiement</th>
+                <td>Paiement à la livraison</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td><?=$commande->getTotal($_POST['id_commande'])?> MAD</td>
+            </tr>
+        </tfoot>
+</table>
+
+
+</div>
 </div>
 
 

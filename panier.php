@@ -2,6 +2,7 @@
 session_start();
 
 require_once 'classes/Panier.php';
+
 $panier = new Panier();
 
 $total = 0;
@@ -114,7 +115,10 @@ $total = 0;
         <div class="actions">
           <div class="btn-group">
             <button type="submit" name="submit" class="boutton boutton1">Mettre à jour le panier</button>
+            
             <button class="boutton boutton2">Valider la commande </button>
+          
+            
 
           </div>
     </form>
