@@ -3,16 +3,21 @@ session_start();
 
 require_once 'classes/Produit.php';
 require_once 'classes/Panier.php';
+require_once 'classes/Commentaire.php';
+
 if (!isset($_GET['id']))
     header("location: index.php");
+
 $panier = new Panier();
 $produit = new Produit();
+$commentaire = new Commentaire();
+$commentaires = $commentaire->getAll($_GET['id']);
+
 $infos_produit = $produit->get($_GET["id"]);
 $desc_produit = $produit->getDesc($_GET["id"]);
 
-if(isset($_POST['ajoutqty']))
-{
-    $panier->ajoutqty($_POST['id'],$_POST['qty']);
+if (isset($_POST['ajoutqty'])) {
+    $panier->ajoutqty($_POST['id'], $_POST['qty']);
 }
 
 ?>
@@ -81,7 +86,7 @@ if(isset($_POST['ajoutqty']))
                 <?php if ($infos_produit['stock'] > 0) : ?>
                     <p class="disponibilite">Disponibilité: <span>En Stock</span></p>
                     <div class="ajouter-panier">
-                        <input type="number" name="qty" min="1" max="<?= $infos_produit['stock'] ?>">
+                        <input type="number" name="qty" min="1" max="<?= $infos_produit['stock'] ?>" required>
                         <input type="hidden" value="<?= $infos_produit['id'] ?>" name="id">
                         <button type="submit" name="ajoutqty">Ajouter au panier</button></a>
                     </div>
@@ -89,6 +94,23 @@ if(isset($_POST['ajoutqty']))
                     <p class="disponibilite">Disponibilité: <span style="color: #f04545;">Rupture de stock</span></p>
                 <?php endif ?>
             </div>
+        </form>
+    </div>
+
+    <div class="les-avis wrapper">
+        <h2>Avis</h2>
+        <?php while($com = $commentaires->fetch()): ?>
+
+            <div class="avis container">
+                <h4><?= $com['prenom'] . ' ' . $com['nom']?></h4>
+                <p><?= $com['contenu']?></p>
+            </div>
+        
+        <?php endwhile ?>
+        <form action="" method="POST" class="container">
+            <label for="">Votre Avis</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <button type="submit" name="submit">Envoyer</button>
         </form>
     </div>
 </body>

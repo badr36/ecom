@@ -3,13 +3,28 @@
 @import 'general.css';
 
 .wrapper{
-    background-color: #F8F8F8;
+    background-color: #F7FAFB;
     padding: 40px;
 }
 
 /* PRODUIT */
 .produit{
     display: flex;
+}
+
+@media (max-width: 800px)
+{
+    .produit{
+        flex-direction: column;
+    }
+
+    .produit .produit-img{
+        width: 100% !important;
+        height: auto !important;
+    }
+    .produit .detail-produit{
+        padding-left: 0 !important;
+    }
 }
 /* IMAGE DU PRODUIT */
 .produit .produit-img img{
@@ -70,4 +85,68 @@
 }
 
 /* END DETAIL PRODUIT */
+/* AVIS */
+.les-avis h2{
+    text-align: center;
+    color: #333e48;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: .5em;
+}
+
+.les-avis .avis{
+    padding: 1em 0;
+    
+}
+.les-avis .avis h4{
+    margin-bottom: .6em;
+    font-size: 14px;
+    font-weight: 500;
+}
+.les-avis .avis p{
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #FFF;
+    border: 1px solid #d5e3ec;
+    box-shadow: 0 2px 4px #d8e1e8;
+    border-radius: 3px;
+    padding: 16px;
+}
+.les-avis form label{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: .85em;
+    margin-top: 2em;
+    margin-bottom: 8px;
+    display: block;
+}
+.les-avis form textarea{
+    box-shadow: 0 1px 10px rgb(0 0 0 / 5%);
+    border: solid 1px #d5e3ec;
+    background-color: #f7fafb;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 8px;
+    font-size: 1.2em;
+}
+.les-avis form button{
+    background: #CA2E55;
+    border: solid 1px #CA2E55;
+    padding: 9px 20px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 1px 2px rgb(36 57 141 / 40%);
+    border-radius: 4px;
+    line-height: 1.6;
+    font-family: Inter,sans-serif;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    font-size: .9em;
+    filter: brightness(1);
+    white-space: nowrap;
+    margin-top: 5px;
+}
+/* END AVIS */
 /* END PRODUIT */
