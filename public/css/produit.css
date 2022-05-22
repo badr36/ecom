@@ -55,7 +55,8 @@
     margin-top: 22px;
 }
 .ajouter-panier input{
-    padding: .5em;
+    padding: .5em 0.5em ;
+    width: 10em;
 }
 
 .ajouter-panier button{

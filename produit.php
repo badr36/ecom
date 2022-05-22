@@ -3,8 +3,17 @@ session_start();
 
 require_once 'classes/Produit.php';
 require_once 'classes/Panier.php';
+if (!isset($_GET['id']))
+    header("location: index.php");
 $panier = new Panier();
 $produit = new Produit();
+$infos_produit = $produit->get($_GET["id"]);
+$desc_produit = $produit->getDesc($_GET["id"]);
+
+if(isset($_POST['ajoutqty']))
+{
+    $panier->ajoutqty($_POST['id'],$_POST['qty']);
+}
 
 ?>
 
@@ -57,27 +66,30 @@ $produit = new Produit();
     </header>
     <div class="wrapper">
 
-        <div class="produit container">
+        <form class="produit container" action="" method="POST">
+
             <div class="produit-img">
-                <img src="uploads/10.jpg" alt="produit">
+                <img src="uploads/<?= $infos_produit['image'] ?>" alt="produit">
             </div>
             <div class="detail-produit">
-                <h3>Cooler Master MWE 550W V2 Bronze</h3>
+                <h3><?= $infos_produit['nom'] ?></h3>
                 <ul>
-                    <li>Désignation : Cooler Master MWE Bronze 550W V2</li>
-                    <li>Norme 80 PLUS : 80 Plus Bronze</li>
-                    <li>Modulaire : Non</li>
-                    <li>Modularité : Non Modulaire</li>
-                    <li>Connecteur(s) alimentation :1 X +12V (Alimentation P8 – 2 x P4)</li>
-                    <li>Format Alimentation : ATX/EPS</li>
+                    <?php while ($desc = $desc_produit->fetch()) : ?>
+                        <li><?= $desc['contenu'] ?></li>
+                    <?php endwhile; ?>
                 </ul>
-                <p class="disponibilite">Disponibilité: <span>En Stock</span></p>
-                <div class="ajouter-panier">
-                    <input type="number">
-                    <button type="submit">Ajouter au panier</button>
-                </div>
+                <?php if ($infos_produit['stock'] > 0) : ?>
+                    <p class="disponibilite">Disponibilité: <span>En Stock</span></p>
+                    <div class="ajouter-panier">
+                        <input type="number" name="qty" min="1" max="<?= $infos_produit['stock'] ?>">
+                        <input type="hidden" value="<?= $infos_produit['id'] ?>" name="id">
+                        <button type="submit" name="ajoutqty">Ajouter au panier</button></a>
+                    </div>
+                <?php else : ?>
+                    <p class="disponibilite">Disponibilité: <span style="color: #f04545;">Rupture de stock</span></p>
+                <?php endif ?>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 
