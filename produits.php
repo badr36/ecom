@@ -105,15 +105,18 @@ $produits = $produit->getAll($min, $max);
             <div class="grid">
             <?php while ($produit = $produits->fetch()) : ?>
                 <form class="produit" method="get" action="ajoutpanier.php">
-                    <img src="uploads/<?=$produit['image'] ?>" alt="">
-                    <p><?=$produit['nom'] ?></p>
+                    <a href="produit.php?id=<?=$produit['id'] ?>"><img src="uploads/<?=$produit['image'] ?>" alt=""></a> 
+                    <p><a href="produit.php?id=<?=$produit['id'] ?>"><?=$produit['nom'] ?></a></p> 
                     <span><?=$produit['prix'] ?> MAD</span>
                     <input type="hidden" value="<?=$produit['id'] ?>" name="id_produit" />
-                    <?php if($panier->exists($produit['id'])): ?>
-                    <a href="panier.php"><button type="button">Voir le panier</button></a>
-                    
+                    <?php if($produit['stock']>0): ?>
+                        <?php if($panier->exists($produit['id'])): ?>
+                            <a href="panier.php"><button type="button">Voir le panier</button></a>
+                        <?php else: ?>
+                            <button type="submit" onclick="setScroll()" name="ajoutpanier">Ajouter au panier</button>
+                        <?php endif; ?>
                     <?php else: ?>
-                    <button type="submit" onclick="setScroll()">Ajouter au panier</button>
+                            <button type="submit" onclick="setScroll()" disabled>Ajouter au panier</button>
                     <?php endif; ?>
                     
                     

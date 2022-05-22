@@ -21,5 +21,15 @@ class Produit extends DB{
     {
         return $this->query("SELECT MAX(prix) max from produits")->fetch()['max'];
     }
+    public function get($id)
+    {
+        return $this->query("SELECT * FROM produits WHERE id=?",array($id))->fetch();
+    }
+    public function getDesc($id)
+    {
+        return $this->query("SELECT contenu FROM descriptions WHERE id_produit=?",array($id));
+    }
+
+    
 }
 ?>

@@ -1,0 +1,152 @@
+@import 'header.css';
+@import 'footer.css';
+@import 'general.css';
+
+.wrapper{
+    background-color: #F7FAFB;
+    padding: 40px;
+}
+
+/* PRODUIT */
+.produit{
+    display: flex;
+}
+
+@media (max-width: 800px)
+{
+    .produit{
+        flex-direction: column;
+    }
+
+    .produit .produit-img{
+        width: 100% !important;
+        height: auto !important;
+    }
+    .produit .detail-produit{
+        padding-left: 0 !important;
+    }
+}
+/* IMAGE DU PRODUIT */
+.produit .produit-img img{
+    width: 100%;
+    height: auto;
+}
+
+.produit .produit-img{
+    width: 400px;
+    height: 400px;
+}
+/* END IMAGE */
+
+/* DETAIL PRODUIT */
+.produit .detail-produit{
+    padding-left: 40px;
+}
+.produit .detail-produit h3{
+    font-weight: 600;
+    font-size: 1.786em;
+    margin-bottom: 0.48em;
+    color: #333e48;
+}
+.produit .detail-produit ul{
+    list-style-type: square;
+    list-style-position: inside;
+}
+.produit .detail-produit ul{
+    line-height: 1.7;
+}
+
+.produit .detail-produit .disponibilite{
+    margin: 11px 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+.produit .detail-produit .disponibilite span{
+    color: #CA2E55;
+    font-weight: 600;
+}
+
+.ajouter-panier{
+    margin-top: 22px;
+}
+.ajouter-panier input{
+    padding: .5em 0.5em ;
+    width: 10em;
+}
+
+.ajouter-panier button{
+    padding: 0.65em 1.4em;
+    margin-bottom: 5px;
+    border: 0;
+    background-color: #CA2E55;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* END DETAIL PRODUIT */
+/* AVIS */
+.les-avis h2{
+    text-align: center;
+    color: #333e48;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: .5em;
+}
+
+.les-avis .avis{
+    padding: 1em 0;
+    
+}
+.les-avis .avis h4{
+    margin-bottom: .6em;
+    font-size: 14px;
+    font-weight: 500;
+}
+.les-avis .avis p{
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #FFF;
+    border: 1px solid #d5e3ec;
+    box-shadow: 0 2px 4px #d8e1e8;
+    border-radius: 3px;
+    padding: 16px;
+}
+.les-avis form label{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: .85em;
+    margin-top: 2em;
+    margin-bottom: 8px;
+    display: block;
+}
+.les-avis form textarea{
+    box-shadow: 0 1px 10px rgb(0 0 0 / 5%);
+    border: solid 1px #d5e3ec;
+    background-color: #f7fafb;
+    width: 100%;
+    resize: none;
+    outline: 0;
+    padding: 8px 8px;
+    font-size: 1.2em;
+}
+.les-avis form button{
+    background: #CA2E55;
+    border: solid 1px #CA2E55;
+    padding: 9px 20px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 1px 2px rgb(36 57 141 / 40%);
+    border-radius: 4px;
+    line-height: 1.6;
+    font-family: Inter,sans-serif;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    font-size: .9em;
+    filter: brightness(1);
+    white-space: nowrap;
+    margin-top: 5px;
+}
+/* END AVIS */
+/* END PRODUIT */

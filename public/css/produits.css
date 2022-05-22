@@ -23,7 +23,15 @@
   background-color: #CA2E55;
   color: #FFF;
 }
-
+.right .produit button:disabled{
+  cursor: not-allowed; 
+  
+}
+.produits .produit:hover button:disabled{
+  background-color: transparent;
+  color: #C8C8C8;
+  
+}
 .produits .produit p{
   min-height: 43px;
 }

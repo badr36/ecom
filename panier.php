@@ -117,9 +117,6 @@ $total = 0;
             <button type="submit" name="submit" class="boutton boutton1">Mettre à jour le panier</button>
             
             <button class="boutton boutton2">Valider la commande </button>
-          
-            
-
           </div>
     </form>
     <!-- section total  -->

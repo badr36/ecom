@@ -68,6 +68,15 @@ nav.pageactuel{
 h1.container{
   margin-bottom: 40px;
 }
+h1 .icon{
+  position: relative;
+  top: 9px;
+}
+h1{
+  font-size:medium;
+  font-weight: 400;
+}
+
 
 /* error message */
 .error-message {

@@ -3,6 +3,7 @@
 require_once __DIR__ . '/DB.php';
 
 class Panier extends DB{
+    public $errors= array();
     public function __construct()
     {
         if(!isset($_SESSION['panier']) && !isset($_SESSION['id_client'])){
@@ -128,6 +129,62 @@ class Panier extends DB{
             return (array_key_exists($id_produit,$_SESSION['panier']));
         }
 
+    }
+    public function produitdispo($id_produit){
+        if(isset($_SESSION['id_client'])){
+            return $this->query('SELECT qty FROM paniers WHERE id_client=? AND id_produit=?',array($_SESSION['id_client'],$id_produit))->fetch()['qty'];
+        }
+        else
+            return $_SESSION['panier'][$_GET['id']];
+    }
+    public function ajoutqty($id_produit, $qty){
+            $stock=$this->query('SELECT stock FROM produits WHERE id=?',array($id_produit))->fetch()['stock'];
+            if(isset($_SESSION['id_client']))
+            {
+                $qtypanier=0;
+                
+                if($this->exists($id_produit))
+                {
+                    $qtypanier=$this->produitdispo($id_produit);
+                
+                    if($qty+$qtypanier<=$stock)
+                    {
+                        $this->query('UPDATE paniers SET qty=qty+? WHERE id_produit=?',array($qty,$id_produit));
+                    }
+                    else
+                        $errors['qty indispo']='qté indispo';
+                }
+                else
+                {
+                    if($qty<=$stock)
+                    {
+                        $this->query('INSERT INTO paniers VALUES(NULL,?,?,?)', array($qty,$_SESSION['id_client'],$id_produit)) ;
+                    }
+                    else
+                        $errors['qty indispo']='qté indispo';
+                }
+            }
+            else
+            {
+                if($this->exists($id_produit))
+                {
+                    $qtypanier=$this->produitdispo($id_produit);
+                    if($qty+$qtypanier<=$stock){
+                        $_SESSION['panier'][$id_produit]+=$qty;
+                    }
+                    else
+                    $errors['qty indispo']='qté indispo';
+
+                }
+                else
+                {
+                    if($qty<=$stock){
+                        $_SESSION['panier'][$id_produit]=$qty;
+                    }
+                    else
+                    $errors['qty indispo']='qté indispo';
+                }
+            }
     }
 }
 
