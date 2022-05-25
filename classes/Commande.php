@@ -18,4 +18,5 @@ class Commande extends DB{
         return $this->query("SELECT SUM(prix*qty) as total from ligne_commandes ligne, produits prod 
                     where prod.id=ligne.id_produit and id_commande=? ",array($id))->fetch()["total"];
     }
+    
 }

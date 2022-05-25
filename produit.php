@@ -107,11 +107,17 @@ if (isset($_POST['ajoutqty'])) {
             </div>
         
         <?php endwhile ?>
-        <form action="" method="POST" class="container">
-            <label for="">Votre Avis</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+        <?php if(isset($_SESSION['id_client'])):?>
+            <?php if($produit->estAcheterPar($infos_produit['id'],$_GET['id'])):?>
+
+        <form action="ajoutavis.php" method="POST" class="container">
+            <label for="avis">Votre Avis</label>
+            <textarea name="avis" id="avis" cols="30" rows="10"></textarea>
             <button type="submit" name="submit">Envoyer</button>
+            <input type="hidden" name="id_produit" value="<?= $infos_produit['id'] ?>">
         </form>
+            <?php endif ?>
+        <?php endif ?>
     </div>
 </body>
 
