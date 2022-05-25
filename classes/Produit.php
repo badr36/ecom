@@ -29,7 +29,10 @@ class Produit extends DB{
     {
         return $this->query("SELECT contenu FROM descriptions WHERE id_produit=?",array($id));
     }
-
+    public function estAcheterPar($id_produit,$id_client)
+    {
+        return $this->query('SELECT * FROM ligne_commandes ligne,commandes cmd WHERE ligne.id_commande=cmd.id AND ligne.id_produit=? AND cmd.id_client=?',array($id_produit,$id_client))->rowCount()>0;
+    }
     
 }
 ?>
