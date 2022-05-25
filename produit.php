@@ -70,7 +70,9 @@ if (isset($_POST['ajoutqty'])) {
         </div>
     </header>
     <div class="wrapper">
-
+        <div class="error container">
+            <p>Vous ne pouvez pas ajouter cette quantité dans le panier — nous en avons 8 en stock et vous en avez déjà 2 dans votre panier.</p>
+        </div>
         <form class="produit container" action="" method="POST">
 
             <div class="produit-img">
@@ -99,13 +101,13 @@ if (isset($_POST['ajoutqty'])) {
 
     <div class="les-avis wrapper">
         <h2>Avis</h2>
-        <?php while($com = $commentaires->fetch()): ?>
+        <?php while ($com = $commentaires->fetch()) : ?>
 
             <div class="avis container">
-                <h4><?= $com['prenom'] . ' ' . $com['nom']?></h4>
-                <p><?= $com['contenu']?></p>
+                <h4><?= $com['prenom'] . ' ' . $com['nom'] ?></h4>
+                <p><?= $com['contenu'] ?></p>
             </div>
-        
+
         <?php endwhile ?>
         <form action="" method="POST" class="container">
             <label for="">Votre Avis</label>
