@@ -5,7 +5,6 @@
     padding: 30px 30px 20px 30px;
     color: #2f2f2f;
     background-color: #fff;
-    border-top: 1px solid #e5e5e5;
     margin-top: 1.2em;
   }
   
@@ -84,7 +83,6 @@
   }
   
   .nav__ul--extra {
-    column-count: 2;
     column-gap: 1.25em;
   }
   
@@ -111,7 +109,7 @@
   
   @media screen and (min-width: 40.375em) {
     .footer__nav > * {
-      flex: 1;
+      flex: 5;
     }
     
     .nav__item--extra {
@@ -119,7 +117,7 @@
     }
     
     .footer__addr {
-      flex: 1 0px;
+      flex: 5 0px;
     }
     
     .footer__nav {

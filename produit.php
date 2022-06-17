@@ -70,9 +70,9 @@ if (isset($_POST['ajoutqty'])) {
         </div>
     </header>
     <div class="wrapper">
-        <div class="error container">
+        <!-- <div class="error container">
             <p>Vous ne pouvez pas ajouter cette quantité dans le panier — nous en avons 8 en stock et vous en avez déjà 2 dans votre panier.</p>
-        </div>
+        </div> -->
         <form class="produit container" action="" method="POST">
 
             <div class="produit-img">

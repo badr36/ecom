@@ -18,7 +18,7 @@ table{
 }
 .info-product{
   margin-left: 45px;
-  padding: 25px;
+  transform: translateY(30%);
 }
 th{ 
   text-align: left; 
@@ -97,4 +97,15 @@ h3.panier-vide{
   text-align: center;
   font-size: 3rem;
   font-weight: 300;
+}
+
+@media (max-width: 850px)
+{
+  .cart-info img{
+    display: none;
+  }
+
+  .info-product{
+    transform: none;
+  }
 }

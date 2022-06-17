@@ -10,7 +10,6 @@
 /* BANNER */
 .banner{
     background-color: #EBECF1;
-    padding: 1.7rem 0;
 }
 
 .banner .container{
@@ -19,12 +18,13 @@
 }
 
 .banner .left{
-    padding: 1.5em 0;
+    padding: 4.5em 0;
 }
 
 .banner .left .banner-title{
     font-weight: 300;
     font-size: 2.4rem;
+    width: 75%;
 }
 
 .banner .left .price{

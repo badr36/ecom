@@ -50,6 +50,7 @@
 
 /* DETAIL PRODUIT */
 .produit .detail-produit{
+    padding-top: 30px;
     padding-left: 40px;
 }
 .produit .detail-produit h3{
