@@ -36,7 +36,13 @@ $getcategorie = $commande->getCategorie();
     </div>
 
     <main>
-        <div class="infos">
+        <div class="bar">
+        <ul>
+          <li>Admin</li>
+          <li>Logout</li>
+        </ul>
+        </div>
+          <div class="infos">
             <div class="info">
                 <img src="public/images/sales.svg" alt="">
                 <div class="flex">
