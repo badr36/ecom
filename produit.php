@@ -77,9 +77,12 @@ if(isset($_SESSION['id_client']))
         </div>
     </header>
     <div class="wrapper">
-        <!-- <div class="error container">
-            <p>Vous ne pouvez pas ajouter cette quantité dans le panier — nous en avons 8 en stock et vous en avez déjà 2 dans votre panier.</p>
-        </div> -->
+        <?php if(isset($_SESSION['qty indispo'])): ?>
+            <div class="error container">
+                <p>Vous ne pouvez pas ajouter cette quantité dans le panier — nous en avons <?= $infos_produit['stock'] ?> en stock et vous en avez déjà <?= $panier->produitdispo($infos_produit['id'])?> dans votre panier.</p>
+            </div>
+            <?php unset($_SESSION['qty indispo']) ?>
+        <?php endif ?>
         <form class="produit container" action="" method="POST">
 
             <div class="produit-img">

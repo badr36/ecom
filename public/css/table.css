@@ -6,6 +6,7 @@
 
   float: left;
   width: 75%;
+  margin-top: 0.4rem;
 }
 .info {
   display: flex;

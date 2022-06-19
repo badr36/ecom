@@ -3,7 +3,7 @@
 require_once __DIR__ . '/DB.php';
 
 class Panier extends DB{
-    public $errors= array();
+    public $errors = array();
     public function __construct()
     {
         if(!isset($_SESSION['panier']) && !isset($_SESSION['id_client'])){
@@ -152,7 +152,7 @@ class Panier extends DB{
                         $this->query('UPDATE paniers SET qty=qty+? WHERE id_produit=?',array($qty,$id_produit));
                     }
                     else
-                        $errors['qty indispo']='qté indispo';
+                        $_SESSION['qty indispo']='qté indispo';
                 }
                 else
                 {
@@ -161,7 +161,7 @@ class Panier extends DB{
                         $this->query('INSERT INTO paniers VALUES(NULL,?,?,?)', array($qty,$_SESSION['id_client'],$id_produit)) ;
                     }
                     else
-                        $errors['qty indispo']='qté indispo';
+                        $_SESSION['qty indispo']='qté indispo';
                 }
             }
             else
@@ -173,7 +173,7 @@ class Panier extends DB{
                         $_SESSION['panier'][$id_produit]+=$qty;
                     }
                     else
-                    $errors['qty indispo']='qté indispo';
+                    $_SESSION['qty indispo']='qté indispo';
 
                 }
                 else
@@ -182,7 +182,7 @@ class Panier extends DB{
                         $_SESSION['panier'][$id_produit]=$qty;
                     }
                     else
-                    $errors['qty indispo']='qté indispo';
+                        $_SESSION['qty indispo']='qté indispo';
                 }
             }
     }
