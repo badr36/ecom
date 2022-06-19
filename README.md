@@ -5,7 +5,7 @@
 - [X] affichage des produits et des commentaires associes
 - [X] ajouter un commentaire
 - [ ] validation commande
-- [ ] menu bar
-- [ ] index
-- [ ] footer
-- [ ] nom du client  
+- [X] index
+- [X] footer
+- [X] nom du client  
+- [ ] admin

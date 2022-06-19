@@ -20,6 +20,13 @@ if (isset($_POST['ajoutqty'])) {
     $panier->ajoutqty($_POST['id'], $_POST['qty']);
 }
 
+require_once 'classes/Client.php';
+if(isset($_SESSION['id_client']))
+{
+  $client = new Client();
+  $c = $client->get($_SESSION['id_client']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +49,7 @@ if (isset($_POST['ajoutqty'])) {
                 <ul class="navbar">
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="<?php if (isset($_SESSION['id_client'])) echo 'table.php';
-                                    else echo 'conx-insc.php'; ?>">Mon Compte</a></li>
+                                    else echo 'conx-insc.php'; ?>"><?php if (!isset($_SESSION['id_client'])) echo 'Mon Compte'; else echo $c['prenom'] . ' ' . $c['nom']; ?></a></li>
                 </ul>
             </div>
         </nav>

@@ -37,7 +37,7 @@ $infoClient = $client->get($_SESSION['id_client']);
 
                 <ul class="navbar">  
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="compte.php">Mon Compte</a></li>
+                    <li><a href="table.php"><?php if (!isset($_SESSION['id_client'])) echo 'Mon Compte'; else echo $infoClient['prenom'] . ' ' . $infoClient['nom']; ?></a></li>
                 </ul>
             </div>
         </nav>
@@ -132,96 +132,36 @@ $infoClient = $client->get($_SESSION['id_client']);
         
     </form>
 </div>
-    <footer class="footer">
-        <div class="footer__addr">
-          <h1 class="footer__logo">Something</h1>
-              
-          <h2>Contact</h2>
-          
-          <address>
-            5534 Somewhere In. The World 22193-10212<br>
-                
-            <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
-          </address>
+<footer>
+    <div class="container">
+      <div class="presentation">
+        <p>La boutique e-shop est un lieu où des experts de l’informatique et du high-tech conseillent et orientent les clients marocains. C’est également un espace où nous créons des machines sur-mesure et réparent des produits. Atlas Gaming est la première boutique gaming qui offre des produits sous License officielle provenant des plus grandes marques de gaming au monde. Cela, afin de garantir une qualité exceptionnelle, des produits authentiques sous garantie fabriquant et des prix imbattables.</p>
+      </div>
+      <div class="columns">
+        <div class="footer-col">
+          <h4>catégories</h4>
+          <ul>
+            <li><a href="produits.php?categorie=1">Laptops</a></li>
+            <li><a href="produits.php?categorie=2">Composants</a></li>
+            <li><a href="produits.php?categorie=3">Périphériques PC</a></li>
+          </ul>
         </div>
-        
-        <ul class="footer__nav">
-          <li class="nav__item">
-            <h2 class="nav__title">Media</h2>
-      
-            <ul class="nav__ul">
-              <li>
-                <a href="#">Online</a>
-              </li>
-      
-              <li>
-                <a href="#">Print</a>
-              </li>
-                  
-              <li>
-                <a href="#">Alternative Ads</a>
-              </li>
-            </ul>
-          </li>
-          
-          <li class="nav__item nav__item--extra">
-            <h2 class="nav__title">Technology</h2>
-            
-            <ul class="nav__ul nav__ul--extra">
-              <li>
-                <a href="#">Hardware Design</a>
-              </li>
-              
-              <li>
-                <a href="#">Software Design</a>
-              </li>
-              
-              <li>
-                <a href="#">Digital Signage</a>
-              </li>
-              
-              <li>
-                <a href="#">Automation</a>
-              </li>
-              
-              <li>
-                <a href="#">Artificial Intelligence</a>
-              </li>
-              
-              <li>
-                <a href="#">IoT</a>
-              </li>
-            </ul>
-          </li>
-          
-          <li class="nav__item">
-            <h2 class="nav__title">Legal</h2>
-            
-            <ul class="nav__ul">
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              
-              <li>
-                <a href="#">Terms of Use</a>
-              </li>
-              
-              <li>
-                <a href="#">Sitemap</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        
-        <div class="legal">
-          <p>&copy; 2019 Something. All rights reserved.</p>
-          
-          <div class="legal__links">
-            <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
-          </div>
+        <div class="footer-col">
+          <h4>Espace clients</h4>
+          <ul>
+            <li><a href="<?php if (isset($_SESSION['id_client'])) echo 'table.php';
+                          else echo 'conx-insc.php'; ?>">Mon compte</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
         </div>
-      </footer>
-    
+      </div>
+
+    </div>
+    <div class="copyright">
+      <p class="container">2022 © E-SHOP - All Rights Reserved</p>
+    </div>
+  </footer>
+
       
 </body>
 </html>
