@@ -1,0 +1,57 @@
+@import 'sidebar.css';
+
+
+
+
+
+.infos{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+}
+
+.infos .info{
+    padding: 1rem 0;
+    background-color: #F3F6F9;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    display: flex;
+    
+}
+
+.infos .info .flex{
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.infos .info img{
+    width: 50px;
+    margin-right: 2em;
+    margin-left: 1em;
+}
+
+.infos .info .flex .info-desc{
+    color: #757575;
+}
+
+.infos .info .flex .price{
+    font-weight: 600;
+}
+
+.charts{
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(400px, 1fr) );
+
+}
+.charts .chart{
+    height: 400px;
+}
+
+.chart{
+    height: 400px;
+}
+
+.anychart-credits{
+    display: none;
+}

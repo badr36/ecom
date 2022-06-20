@@ -405,3 +405,8 @@ h1 .icon{
   .error .error-message {
     display: inline-block;
   }
+
+  .form-row button[type="submit"]
+  {
+    margin-top: 1.2em;
+  }

@@ -10,7 +10,6 @@
 /* BANNER */
 .banner{
     background-color: #EBECF1;
-    padding: 1.7rem 0;
 }
 
 .banner .container{
@@ -19,12 +18,13 @@
 }
 
 .banner .left{
-    padding: 1.5em 0;
+    padding: 4.5em 0;
 }
 
 .banner .left .banner-title{
     font-weight: 300;
     font-size: 2.4rem;
+    width: 75%;
 }
 
 .banner .left .price{
@@ -35,13 +35,18 @@
 
 .banner .left .buy-now{
     width: 55%;
-    padding: 1em 2em;
     background-color: #bdb246;
     border: none;
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
     color: white;
+}
+
+.banner .left .buy-now a{
+  padding: 1em 2em;
+  display: inline-block;
+  width: 100%;
 }
 
 
@@ -70,6 +75,28 @@
     width: 85%;
   }
   
+}
+
+@media (max-width: 650px)
+{
+  .banner .container{
+    flex-direction: column-reverse;
+  }
+
+  .banner .right img{
+    margin: 0 auto;
+    display: block;
+  }
+
+  .banner .container .left{
+    margin: 0 auto;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .banner .left .banner-title{
+    width: 100%;
+  }
 }
 /* END BANNER */
 

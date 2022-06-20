@@ -4,7 +4,17 @@
 
 .wrapper{
     background-color: #F7FAFB;
-    padding: 40px;
+    padding: 0px 0 40px;
+}
+
+.wrapper .error p{
+    background-color: #EE0000;
+    color: #FFF;
+    border-left: 10px solid #CB0000;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    font-size: .9rem;
+    font-weight: 400;
 }
 
 /* PRODUIT */
@@ -40,6 +50,7 @@
 
 /* DETAIL PRODUIT */
 .produit .detail-produit{
+    padding-top: 30px;
     padding-left: 40px;
 }
 .produit .detail-produit h3{

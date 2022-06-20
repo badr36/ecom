@@ -3,13 +3,27 @@
 require_once __DIR__ . '/DB.php';
 
 class Produit extends DB{
-    public function getAll($min, $max){
+    public function getAll($min, $max, $cat = false){
         $produit= $this->query('SELECT * FROM produits WHERE prix BETWEEN ? AND ?', array($min, $max));
-       if(isset($_GET['search'])){
-           $recherche = htmlspecialchars($_GET['search']);
-           $produit = $this->query("SELECT * FROM produits WHERE nom LIKE '%$recherche%' AND prix BETWEEN ? AND ?", array($min, $max));
-       }
-       return $produit;
+        $recherche = '';
+        if(isset($_GET['search'])){
+            $recherche = htmlspecialchars($_GET['search']);
+        }
+        if($cat)
+            return $this->query("SELECT * FROM produits WHERE nom LIKE '%$recherche%' AND prix BETWEEN ? AND ? AND id_categorie=?", array($min, $max, $cat));
+
+        return $this->query("SELECT * FROM produits WHERE nom LIKE '%$recherche%' AND prix BETWEEN ? AND ?", array($min, $max));
+    
+    }
+
+    public function getPopularProducts()
+    {
+        return $this->query("SELECT *, count(*) nb from ligne_commandes lc, produits p WHERE lc.id_produit=p.id GROUP by p.id ORDER BY nb DESC LIMIT 8");
+    }
+
+    public function getPopularProduct()
+    {
+        return $this->query("SELECT *, count(*) nb from ligne_commandes lc, produits p WHERE lc.id_produit=p.id GROUP by p.id ORDER BY nb DESC LIMIT 1")->fetch();
     }
 
     public function getPrixMin()
