@@ -4,15 +4,13 @@ if (!isset($_GET["id"]))
     header("location:produits.php");
 
 $produit = new Produit();
-$p = $produit->get($_GET["id"]);
-if (isset($_POST["submit"])) {
-    $produit->modifier($_GET["id"]);
-    header("location:produits.php");
-}
+$p=$produit->get($_GET["id"]);
+$description=$produit->getDescription($_GET["id"]);
+if(isset($_POST["submit"])){
+$produit->modifier($_GET["id"]);
 
-
-
-
+header("location:produits.php");
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,10 +82,12 @@ if (isset($_POST["submit"])) {
                     <th>Description</th>
                     <th>Supprimer</th>
                 </tr>
-                <tr>
-                    <td><input type="text" name="description" value=""></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                </tr>
+                <?php while ($d = $description->fetch()) : ?>
+            <tr>
+                <td><input type="text" name="description['<?=$d["id"]?>']" value="<?=$d["contenu"]?>"></td>
+                <td><input type="checkbox" name="tab['<?=$d["id"]?>']"></td>
+            </tr>
+            <?php endwhile ?>
             </table>
             <input type="submit" name="submit" value="Mettre à jour">
         </form>

@@ -102,4 +102,5 @@ input[type="submit"]
     border-radius: 3px; 
     background-color: #CA2E55;
     color: white;
+    cursor: pointer;
 }
