@@ -117,7 +117,7 @@ create table if not exists clients(
     adresse_2 varchar(255),
     telephone varchar(50),
     email varchar(255) not null,
-    mdp varchar(255) not null,
+    mdp varchar(255) null,
     primary key(id)
 );
 

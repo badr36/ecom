@@ -164,7 +164,7 @@ $getcategorie = $commande->getCategorie();
 
       // set chart title text settings
       chart
-        .title('Commande / Ville')
+        .title('Commande / Catégorie')
         // set chart radius
         .radius('43%')
         // create empty area in pie chart

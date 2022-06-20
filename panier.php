@@ -122,8 +122,9 @@ if(isset($_SESSION['id_client']))
         <div class="actions">
           <div class="btn-group">
             <button type="submit" name="submit" class="boutton boutton1">Mettre à jour le panier</button>
-
-            <button class="boutton boutton2">Valider la commande </button>
+                <button class="boutton boutton2"> 
+                <a href="validation.php">Valider la commande</a>
+                </button>
           </div>
       </form>
       <!-- section total  -->
