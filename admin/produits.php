@@ -1,7 +1,8 @@
 <?php
 require_once 'classes/Produits.php';
-$produits = new Produits();
-$produit=$produits->getProducts();
+$produit = new Produit();
+$produits=$produit->getAll();
+
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +41,7 @@ $produit=$produits->getProducts();
             <th colspan="2">Actions</th>
             
         </tr>
-        <?php while ($p = $produit->fetch()) : ?>
+        <?php while ($p = $produits->fetch()) : ?>
         <tr>
             <td>
                 <div class="cart-info">

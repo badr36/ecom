@@ -28,7 +28,7 @@ $getcategorie = $commande->getCategorie();
         <h1>E-<span style="color: #CA2E55;">SHOP</span></h1>
         <ul>
             <li class="active"><a href="index.html">Tableau de Bord</a></li>
-            <li><a href="index.html">Produits</a></li>
+            <li><a href="produits.php">Produits</a></li>
             <li><a href="index.html">Commandes</a></li>
             <li><a href="index.html">Clients</a></li>
             <li><a href="index.html">Logout</a></li>

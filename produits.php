@@ -28,6 +28,13 @@ if(isset($_GET['submitFilter']))
 
 $produits = $produit->getAll($min, $max, $cat);
 $categories = $categorie->getAll();
+
+require_once 'classes/Client.php';
+if(isset($_SESSION['id_client']))
+{
+  $client = new Client();
+  $c = $client->get($_SESSION['id_client']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +58,7 @@ $categories = $categorie->getAll();
 
                 <ul class="navbar">
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="<?php if(isset($_SESSION['id_client'])) echo 'table.php' ; else echo 'conx-insc.php'; ?>">Mon Compte</a></li>
+                    <li><a href="<?php if(isset($_SESSION['id_client'])) echo 'table.php' ; else echo 'conx-insc.php'; ?>"><?php if (!isset($_SESSION['id_client'])) echo 'Mon Compte'; else echo $c['prenom'] . ' ' . $c['nom']; ?></a></li>
                 </ul>
             </div>
         </nav>

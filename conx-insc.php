@@ -13,6 +13,7 @@ if (isset($_POST['register'])){
   $client->inscription();
 }
 
+
 ?>
 
 
@@ -51,8 +52,8 @@ if (isset($_POST['register'])){
           <a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a>
         </div>
 
-        <form class="search">
-          <input type="text" name="search" placeholder="Rechercher un produit">
+        <form class="search" action='produits.php'>
+          <input type="text" name="search" placeholder="Rechercher un produit" autocomplete='off'>
           <button type="submit" name="submit">
             <img src="public/images/search.svg" alt="search">
           </button>
@@ -111,16 +112,9 @@ if (isset($_POST['register'])){
                           <?php if (isset($_POST['login']) && array_key_exists('emailetmdp', $client->errors)) :  ?>
                             <p class="error-message"><?= $client->errors['emailetmdp'] ?></p>
                           <?php endif; ?>
-                          <p class="lost_password">
-                            <a href="#">Mot de passe oublié ?</a>
-                          </p>
+                         
                           <p class="form-row">
-                            <label class="remember-me">
-                              <input class="input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever">
-                              <span>Se souvenir de moi</span>
-                            </label>
-
-
+                           
                             <button type="submit" class="button" name="login" value="connexion" onclick="setScroll()"> JE ME CONNECTE </button>
                           </p>
                         </form>
@@ -191,95 +185,36 @@ if (isset($_POST['register'])){
   </div>
   </div>
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__addr">
-      <h1 class="footer__logo">Something</h1>
-
-      <h2>Contact</h2>
-
-      <address>
-        5534 Somewhere In. The World 22193-10212<br>
-
-        <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
-      </address>
-    </div>
-
-    <ul class="footer__nav">
-      <li class="nav__item">
-        <h2 class="nav__title">Media</h2>
-
-        <ul class="nav__ul">
-          <li>
-            <a href="#">Online</a>
-          </li>
-
-          <li>
-            <a href="#">Print</a>
-          </li>
-
-          <li>
-            <a href="#">Alternative Ads</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="nav__item nav__item--extra">
-        <h2 class="nav__title">Technology</h2>
-
-        <ul class="nav__ul nav__ul--extra">
-          <li>
-            <a href="#">Hardware Design</a>
-          </li>
-
-          <li>
-            <a href="#">Software Design</a>
-          </li>
-
-          <li>
-            <a href="#">Digital Signage</a>
-          </li>
-
-          <li>
-            <a href="#">Automation</a>
-          </li>
-
-          <li>
-            <a href="#">Artificial Intelligence</a>
-          </li>
-
-          <li>
-            <a href="#">IoT</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="nav__item">
-        <h2 class="nav__title">Legal</h2>
-
-        <ul class="nav__ul">
-          <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="#">Terms of Use</a>
-          </li>
-
-          <li>
-            <a href="#">Sitemap</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
-    <div class="legal">
-      <p>&copy; 2019 Something. All rights reserved.</p>
-
-      <div class="legal__links">
-        <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+  <footer>
+    <div class="container">
+      <div class="presentation">
+        <p>La boutique e-shop est un lieu où des experts de l’informatique et du high-tech conseillent et orientent les clients marocains. C’est également un espace où nous créons des machines sur-mesure et réparent des produits. Atlas Gaming est la première boutique gaming qui offre des produits sous License officielle provenant des plus grandes marques de gaming au monde. Cela, afin de garantir une qualité exceptionnelle, des produits authentiques sous garantie fabriquant et des prix imbattables.</p>
       </div>
+      <div class="columns">
+        <div class="footer-col">
+          <h4>catégories</h4>
+          <ul>
+            <li><a href="produits.php?categorie=1">Laptops</a></li>
+            <li><a href="produits.php?categorie=2">Composants</a></li>
+            <li><a href="produits.php?categorie=3">Périphériques PC</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Espace clients</h4>
+          <ul>
+            <li><a href="<?php if (isset($_SESSION['id_client'])) echo 'table.php';
+                          else echo 'conx-insc.php'; ?>">Mon compte</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="copyright">
+      <p class="container">2022 © E-SHOP - All Rights Reserved</p>
     </div>
   </footer>
+
   <script src="public/js/ajoutpanier.js"></script>
 
 </body>

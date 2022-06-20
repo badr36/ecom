@@ -9,18 +9,15 @@
 table{
     width: 100%; 
     border-collapse: collapse;
-   
-    
-    
 }
 
 .cart-info{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .info-product{
   margin-left: 45px;
-  transform: translateY(30%);
 }
 th{ 
   text-align: left; 
