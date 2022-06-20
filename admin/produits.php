@@ -3,7 +3,6 @@ require_once 'classes/Produits.php';
 $produit = new Produit();
 $produits=$produit->getAll();
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +58,9 @@ $produits=$produit->getAll();
         </tr>
         <?php endwhile ?>
     </table>
-    <input type="submit" name="submit" value="Ajouter">
+    
+    <a href="ajouter.php"><input type="submit" name="submit" value="Ajouter"></a>
+    
     </main>
     
 </body>
