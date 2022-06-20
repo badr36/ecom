@@ -1,14 +1,14 @@
 <?php
 require_once 'classes/Produits.php';
-if(!isset($_GET["id"]))
-header("location:produits.php");
+if (!isset($_GET["id"]))
+    header("location:produits.php");
 
 $produit = new Produit();
-$p=$produit->get($_GET["id"]);
-if(isset($_POST["submit"])){
-$produit->modifier($_GET["id"]);
-header("location:produits.php");
-} 
+$p = $produit->get($_GET["id"]);
+if (isset($_POST["submit"])) {
+    $produit->modifier($_GET["id"]);
+    header("location:produits.php");
+}
 
 
 
@@ -16,15 +16,17 @@ header("location:produits.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/modifier.css">
-    <title>Page de modification</title>
+    <title>E-SHOP</title>
 </head>
+
 <body>
-     <!-- <div class="side-bar">
+    <div class="side-bar">
         <h1>E-<span style="color: #CA2E55;">SHOP</span></h1>
         <ul>
             <li><a href="index.html">Tableau de Bord</a></li>
@@ -39,33 +41,71 @@ header("location:produits.php");
             <li>Admin</li>
             <li>Logout</li>
         </ul>
-    </div>  -->
-    <form action="" method="POST" enctype="multipart/form-data">
-        <h1>produit</h1>
-        <div class="produit">
-        <label for="image">Image</label>
-        <input type="file" id="image" name="image" >
-        <label for="nom">Nom</label>
-        <input type="text" name="nom" value="<?=$p["nom"]?>" id="nom">
-        <label for="prix">Prix</label>
-        <input type="text" name="prix" value="<?=$p["prix"]?>" id="prix">
-        <label for="stock">Stock</label>
-        <input type="text" name="stock" value="<?=$p["stock"]?>" id="stock">
-        <label for="categorie">Categorie</label>
-        <input type="text" name="categorie" value="<?=$p["id_categorie"]?>" id="categorie">
-        </div>
-        <h1>descr</h1>
-        <table>
-            <tr>
-                <th>Description</th>
-                <th>Supprimer</th>
-            </tr>
-            <tr>
-                <td><input type="text" name="description" value=""></td>
-                <td><input type="checkbox" name="" id=""></td>
-            </tr>
-        </table>
-        <input type="submit" name="submit" value="Mettre à jour">
-    </form>
+    </div>
+    <main>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="produit">
+                <div class="input-box file">
+                    <label for="image"> <img src="public/images/upload.svg" alt="">
+                        Image</label>
+                    <input type="file" id="image" name="image" id="inputTag">
+                    <span id="imageName"></span>
+                </div>
+
+                <div class="flex">
+                    <div class="input-box" style="margin-right: auto;">
+                        <label for="nom">Nom</label>
+                        <input type="text" name="nom" value="<?= $p["nom"] ?>" id="nom">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="prix">Prix</label>
+                        <input type="text" name="prix" value="<?= $p["prix"] ?>" id="prix">
+                    </div>
+                </div>
+
+                <div class="flex">
+                    <div class="input-box" style="margin-right: auto;">
+                        <label for="stock">Stock</label>
+                        <input type="text" name="stock" value="<?= $p["stock"] ?>" id="stock">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="categorie">Categorie</label>
+                        <input type="text" name="categorie" value="<?= $p["id_categorie"] ?>" id="categorie">
+                    </div>
+                </div>
+
+
+            </div>
+            <h1>Fiche Technique</h1>
+            <table>
+                <tr>
+                    <th>Description</th>
+                    <th>Supprimer</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="description" value=""></td>
+                    <td><input type="checkbox" name="" id=""></td>
+                </tr>
+            </table>
+            <input type="submit" name="submit" value="Mettre à jour">
+        </form>
+    </main>
+
+    <script type="text/javascript">
+        let input = document.querySelector(".produit input[type='file']");
+        let imageName = document.getElementById("imageName")
+
+        input.addEventListener("change", () => {
+            let inputImage = document.querySelector("input[type=file]").files[0];
+
+            imageName.innerText = inputImage.name;
+        })
+    </script>
+
 </body>
+
+
+
 </html>
