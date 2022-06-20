@@ -2,16 +2,7 @@
 @import 'header.css';
 @import 'footer.css';
 
-*, ::after, ::before {
-    box-sizing: border-box;
-}
-body{
-    font-size: .875rem;
-    font-weight: 400;
-    line-height: 1.714;
-    color: #333e48;
-    background-color: #fff;
-}
+
 .porte2col{
     display: flex;
     flex-wrap: wrap;
@@ -27,9 +18,8 @@ body{
     border-bottom: 1px solid #dadada;   
 }
 .detail{
-    width: 700px;
+    width: 60%;
     padding-right:40px ;
-    width: 600px;
 }
 h2{
     line-height: 1.6em; /* hauteur de lecriture */
@@ -42,35 +32,44 @@ h2{
     /* width: 500px;largeur de la commande */
     background-color: #f8f9fa;
     flex: 0 0 auto;
-    width: 40%;
+    width: 35%;
     margin-top: 100px;
     margin-left: 1.6666666667%;
-    padding-right: 20px;
-    padding-left: 20px;
+
+    padding: 1.5em 2em;
     border-radius: 10px;
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.714;
+    color: #333e48;
 }
-.commande{
-    width: 46%;
-}
+
 .commande h2{
     border-bottom: 1px solid #dadada;
     padding-bottom: .4em;
 }
-p {
-    margin-top: 0;
-    margin-bottom: 2em;
+
+.paiement {
+    padding: 1em;
+    text-align: center;
 }
+th,
+td:nth-child(2){
+    white-space: nowrap;
+}
+
 .nom{
-    width: 250px;
+    width: 47%;
 }
 .prenom{
     float: right;
-    width: 250px;
+    width: 47%;
 }
 .nom, .prenom{
     display: inline-block;
 }
-input{
+.detail input,
+input[name="commander"]{
     display: block;
     width: 100%;
     padding: .594rem 1rem;
@@ -103,11 +102,9 @@ h2::after{
     padding-top: 25px;
 }
 .commande .paiement {
-    padding-left: 20px;
     background-color: #ddd;
     border-top: 1px dotted #ddd;
-    width: 200px;
-    height: 30px;
+    width: 100%;
 }
 table {
     caption-side: bottom;
@@ -121,4 +118,8 @@ th, td {
   }
 .contenu-cmd table td .qty{
         font-weight: 800;
+  }
+
+  .formulaire p{
+    margin-bottom: 13px;
   }
