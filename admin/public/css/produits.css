@@ -1,53 +1,54 @@
 @import 'sidebar.css';
 
-
 table{
-    width: 90%; 
-    border-collapse: collapse;
-    margin: 1em;
-    
+  width: 99%; 
+  border-collapse: collapse;
+  margin: 1em ;
 }
 
 .cart-info{
-  display: flex;
-  flex-wrap: wrap;
+display: flex;
+flex-wrap: wrap;
 }
 .info-product{
-  margin-left: 45px;
-  transform: translateY(36%);
+margin-left: 45px;
+transform: translateY(33%);
 }
 th{ 
-  text-align: left; 
-  padding: 10px;
-  color: rgb(65, 65, 65); 
-  font-weight: normal; 
-  border-bottom: 1px solid #c9c9c9;
+text-align: left; 
+padding: 5px;
+color: rgb(65, 65, 65); 
+font-weight: normal; 
+border-bottom: 1px solid #c9c9c9;
 }
-
-
-
 
 
 td{
-  padding: 20px 10px;
-  border-bottom: 1px solid #c9c9c9;
-}
+padding: 20px 10px;
+border-bottom: 1px solid #c9c9c9;
+text-align: center;
 
-td:first-child{
-  max-width: 260px;
 }
-
- .photo {
-  width: 23%;
+.photo {
+  width: 15%;
   height: 80%;
   border: 1px solid rgb(175, 175, 175);
   background-color: #fff;
   
 }
+th{
+  text-align: center;
+}
 
-
-
-
+input{
+  padding: 15px;
+  margin-right: 10px;
+  border: none ;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #fafafa;
+  background-color: #CA2E55;
+} 
 
 
 
