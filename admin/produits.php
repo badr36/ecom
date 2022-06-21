@@ -20,7 +20,7 @@ $produits=$produit->getAll();
             <li><a href="index.php">Tableau de Bord</a></li>
             <li class="active"><a href="index.html">Produits</a></li>
             <li><a href="commande.php">Commandes</a></li>
-            <li><a href="index.html">Clients</a></li>
+            <li><a href="clients.php">Clients</a></li>
             <li><a href="index.html">Logout</a></li>
         </ul>
     </div>

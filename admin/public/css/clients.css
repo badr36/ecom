@@ -1,0 +1,38 @@
+@import 'sidebar.css';
+
+table{
+  width: 97%; 
+  border-collapse: collapse;
+
+}
+main{
+  padding: 1em;
+}
+.cart-info{
+display: flex;
+flex-wrap: wrap;
+}
+th{ 
+text-align: left; 
+padding: 5px;
+color: rgb(65, 65, 65); 
+font-weight: normal; 
+border-bottom: 1px solid #c9c9c9;
+}
+
+
+td{
+padding: 20px 10px;
+border-bottom: 1px solid #c9c9c9;
+text-align: center;
+
+}
+
+th{
+  text-align: center;
+}
+
+
+
+
+
