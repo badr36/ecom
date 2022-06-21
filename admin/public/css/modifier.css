@@ -67,13 +67,14 @@ main h1{
 table {
     border-collapse:separate; 
     border-spacing: 0 1em;
+    margin-right: 10px;
   }
 table tr th{
     text-align: left;
 }
 
 table tr th:first-child{
-    width: 90%;
+    width: 100%;
 }
 
 table tr td input[type="text"]
