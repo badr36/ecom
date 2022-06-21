@@ -98,7 +98,7 @@ if (isset($_POST["submit"])) {
                 </tr>
             </table>
 
-            <input type="submit" name="submit" value="Mettre Ã  jour">
+            <input type="submit" name="submit" value="Mettre a jour">
         </form>
     </main>
 

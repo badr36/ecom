@@ -57,12 +57,20 @@ class Produit extends DB
                 $em = "unknown error occurred";
                 header("location:produits.php?error=$em");
             }
-            $supp_desc = implode(',', array_keys($_POST["tab"]));
+
 
             $this->query("UPDATE produits SET nom=?,prix=?,stock=?,id_categorie=? WHERE id=$id", array($_POST["nom"], $_POST["prix"], $_POST["stock"], $_POST["categorie"]));
             foreach ($_POST['description'] as $key => $value)
                 $this->query("UPDATE descriptions SET contenu=? WHERE id=$key", array($value));
-            $this->query("DELETE FROM descriptions WHERE id IN ($supp_desc)");
+            if(isset($_POST['tab']))
+            {
+                $supp_desc = implode(',', array_keys($_POST["tab"]));
+                $this->query("DELETE FROM descriptions WHERE id IN ($supp_desc)");
+            }
+           
+
+           
+            
         }
     }
    
