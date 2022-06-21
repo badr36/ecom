@@ -1,4 +1,7 @@
 <?php
+require_once 'classes/Produits.php';
+$produit = new Produit();
+$produits=$produit->getAll();
 
 ?>
 <!DOCTYPE html>
@@ -34,23 +37,31 @@
             <th>Prix</th>
             <th>Stock</th>
             <th>Categorie</th>
-            <th>Actions</th>
+            <th colspan="2">Actions</th>
+            
         </tr>
+        <?php while ($p = $produits->fetch()) : ?>
         <tr>
             <td>
                 <div class="cart-info">
-                  <img src="../uploads/1.png" alt="" class="photo">
+                  <img src="../uploads/<?= $p['image'] ?>" alt="" class="photo">
                     <div class="info-product">
-                      <p>nom produit</p>
+                      <p><?= $p['nom'] ?></p>
                      </div>
                 </div>
              </td>
-             <td>5000 MAD</td>
-             <td>100</td>
-             <td>PC</td>
-             <td>modifier</td>
+             <td><?= $p['prix'] ?></td>
+             <td><?= $p['stock'] ?></td>
+             <td><?= $p['nom_categ'] ?></td>
+             <td><a href="modifier.php?id=<?= $p['id'] ?>">Modifier</a></td>
+             <td><a href="supprimer.php?id=<?= $p['id'] ?>">Supprimer</a></td>
         </tr>
+        <?php endwhile ?>
     </table>
+    
+    <a href="ajouter.php"><input type="submit" name="submit" value="Ajouter"></a>
+    
     </main>
+    
 </body>
 </html>

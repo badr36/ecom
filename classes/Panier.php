@@ -63,6 +63,22 @@ class Panier extends DB{
             unset($_SESSION['panier'][$id]);
         }
     }
+    public function clear()
+    {
+        if(isset($_SESSION['id_client']))
+        {
+           $this->query("DELETE FROM paniers WHERE id_client=?", array(
+               $_SESSION['id_client'])); 
+           
+        }
+        else if(isset($_SESSION['panier']))
+        { 
+            foreach($_SESSION['panier'] as $key=>$val)
+            {
+                unset($_SESSION['panier'][$key]);
+            }
+        }
+    }
 
     public function estVide()
     

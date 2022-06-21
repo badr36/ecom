@@ -61,7 +61,7 @@ td{
   display: flex;
 }
 .boutton{
-  padding: 15px;
+  
   margin-right: 10px;
   border: none ;
   border-radius: 30px;
@@ -110,4 +110,9 @@ h3.panier-vide{
 }
 .boutton2 a{
   color: #fafafa;
+  padding: 15px;
+}
+
+.boutton1{
+  padding: 15px;
 }
