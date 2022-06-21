@@ -37,8 +37,8 @@ class Produit extends DB
             $error = $_FILES["image"]["error"];
             if ($error === 0) {
                 if ($img_size > 125000) {
-                    $em = " Sorry, your file is too large.";
-                    header("location: produits.php?error=$em");
+                    $_SESSION['e'] = " Sorry, your file is too large.";
+                    header("location: produits.php?error={$_SESSION['e']}");
                 } else {
                     $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
                     $img_ex_lc = strtolower($img_ex);
@@ -49,13 +49,13 @@ class Produit extends DB
                         move_uploaded_file($tmp_name, $img_up_path);
                         $this->query("UPDATE produits SET image=? WHERE id=$id", array($new_img_name));
                     } else {
-                        $em = "You cant't upload files of this type";
-                        header("location:produits.php?error=$em");
+                        $_SESSION['e'] = "You cant't upload files of this type";
+                        header("location:produits.php?error={$_SESSION['e']}");
                     }
                 }
             } else {
-                $em = "unknown error occurred";
-                header("location:produits.php?error=$em");
+                $_SESSION['e'] = "unknown error occurred";
+                header("location:produits.php?error={$_SESSION['e']}");
             }
 
 
