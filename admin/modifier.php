@@ -27,7 +27,7 @@ if (isset($_POST["submit"])) {
 
 <body>
     <div class="side-bar">
-        <h1>E-<span style="color: #CA2E55;">SHOP</span></h1>
+    <h1><a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a></h1>
         <ul>
             <li><a href="index.php">Tableau de Bord</a></li>
             <li class="active"><a href="produits.php">Produits</a></li>

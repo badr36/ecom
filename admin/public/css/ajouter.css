@@ -1,0 +1,152 @@
+@import 'sidebar.css';
+
+.flex{
+    display: flex;
+}
+
+form{
+    padding: 1em;
+}
+
+.produit input[type="file"]
+{
+    display: none;
+}
+
+
+.produit .file{
+    text-align: center;
+    padding: 3em;
+    border: 2px dashed #C2C2C2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.produit .file label{
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#imageName{
+    color:green;
+  }
+
+.input-box{
+    margin: .6em 0;
+    align-items: center;
+    
+}
+
+.input-box label:not(.file label){
+    display: inline-block;
+    margin-bottom: 7px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 1em;
+}
+
+.input-box:not(.file){
+    width: 48%;
+}
+
+/* fiche technique */
+main h1{
+    margin-top: .5em;
+    font-weight: 400;
+    font-size: 1.7rem;
+    border-bottom: 1px solid #C2C2C2;
+    margin-bottom: .5em;
+}
+table {
+    border-collapse:separate; 
+    border-spacing: 0 1em;
+    width : 100%;
+  }
+table tr th{
+    text-align: left;
+}
+
+table tr th:first-child{
+    width: 100%;
+}
+
+table tr td input[type="text"]
+{
+    width: 100%;
+    padding: .75em;
+}
+
+
+table tr td:nth-child(2)
+{
+    text-align: center;
+}
+
+table tr td input[type="checkbox"]
+{
+    transform: scale(2);
+}
+
+input[type="submit"]
+{
+    margin-top: .2em;
+    padding: .9em 4em;
+    outline: 0;
+    border: none;
+    border-radius: 3px; 
+    background-color: #CA2E55;
+    color: white;
+    cursor: pointer;
+}
+
+/* bouton plus */
+.button_plus {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #095776;
+    margin-right: 65px;
+    
+  }
+  
+  .button_plus:after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: #095776;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .button_plus:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #095776;
+    height: 50%;
+    width: 4px;
+  }
+  
+  .button_plus:hover:before,
+  .button_plus:hover:after {
+    background: #fff;
+    transition: 0.2s;
+  }
+  
+  .button_plus:hover {
+    background-color: #095776;
+    transition: 0.2s;
+  }
