@@ -4,12 +4,20 @@ require_once 'classes/Produits.php';
 if (!isset($_GET["id"]))
     header("location:produits.php");
 
+
+
 $produit = new Produit();
 $p = $produit->get($_GET["id"]);
 $description = $produit->getDescription($_GET["id"]);
 if (isset($_POST["submit"])) {
     $produit->modifier($_GET["id"]);
 
+    if(isset($_SESSION['e']))
+    {
+        $e = $_SESSION['e'];
+        unset($_SESSION['e']);
+    }
+    else
     header("location: produits.php");
 }
 ?>
@@ -42,6 +50,7 @@ if (isset($_POST["submit"])) {
         </ul>
     </div>
     <main>
+        <?php if(isset($e)) echo $e ?>
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="produit">
                 <div class="input-box file">
