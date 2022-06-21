@@ -1,17 +1,8 @@
 <?php
-session_start();
 require_once 'classes/Produits.php';
-if (!isset($_GET["id"]))
-    header("location:produits.php");
-
-
-
 $produit = new Produit();
-$p = $produit->get($_GET["id"]);
-$description = $produit->getDescription($_GET["id"]);
-if (isset($_POST["submit"])) {
-    $produit->modifier($_GET["id"]);
-    header("location: produits.php");
+if(isset($_POST["submit"])){
+$produit->ajouter();
 }
 ?>
 <!DOCTYPE html>
@@ -21,8 +12,8 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/modifier.css">
-    <title>E-SHOP</title>
+    <link rel="stylesheet" href="public/css/ajouter.css">
+    <title>Document</title>
 </head>
 
 <body>
@@ -43,37 +34,37 @@ if (isset($_POST["submit"])) {
         </ul>
     </div>
     <main>
-       
+
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="produit">
                 <div class="input-box file">
                     <label for="image"> <img src="public/images/upload.svg" alt="">
                         Image</label>
-                    <input type="file" id="image" name="image" id="inputTag">
+                    <input type="file" id="image" name="image" id="inputTag" required >
                     <span id="imageName"></span>
                 </div>
 
                 <div class="flex">
                     <div class="input-box" style="margin-right: auto;">
                         <label for="nom">Nom</label>
-                        <input type="text" name="nom" value="<?= $p["nom"] ?>" id="nom">
+                        <input type="text" name="nom" id="nom" required>
                     </div>
 
                     <div class="input-box">
                         <label for="prix">Prix</label>
-                        <input type="text" name="prix" value="<?= $p["prix"] ?>" id="prix">
+                        <input type="text" name="prix" id="prix" required>
                     </div>
                 </div>
 
                 <div class="flex">
                     <div class="input-box" style="margin-right: auto;">
                         <label for="stock">Stock</label>
-                        <input type="text" name="stock" value="<?= $p["stock"] ?>" id="stock">
+                        <input type="text" name="stock" id="stock" required>
                     </div>
 
                     <div class="input-box">
                         <label for="categorie">Categorie</label>
-                        <input type="text" name="categorie" value="<?= $p["id_categorie"] ?>" id="categorie">
+                        <input type="text" name="categorie" id="categorie" required>
                     </div>
                 </div>
 
@@ -84,15 +75,15 @@ if (isset($_POST["submit"])) {
                 <tbody>
                     <tr>
                         <th>Description</th>
-                        <th>Supprimer</th>
-                    </tr>
-                    <?php while ($d = $description->fetch()) : ?>
-                        <tr>
-                            <td><input type="text" name="description['<?= $d["id"] ?>']" value="<?= $d["contenu"] ?>"></td>
-                            <td><input type="checkbox" name="tab['<?= $d["id"] ?>']"></td>
-                        </tr>
 
-                    <?php endwhile ?>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" name="description[]" required></td>
+
+                    </tr>
+
+
                 </tbody>
                 <tr>
                     <td style="text-align: center;"><button id="add-btn" class="button_plus" type="button">+</button></td>
@@ -100,7 +91,7 @@ if (isset($_POST["submit"])) {
                 </tr>
             </table>
 
-            <input type="submit" name="submit" value="Mettre a jour">
+            <input type="submit" name="submit" value="Terminer">
         </form>
     </main>
 
@@ -118,24 +109,21 @@ if (isset($_POST["submit"])) {
         //------------------------
         let addBtn = document.querySelector('#add-btn');
         let tbody = document.querySelector('table tbody');
-            addBtn.addEventListener('click', () => {
-                let tr = document.createElement('tr');
-                let td = document.createElement('td');
-                let input = document.createElement('input');
+        addBtn.addEventListener('click', () => {
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+            let input = document.createElement('input');
 
-                input.setAttribute('type', 'text');
-                input.setAttribute('name', 'add[]');
+            input.setAttribute('type', 'text');
+            input.setAttribute('name', 'add[]');
 
-                td.appendChild(input);
-                tr.appendChild(td);
+            td.appendChild(input);
+            tr.appendChild(td);
 
-                tbody.appendChild(tr);
+            tbody.appendChild(tr);
 
-            });
+        });
     </script>
-
 </body>
-
-
 
 </html>

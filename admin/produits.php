@@ -2,7 +2,11 @@
 require_once 'classes/Produits.php';
 $produit = new Produit();
 $produits=$produit->getAll();
-
+if(isset($_SESSION['e']))
+    {
+        $e = $_SESSION['e'];
+        unset($_SESSION['e']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +19,12 @@ $produits=$produit->getAll();
 </head>
 <body>
     <div class="side-bar">
-        <h1>E-<span style="color: #CA2E55;">SHOP</span></h1>
+        <h1><a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a></h1>
         <ul>
             <li><a href="index.php">Tableau de Bord</a></li>
-            <li class="active"><a href="index.html">Produits</a></li>
-            <li><a href="commande.php">Commandes</a></li>
-            <li><a href="index.html">Clients</a></li>
+            <li class="active"><a href="produits.php">Produits</a></li>
+            <li><a href="commandes.php">Commandes</a></li>
+            <li><a href="clients.php">Clients</a></li>
             <li><a href="index.html">Logout</a></li>
         </ul>
     </div>
@@ -31,6 +35,7 @@ $produits=$produit->getAll();
         </ul>
     </div>
     <main>
+    <?php if(isset($e)) echo $e ?>
     <table>
         <tr>
             <th>Produit</th>

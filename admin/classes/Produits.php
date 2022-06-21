@@ -37,8 +37,7 @@ class Produit extends DB
             $error = $_FILES["image"]["error"];
             if ($error === 0) {
                 if ($img_size > 125000) {
-                    $em = " Sorry, your file is too large.";
-                    header("location: produits.php?error=$em");
+                    $_SESSION['e'] = " Sorry, your file is too large.";
                 } else {
                     $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
                     $img_ex_lc = strtolower($img_ex);
@@ -49,13 +48,11 @@ class Produit extends DB
                         move_uploaded_file($tmp_name, $img_up_path);
                         $this->query("UPDATE produits SET image=? WHERE id=$id", array($new_img_name));
                     } else {
-                        $em = "You cant't upload files of this type";
-                        header("location:produits.php?error=$em");
+                        $_SESSION['e'] = "You cant't upload files of this type";
                     }
                 }
             } else {
-                $em = "unknown error occurred";
-                header("location:produits.php?error=$em");
+                $_SESSION['e'] = "unknown error occurred";
             }
 
 
@@ -67,11 +64,55 @@ class Produit extends DB
                 $supp_desc = implode(',', array_keys($_POST["tab"]));
                 $this->query("DELETE FROM descriptions WHERE id IN ($supp_desc)");
             }
-           
-
-           
-            
+            if(isset($_POST['add']))
+            {
+                foreach($_POST['add'] as  $value)
+                {
+                    $this->query("INSERT INTO descriptions VALUES(NULL,?,?)",array($value,$id));
+                }
+            }
         }
     }
-   
+
+    public function ajouter()
+    {
+        
+        
+       
+         if (isset($_FILES["image"])) {
+            $img_name = $_FILES["image"]["name"];
+             $img_size = $_FILES["image"]["size"];
+            $tmp_name = $_FILES["image"]["tmp_name"];
+             $error = $_FILES["image"]["error"];
+             if ($error === 0) {
+                 if ($img_size > 125000) {
+                    $_SESSION['e'] = " Sorry, your file is too large.";
+                 } else {
+                    $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+                    $img_ex_lc = strtolower($img_ex);
+                     $allowed_exs = array("jpg", "jpeg", "png");
+                    if (in_array($img_ex_lc, $allowed_exs)) {
+                        $new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
+                        $img_up_path = '../uploads/' . $new_img_name;
+                        move_uploaded_file($tmp_name, $img_up_path);
+                       $conn=$this->getDB();
+                        $req=$conn->prepare("INSERT INTO produits VALUES(NULL,?,?,?,?,?)");
+                        $req->execute(array($_POST["nom"], $_POST["prix"], $_POST["stock"],$new_img_name,$_POST["categorie"]));
+                        $id=$conn->lastInsertId();
+                        $_SESSION['e'] = "You cant't upload files of this type";
+                     }
+                 }
+             } else {
+                 $_SESSION['e'] = "unknown error occurred";
+             }
+    }
+    
+    if(isset($_POST['add']))
+    {
+        foreach($_POST['add'] as  $value)
+        {
+            $this->query("INSERT INTO descriptions VALUES(NULL,?,?)",array($value,$id));
+        }
+    }
+    }
 }
