@@ -4,12 +4,20 @@ require_once 'classes/Produits.php';
 if (!isset($_GET["id"]))
     header("location:produits.php");
 
+
+
 $produit = new Produit();
 $p = $produit->get($_GET["id"]);
 $description = $produit->getDescription($_GET["id"]);
 if (isset($_POST["submit"])) {
     $produit->modifier($_GET["id"]);
 
+    if(isset($_SESSION['e']))
+    {
+        $e = $_SESSION['e'];
+        unset($_SESSION['e']);
+    }
+    else
     header("location: produits.php");
 }
 ?>
@@ -28,9 +36,9 @@ if (isset($_POST["submit"])) {
     <div class="side-bar">
         <h1>E-<span style="color: #CA2E55;">SHOP</span></h1>
         <ul>
-            <li><a href="index.html">Tableau de Bord</a></li>
+            <li><a href="index.php">Tableau de Bord</a></li>
             <li class="active"><a href="produits.php">Produits</a></li>
-            <li><a href="index.html">Commandes</a></li>
+            <li><a href="commande.php">Commandes</a></li>
             <li><a href="index.html">Clients</a></li>
             <li><a href="index.html">Logout</a></li>
         </ul>
@@ -42,6 +50,7 @@ if (isset($_POST["submit"])) {
         </ul>
     </div>
     <main>
+        <?php if(isset($e)) echo $e ?>
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="produit">
                 <div class="input-box file">
@@ -98,7 +107,7 @@ if (isset($_POST["submit"])) {
                 </tr>
             </table>
 
-            <input type="submit" name="submit" value="Mettre Ã  jour">
+            <input type="submit" name="submit" value="Mettre a jour">
         </form>
     </main>
 
