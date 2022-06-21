@@ -51,10 +51,11 @@ class Commande extends DB{
 
     public function getCommande()
     {
-        return $this->query("SELECT *,(p.prix*l.qty)as total 
+        return $this->query("SELECT *,(p.prix*l.qty) as total 
                FROM commandes c,ligne_commandes l,produits p,clients cl
                WHERE c.id=l.id_commande
                AND   p.id=l.id_produit
-               AND   cl.id=c.id_client");
+               AND   cl.id=c.id_client
+               GROUP BY c.id");
     }
 }

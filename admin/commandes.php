@@ -6,8 +6,6 @@ $commandes=$commande->getCommande();
 
 
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,25 +53,22 @@ $commandes=$commande->getCommande();
                     <td>n° <?= $cmd['id_commande'] ?></td>
                     <td><?= $cmd['date'] ?></td>
                     <td><?= $cmd['status'] ?></td>
-                    <td><?= $cmd['total'] ?>MAD</td>
+                    <td><?= $cmd['total'] ?> MAD</td>
                     <td>n° <?= $cmd['id_client'] ?></td>
                     <td>
-                        <div class="dropdown">
+                        <form class="dropdown" action="modifierstatus.php" method="POST">
                             <span class="label"><i class="fa-solid"></i>Actions</span>
                             <ul class="items">
-                                <li><a href=""><i class="fa-brands"></i>Confirmer</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Livrée</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Retour</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Annuler</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Pas de reponse</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Va rappeler</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Destination</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Envoyée</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Details</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Modifier</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Supprimer</a></li>
+                                <li><input type="submit" name="submit" value="Livrée"></li>
+                                <li><input type="submit" name="submit" value="Annuler"></li>
+                                <li><input type="submit" name="submit" value="En Cours"></li>
+                                <li><input type="submit" name="submit" value="En Attente"></li>
+                                <li><input type="submit" name="submit" value="validé"></li>
+                                <li><input type="submit" name="submit" value="Supprimer"></li>
+                                <input type="hidden" name="id" value="<?= $cmd['id_commande'] ?>">
+                               
                             </ul>
-                        </div>
+                        </form>
                     </td>
                 </tr>
                 <?php endwhile ?>

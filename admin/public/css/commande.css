@@ -11,10 +11,7 @@ th, td {
     border-bottom: 1px solid #ddd;
   }
  .commande{
-    width:  90%;
-    padding-top: 10%;
-    padding-left: 20%;
-    padding-right: 10%;
+    padding: 1em;
     display: flex;
  } 
  ul{
@@ -29,33 +26,36 @@ th, td {
  .label{
     cursor: pointer;
     background-color: #F3F6F9;
-    /* background-color: #ddd; */
     padding: 0.8rem 1rem;
     width: 70%;
     display: block;
     box-sizing: border-box;
     transition: all 0.3s;
-    padding-left: 50px;
-    /* text-align: center; */
+    text-align: center;
  }
+ .items input,
  .items a{
-    /* color: black; */
-    color: #fff;
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
     text-decoration: none;
     transition: all 0.2s;
+    background: #bccad6;
+    width: 100%;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
  }
+.items input:hover,
 .items a:hover{
     border-left: 5px solid;
     background: rgb(37,37,37);
 } 
-.fa-brands, .fa-solid{
-    margin-right: 10px;
-}
+
 .items{
-    background: rgb(52,52,52);
+    background: #bccad6;
     opacity: 0;
     visibility: hidden;
     min-width: 70%;
@@ -64,14 +64,15 @@ th, td {
     top: 48px;
     transform-origin: top;
     transform: scaleY(0);
-    transition: transform 0.3s;   
+    transition: transform 0.3s; 
+    z-index: 99;  
 }
 .items::before{
     content: "";
     position: absolute;
     width: 15px;
     height: 15px;
-    background: rgb(52,52,52);
+    background: #bccad6;
     transform: rotate(45deg);
     top: -7px;
     left: 20px;
@@ -85,5 +86,5 @@ th, td {
 }
 .dropdown:hover > .label{
     /* background: rgb(255,115,0); */
-    background-color: #CA2E55;
+    background-color: #bccad6;
 }

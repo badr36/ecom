@@ -53,7 +53,7 @@ class Commande extends DB{
             ));
 
             $db = $this->getDB();
-            $req = $db->prepare("INSERT INTO commandes (id_client,status) VALUES(?,'En Cours')");
+            $req = $db->prepare("INSERT INTO commandes (id_client,status) VALUES(?,'En Attente')");
             $req->execute(array($_SESSION['id_client']));
 
             $id_cmd = $db->lastInsertId();
