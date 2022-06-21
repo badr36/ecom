@@ -1,16 +1,17 @@
 <?php
+session_start();
 require_once 'classes/Produits.php';
 if (!isset($_GET["id"]))
     header("location:produits.php");
 
 $produit = new Produit();
-$p=$produit->get($_GET["id"]);
-$description=$produit->getDescription($_GET["id"]);
-if(isset($_POST["submit"])){
-$produit->modifier($_GET["id"]);
+$p = $produit->get($_GET["id"]);
+$description = $produit->getDescription($_GET["id"]);
+if (isset($_POST["submit"])) {
+    $produit->modifier($_GET["id"]);
 
-header("location:produits.php");
-} 
+    header("location: produits.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,30 +79,57 @@ header("location:produits.php");
             </div>
             <h1>Fiche Technique</h1>
             <table>
+                <tbody>
+                    <tr>
+                        <th>Description</th>
+                        <th>Supprimer</th>
+                    </tr>
+                    <?php while ($d = $description->fetch()) : ?>
+                        <tr>
+                            <td><input type="text" name="description['<?= $d["id"] ?>']" value="<?= $d["contenu"] ?>"></td>
+                            <td><input type="checkbox" name="tab['<?= $d["id"] ?>']"></td>
+                        </tr>
+
+                    <?php endwhile ?>
+                </tbody>
                 <tr>
-                    <th>Description</th>
-                    <th>Supprimer</th>
+                    <td style="text-align: center;"><button id="add-btn" class="button_plus" type="button">+</button></td>
+                    <td></td>
                 </tr>
-                <?php while ($d = $description->fetch()) : ?>
-            <tr>
-                <td><input type="text" name="description['<?=$d["id"]?>']" value="<?=$d["contenu"]?>"></td>
-                <td><input type="checkbox" name="tab['<?=$d["id"]?>']"></td>
-            </tr>
-            <?php endwhile ?>
             </table>
-            <input type="submit" name="submit" value="Mettre à jour">
+
+            <input type="submit" name="submit" value="Mettre Ã  jour">
         </form>
     </main>
 
     <script type="text/javascript">
         let input = document.querySelector(".produit input[type='file']");
-        let imageName = document.getElementById("imageName")
+        let imageName = document.getElementById("imageName");
 
         input.addEventListener("change", () => {
             let inputImage = document.querySelector("input[type=file]").files[0];
 
             imageName.innerText = inputImage.name;
         })
+
+
+        //------------------------
+        let addBtn = document.querySelector('#add-btn');
+        let tbody = document.querySelector('table tbody');
+            addBtn.addEventListener('click', () => {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let input = document.createElement('input');
+
+                input.setAttribute('type', 'text');
+                input.setAttribute('name', 'add[]');
+
+                td.appendChild(input);
+                tr.appendChild(td);
+
+                tbody.appendChild(tr);
+
+            });
     </script>
 
 </body>

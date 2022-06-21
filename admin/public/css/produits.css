@@ -3,9 +3,11 @@
 table{
   width: 97%; 
   border-collapse: collapse;
-  margin: 1em ;
-}
 
+}
+main{
+  padding: 1em;
+}
 .cart-info{
 display: flex;
 flex-wrap: wrap;
@@ -40,7 +42,18 @@ th{
   text-align: center;
 }
 
-
+input[type="submit"]
+{
+  margin-top: 1em;
+  padding: .9em 4em;
+  outline: 0;
+  border: none;
+  border-radius: 3px; 
+  background-color: #CA2E55;
+  color: white;
+  cursor: pointer;
+  margin-left: .5em;
+}
 
 
 
