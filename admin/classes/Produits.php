@@ -66,11 +66,12 @@ class Produit extends DB
             }
             if(isset($_POST['add']))
             {
-                foreach ($_POST['add'] as  $value)
-                $this->query("INSERT INTO descriptions VALUES(NULL,?,?)",array($value,$id));
+                foreach($_POST['add'] as  $value)
+                {
+                    $this->query("INSERT INTO descriptions VALUES(NULL,?,?)",array($value,$id));
+                }
             }
         }
     }
    
 }
-           

@@ -2,7 +2,11 @@
 require_once 'classes/Produits.php';
 $produit = new Produit();
 $produits=$produit->getAll();
-
+if(isset($_SESSION['e']))
+    {
+        $e = $_SESSION['e'];
+        unset($_SESSION['e']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +35,7 @@ $produits=$produit->getAll();
         </ul>
     </div>
     <main>
+    <?php if(isset($e)) echo $e ?>
     <table>
         <tr>
             <th>Produit</th>
