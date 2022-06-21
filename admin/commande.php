@@ -1,3 +1,14 @@
+<?php
+require_once 'classes/Commande.php';
+$commande = new Commande();
+$commandes=$commande->getCommande();
+
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +16,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/commande.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare/ajax/libs/font-awesome/6.1.1/css/all.min.css"> -->
 
     <title>E-SHOP</title>
 </head>
@@ -40,12 +50,13 @@
                     <th>CLIENT</th>
                     <th>GESTION DE LA COMMANDE</th>
                 </tr>
+                <?php while($cmd=$commandes->fetch()): ?>
                 <tr>
-                    <td>n°</td>
-                    <td>xx-yy-zzzz</td>
-                    <td>Livré</td>
-                    <td>MAD</td>
-                    <td>n°</td>
+                    <td>n° <?= $cmd['id_commande'] ?></td>
+                    <td><?= $cmd['date'] ?></td>
+                    <td><?= $cmd['status'] ?></td>
+                    <td><?= $cmd['total'] ?>MAD</td>
+                    <td>n° <?= $cmd['id_client'] ?></td>
                     <td>
                         <div class="dropdown">
                             <span class="label"><i class="fa-solid"></i>Actions</span>
@@ -65,6 +76,7 @@
                         </div>
                     </td>
                 </tr>
+                <?php endwhile ?>
             </table>
         </div>
     </main>
