@@ -1,3 +1,12 @@
+<?php
+require_once 'classes/Commande.php';
+$commande = new Commande();
+$commandes=$commande->getCommande();
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +14,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/commande.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare/ajax/libs/font-awesome/6.1.1/css/all.min.css"> -->
 
     <title>E-SHOP</title>
 </head>
 <body>
 
     <div class="side-bar">
-        <h1>E-<span style="color: #CA2E55;">SHOP</span></h1>
+    <h1><a href="index.php">E-<span style="color: #CA2E55;">SHOP</span></a></h1>
         <ul>
             <li ><a href="index.php">Tableau de Bord</a></li>
             <li><a href="produits.php">Produits</a></li>
@@ -40,31 +48,30 @@
                     <th>CLIENT</th>
                     <th>GESTION DE LA COMMANDE</th>
                 </tr>
+                <?php while($cmd=$commandes->fetch()): ?>
                 <tr>
-                    <td>n°</td>
-                    <td>xx-yy-zzzz</td>
-                    <td>Livré</td>
-                    <td>MAD</td>
-                    <td>n°</td>
+                    <td>n° <?= $cmd['id_commande'] ?></td>
+                    <td><?= $cmd['date'] ?></td>
+                    <td><?= $cmd['status'] ?></td>
+                    <td><?= $cmd['total'] ?> MAD</td>
+                    <td>n° <?= $cmd['id_client'] ?></td>
                     <td>
-                        <div class="dropdown">
+                        <form class="dropdown" action="modifierstatus.php" method="POST">
                             <span class="label"><i class="fa-solid"></i>Actions</span>
                             <ul class="items">
-                                <li><a href=""><i class="fa-brands"></i>Confirmer</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Livrée</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Retour</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Annuler</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Pas de reponse</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Va rappeler</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Destination</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Envoyée</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Details</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Modifier</a></li>
-                                <li><a href=""><i class="fa-brands"></i>Supprimer</a></li>
+                                <li><input type="submit" name="submit" value="Livrée"></li>
+                                <li><input type="submit" name="submit" value="Annuler"></li>
+                                <li><input type="submit" name="submit" value="En Cours"></li>
+                                <li><input type="submit" name="submit" value="En Attente"></li>
+                                <li><input type="submit" name="submit" value="validé"></li>
+                                <li><input type="submit" name="submit" value="Supprimer"></li>
+                                <input type="hidden" name="id" value="<?= $cmd['id_commande'] ?>">
+                               
                             </ul>
-                        </div>
+                        </form>
                     </td>
                 </tr>
+                <?php endwhile ?>
             </table>
         </div>
     </main>

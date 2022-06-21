@@ -48,4 +48,14 @@ class Commande extends DB{
                                 WHERE lc.id_produit=p.id AND p.id_categorie=c.id
                                 GROUP BY n");
     }
+
+    public function getCommande()
+    {
+        return $this->query("SELECT *,(p.prix*l.qty) as total 
+               FROM commandes c,ligne_commandes l,produits p,clients cl
+               WHERE c.id=l.id_commande
+               AND   p.id=l.id_produit
+               AND   cl.id=c.id_client
+               GROUP BY c.id");
+    }
 }
