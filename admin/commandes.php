@@ -39,7 +39,7 @@ $commandes=$commande->getCommande();
         <div class="bar">
         <ul>
           <li>Admin</li>
-          <li>Logout</li>
+          <li> <a href="logout.php">Logout</a></li>
         </ul>
         </div>
         <!-- gestion de la commande  -->

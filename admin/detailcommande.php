@@ -38,7 +38,7 @@ $total = 0;
         <div class="bar">
             <ul>
                 <li>Admin</li>
-                <li>Logout</li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
         <main>
