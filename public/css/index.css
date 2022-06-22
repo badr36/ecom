@@ -214,3 +214,12 @@
 }
 /* END PRODUCTS */
 
+ .produit button:disabled {
+  cursor: not-allowed;
+}
+
+.produits .produit:hover button:disabled{
+  background-color: transparent;
+  color: #C8C8C8;
+  
+}
