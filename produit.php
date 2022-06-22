@@ -120,7 +120,7 @@ if(isset($_SESSION['id_client']))
 
         <?php endwhile ?>
         <?php if(isset($_SESSION['id_client'])):?>
-            <?php if($produit->estAcheterPar($infos_produit['id'],$_GET['id'])):?>
+            <?php if($produit->estAcheterPar($_GET['id'], $_SESSION['id_client'])):?>
 
         <form action="ajoutavis.php" method="POST" class="container">
             <label for="avis">Votre Avis</label>
