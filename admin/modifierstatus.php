@@ -23,7 +23,11 @@ if(isset($_POST['submit']))
             $cmds = $commande->get($_POST['id'])->fetchAll();
             foreach($cmds as $cmd)
             {
-                $commande->query("UPDATE produits set stock=stock-{$cmd['qty']} WHERE id={$cmd['id_produit']}");
+                if($cmd['stock'] - $cmd['qty'] >= 0)
+                {
+                    $commande->query("UPDATE produits set stock=stock-{$cmd['qty']} WHERE id={$cmd['id_produit']}");
+
+                }
             }
             $commande->query("UPDATE commandes set status=? WHERE id=?", array($_POST['submit'], $_POST['id']));
 
