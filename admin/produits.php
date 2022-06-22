@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['admin']))
+  header("location: login.php");
+
 require_once 'classes/Produits.php';
 $produit = new Produit();
 $produits=$produit->getAll();
@@ -25,13 +30,13 @@ if(isset($_SESSION['e']))
             <li class="active"><a href="produits.php">Produits</a></li>
             <li><a href="commandes.php">Commandes</a></li>
             <li><a href="clients.php">Clients</a></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
     <div class="bar">
         <ul>
             <li>Admin</li>
-            <li>Logout</li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
     <main>

@@ -116,6 +116,7 @@ $produit->ajouter();
 
             input.setAttribute('type', 'text');
             input.setAttribute('name', 'add[]');
+            input.setAttribute('required', 'required');
 
             td.appendChild(input);
             tr.appendChild(td);

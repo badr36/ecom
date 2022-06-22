@@ -130,12 +130,13 @@ insert into clients (nom, prenom, adresse_1, telephone, email, mdp) values ('ely
 -- CREATION DE LA TABLE DES COMMANDES
 create table if not exists commandes (
     id int auto_increment,
-    date timestamp not null,
+    date timestamp not null default CURRENT_TIMESTAMP,
     id_client int,
     status varchar(50),
     primary key(id),
     FOREIGN KEY (id_client) REFERENCES clients(id)
 );
+
 
 -- INSERTION DANS LA TABLE DES COMMANDES
 

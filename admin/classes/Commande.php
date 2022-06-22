@@ -56,6 +56,19 @@ class Commande extends DB{
                WHERE c.id=l.id_commande
                AND   p.id=l.id_produit
                AND   cl.id=c.id_client
-               GROUP BY c.id");
+               GROUP BY c.id
+               ORDER BY c.date desc");
+    }
+
+    public function get($id){
+
+        return $this->query("SELECT *,(prix*qty) as total_produit from  ligne_commandes ligne, produits prod ,commandes cmd
+        where prod.id=ligne.id_produit and cmd.id=ligne.id_commande and cmd.id=?",array ($id));
+    }
+
+    public function getTotal($id){
+
+        return $this->query("SELECT SUM(prix*qty) as total from ligne_commandes ligne, produits prod 
+                    where prod.id=ligne.id_produit and id_commande=? ",array($id))->fetch()["total"];
     }
 }

@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['admin']))
+  header("location: login.php");
+
 require_once 'classes/Clients.php';
 $client = new Client();
 $clients=$client->getAll();
@@ -21,13 +26,13 @@ $clients=$client->getAll();
             <li ><a href="produits.php">Produits</a></li>
             <li><a href="commandes.php">Commandes</a></li>
             <li class="active"><a href="clients.php">Clients</a></li>
-            <li><a href="index.php">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
     <div class="bar">
         <ul>
             <li>Admin</li>
-            <li>Logout</li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
     <main>

@@ -1,3 +1,19 @@
+<?php
+session_start();
+    if(isset($_POST['submit']))
+    {
+        $username = 'admin';
+        $password = 'admin36';
+
+        if($_POST['username'] == $username && $_POST['password'] == $password)
+        {
+            $_SESSION['admin'] = true;
+            header("location: index.php");
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +28,17 @@
         <div class="photo">
             <img src="public/images/admin.png" alt="">
         </div>
-        <div class="login-form">
+        <form class="login-form" method="POST" action="">
             <h2>E-<span>SHOP</span></h2>
             <p>Sign into your account</p>
 
             <input type="text" name="username" placeholder="Username" required>
-            <input type="text" name="password" placeholder="Password" required>
+            <input type="password" name="password" placeholder="Password" required>
 
             
 
             <input type="submit" name="submit" value="Login">
-        </div>
+        </form>
     </div>
 </body>
 </html>
