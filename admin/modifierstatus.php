@@ -11,6 +11,10 @@ if(isset($_POST['submit']))
         $commande->query("DELETE FROM commandes WHERE id=?", array($_POST['id']));
         header("location: commandes.php");
     }
+    else if($_POST['submit'] == 'Détails')
+    {
+        header("location: detailcommande.php?id_commande={$_POST['id']}");
+    }
     else
     {
         $commande->query("UPDATE commandes set status=? WHERE id=?", array($_POST['submit'], $_POST['id']));

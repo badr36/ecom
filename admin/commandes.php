@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['admin']))
+  header("location: login.php");
+
 require_once 'classes/Commande.php';
 $commande = new Commande();
 $commandes=$commande->getCommande();
@@ -24,9 +29,9 @@ $commandes=$commande->getCommande();
         <ul>
             <li ><a href="index.php">Tableau de Bord</a></li>
             <li><a href="produits.php">Produits</a></li>
-            <li class="active"><a href="commande.php">Commandes</a></li>
+            <li class="active"><a href="commandes.php">Commandes</a></li>
             <li><a href="clients.php">Clients</a></li>
-            <li><a href="index.php">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
 
@@ -63,7 +68,8 @@ $commandes=$commande->getCommande();
                                 <li><input type="submit" name="submit" value="Annuler"></li>
                                 <li><input type="submit" name="submit" value="En Cours"></li>
                                 <li><input type="submit" name="submit" value="En Attente"></li>
-                                <li><input type="submit" name="submit" value="validé"></li>
+                                <li><input type="submit" name="submit" value="Validé"></li>
+                                <li><input type="submit" name="submit" value="Détails"></li>
                                 <li><input type="submit" name="submit" value="Supprimer"></li>
                                 <input type="hidden" name="id" value="<?= $cmd['id_commande'] ?>">
                                

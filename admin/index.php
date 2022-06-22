@@ -1,5 +1,9 @@
 <?php
+session_start();
 include 'classes/Commande.php';
+
+if(!isset($_SESSION['admin']))
+  header("location: login.php");
 
 $commande = new Commande();
 $revenuespasmois = $commande->getRevenueParMois();
@@ -31,7 +35,7 @@ $getcategorie = $commande->getCategorie();
             <li><a href="produits.php">Produits</a></li>
             <li><a href="commandes.php">Commandes</a></li>
             <li><a href="clients.php">Clients</a></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
 
