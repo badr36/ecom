@@ -122,10 +122,10 @@ create table if not exists clients(
 );
 
 -- INSERTION DANS LA TABLE DES CLIENTS
-insert into clients (nom, prenom, adresse_1, telephone, email, mdp) values ('elyatim', 'badr', 'residence nadia immeuble u', '0655102683', 'flipbadr7@gmail.com', '12345678'),
-                                                                            ('bahmou', 'aicha', 'hay moulay abd allah', '0690856979', 'aichabahmou04@gmail.com', '12345678'),
-                                                                            ('saadi', 'ahlame', 'ain chock', '0695007713', 'ahlame@gmail.com', '12345678'),
-                                                                            ('abir', 'hanaa', 'oulfa', '0777890417', 'abirhanaa7@gmail.com', '12345678');
+insert into clients (nom, prenom, adresse_1, telephone, email, mdp) values ('elyatim', 'badr', 'Derb Ghallef', '0655102683', 'flipbadr7@gmail.com', '12345678'),
+                                                                            ('bahmou', 'aicha', 'Hay Moulay Abd Allah', '0690856979', 'aichabahmou04@gmail.com', '12345678'),
+                                                                            ('saadi', 'ahlame', 'Ain Chock', '0695007713', 'ahlame@gmail.com', '12345678'),
+                                                                            ('abir', 'hanaa', 'EL Oulfa', '0777890417', 'abirhanaa7@gmail.com', '12345678');
 
 -- CREATION DE LA TABLE DES COMMANDES
 create table if not exists commandes (
@@ -138,40 +138,7 @@ create table if not exists commandes (
 );
 
 -- INSERTION DANS LA TABLE DES COMMANDES
-insert into commandes (id_client, date ,status) values (1, '2022-05-01 19:25:19','Livrée'),
-                                                (2, '2022-03-01 14:20:19','Livrée'),
-                                                (3, '2021-12-05 19:25:19','Livrée'),
-                                                (4, '2022-10-08 10:12:10','Livrée'),
-                                                (1, '2022-04-01 14:20:19','Livrée'),
-                                                (1, '2022-04-03 14:20:19','Livrée'),
-                                                (1, '2022-04-06 14:20:19','Livrée'),
-                                                (2, '2022-05-01 14:20:19','Livrée'),
-                                                (2, '2022-05-10 14:20:19','Livrée'),
-                                                (3, '2022-01-01 14:20:19','Livrée'),
-                                                (4, '2022-09-01 14:20:19','Livrée'),
-                                                (4, '2022-01-01 14:20:19','Livrée'),
-                                                (4, '2022-01-05 14:20:19','Livrée'),
-                                                (4, '2022-01-20 14:20:19','Livrée'),
-                                                (4, '2022-01-15 14:20:19','Livrée'),
-                                                (4, '2022-02-16 14:20:19','Livrée'),
-                                                (4, '2022-02-18 14:20:19','Livrée'),
-                                                (4, '2022-02-19 14:20:19','Livrée'),
-                                                (4, '2022-02-10 14:20:19','Livrée'),
-                                                (4, '2022-02-21 14:20:19','Livrée'),
-                                                (4, '2022-06-26 14:20:19','Livrée'),
-                                                (1, '2022-06-27 14:20:19','Livrée'),
-                                                (4, '2022-06-28 14:20:19','Livrée'),
-                                                (4, '2022-06-29 14:20:19','Livrée'),
-                                                (4, '2022-06-30 14:20:19','Livrée'),
-                                                (4, '2022-06-20 14:20:19','Livrée'),
-                                                (4, '2022-07-20 14:20:19','Livrée'),
-                                                (4, '2022-07-21 14:20:19','Livrée'),
-                                                (4, '2022-08-21 14:20:19','Livrée'),
-                                                (4, '2022-10-21 14:20:19','Livrée'),
-                                                (4, '2022-10-25 14:20:19','Livrée'),
-                                                (4, '2022-10-28 14:20:19','Livrée'),
-                                                (4, '2022-11-20 14:20:19','Livrée'),
-                                                (2, '2022-12-01 14:20:19','Livrée');
+
 
 
 
@@ -187,69 +154,9 @@ insert into commandes (id_client, date ,status) values (1, '2022-05-01 19:25:19'
  );
 
 --  INSERTION DANS LA TABLE LIGNE_COMMANDES
-insert into ligne_commandes (id_produit, qty, id_commande) values (1, 2, 1),
-                                                                    (3, 5, 2),
-                                                                    (2, 2, 2),
-                                                                    (4, 1, 3),
-                                                                    (5, 6, 3),
-                                                                    (1, 6, 3),
-                                                                    (6, 7, 4),
-                                                                    (7, 4 ,4),
-                                                                    (4, 3 ,5),
-                                                                    (7, 4 ,5),
-                                                                    (3, 6 ,5),
-                                                                    (1, 4 ,6),
-                                                                    (6, 1 ,6),
-                                                                    (2, 4 ,7),
-                                                                    (1, 4 ,8),
-                                                                    (1, 4 ,9),
-                                                                    (3, 4 ,9),
-                                                                    (4, 4 ,10),
-                                                                    (1, 4 ,11),
-                                                                    (6, 4 ,11),
-                                                                    (7, 1 ,11),
-                                                                    (2, 4 ,11),
-                                                                    (1, 4 ,12),
-                                                                    (1, 4 ,13),
-                                                                    (1, 4 ,14),
-                                                                    (1, 4 ,15),
-                                                                    (1, 4 ,16),
-                                                                    (1, 4 ,17),
-                                                                    (1, 4 ,18),
-                                                                    (1, 4 ,19),
-                                                                    (1, 4 ,20),
-                                                                    (5, 7, 21),
-                                                                    (5, 7, 22),
-                                                                    (5, 7, 23),
-                                                                    (5, 7, 24),
-                                                                    (5, 7, 25),
-                                                                    (5, 7, 26),
-                                                                    (8, 7, 28),
-                                                                    (8, 7, 29),
-                                                                    (8, 7, 30),
-                                                                    (5, 7, 31),
-                                                                    (5, 7, 27);
 
--- CREATION DE LA TABLE DES FAVORIS
-create table if not exists favoris(
-    id int auto_increment,
-    id_client int,
-    id_produit int,
-    primary key(id),
-    FOREIGN KEY (id_client) REFERENCES clients(id),
-    FOREIGN key (id_produit) REFERENCES produits(id)
 
-);
 
--- INSERTION DANS LA TABLE DES FAVORIS
-insert into favoris (id_client, id_produit) values (1, 2),
-                                                    (1, 3),
-                                                    (1, 1),
-                                                    (2, 2),
-                                                    (3, 5),
-                                                    (3, 6),
-                                                    (4, 2),
-                                                    (4, 1);
 
 -- CREATION DE LA TABLE PANIERS
 create table if not exists paniers(
@@ -262,14 +169,7 @@ create table if not exists paniers(
     FOREIGN key (id_produit) REFERENCES produits(id)
 );
 -- INSERTION DANS LA TABLE DES PANIERS
-insert into paniers (id_client, id_produit, qty) values (1, 2, 3),
-                                                    (1, 3, 2),
-                                                    (1, 1, 4),
-                                                    (2, 2, 6),
-                                                    (3, 5, 7),
-                                                    (3, 6, 2),
-                                                    (4, 2, 1),
-                                                    (4, 1, 9);
+
 
 
 --CREATION DE LA TABLE COMMENTAIRES
@@ -283,8 +183,3 @@ create table if not exists commentaires(
     FOREIGN key (id_produit) REFERENCES produits(id)
 );
 -- INSERTION DANS LA TABLE COMMENTAIRES
-insert into commentaires (id_client, id_produit, contenu) values (1, 1, 'had lproduit 3adk ziiin'),
-                                                                    (2, 1, 'had lproduit 3adk khayb'),
-                                                                    (3, 2, 'mafidkch'),
-                                                                    (4, 4, 'woow'),
-                                                                    (4, 5, 'nice');

@@ -70,7 +70,7 @@ if(isset($_POST['submit']))
     <main class="container">
         <div class="left">
             <h3>Contact information</h3>
-            <p>Fill up the form and our Team will get back to<br>you within 24 hours.</p>
+            <p>Remplissez le formulaire et notre équipe vous répondra<br> dans les 24 heures.</p>
             <p class="information"><img src="public/images/call.svg" alt=""> +212 666-666666</p>
             <p class="information"><img src="public/images/message.svg" alt=""> e.shopshop36@gmail.com</p>
             <p class="information"><img src="public/images/location.svg" alt=""> Casablanca</p>
