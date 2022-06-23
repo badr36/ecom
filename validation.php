@@ -29,7 +29,7 @@ if(isset($_POST['commander']))
     $commande->valider();
 
     $paniers->clear();
-
+    $_SESSION['v'] = "Commande effectué avec succès";
     header("location: index.php");
 
 }

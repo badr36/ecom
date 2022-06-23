@@ -223,3 +223,14 @@
   color: #C8C8C8;
   
 }
+
+.valide p{
+  background-color: #00B74A;
+  color: #FFF;
+  border-left: 10px solid #009e3f;
+  padding: 15px 10px;
+  margin-bottom: 20px;
+  font-size: .9rem;
+  font-weight: 400;
+  width: 100%;
+}

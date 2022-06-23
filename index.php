@@ -70,7 +70,14 @@ if(isset($_SESSION['id_client']))
 
 
   <div class="banner">
+  <?php if(isset($_SESSION['v'])): ?>
+            <div class="valide container">
+                <p>Commande effectué avec succès.</p>
+            </div>
+            <?php unset($_SESSION['v']) ?>
+  <?php endif ?>
     <div class="container">
+      
       <div class="left">
         <h2 class="banner-title"><?= $popularProduct['nom'] ?></h2>
         <p class="price"><?= $popularProduct['prix'] ?> MAD</p>
