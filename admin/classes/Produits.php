@@ -50,9 +50,7 @@ class Produit extends DB
                         $_SESSION['e'] = "You cant't upload files of this type";
                     }
                 }
-            } else {
-                $_SESSION['e'] = "unknown error occurred";
-            }
+            } 
 
 
             $this->query("UPDATE produits SET nom=?,prix=?,stock=?,id_categorie=? WHERE id=$id", array($_POST["nom"], $_POST["prix"], $_POST["stock"], $_POST["categorie"]));
