@@ -18,7 +18,6 @@ class Produit extends DB
     {
         $this->query("delete from paniers where id_produit=$id");
         $this->query("delete from ligne_commandes where id_produit=$id");
-        $this->query("delete from favoris where id_produit=$id");
         $this->query("delete from descriptions where id_produit=$id");
         $this->query("delete from commentaires where id_produit=$id");
         $this->query("delete from produits where id=$id");
@@ -102,8 +101,6 @@ class Produit extends DB
                         $_SESSION['e'] = "You cant't upload files of this type";
                      }
                  }
-             } else {
-                 $_SESSION['e'] = "unknown error occurred";
              }
     }
     
